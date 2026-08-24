@@ -7,13 +7,11 @@
     <meta name="description" content="Play, compete and connect at The NCG — North Community Ground in North Karachi." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚽</text></svg>" />
+    <link rel="icon" type="image/x-icon" href="../assets/images/the_ncg_logo_web_optimized (1).png">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
     <style>
         /* ---------- RESET & BASE ---------- */
-        *,
-        *::before,
-        *::after {
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -63,22 +61,10 @@
             max-width: 100%;
         }
 
-        .heading-font {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 600;
-            letter-spacing: -0.025em;
-        }
-
-        .mono {
-            font-family: 'DM Mono', monospace;
-            font-weight: 400;
-            letter-spacing: 0.04em;
-        }
-
         .container {
             max-width: 1280px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 16px; /* reduced for mobile */
             width: 100%;
         }
 
@@ -106,9 +92,7 @@
             letter-spacing: 0.08em;
             color: var(--text-primary);
         }
-        #loader .brand span {
-            color: var(--lime);
-        }
+        #loader .brand span { color: var(--lime); }
         #loader .sub {
             font-size: clamp(0.5rem, 1.5vw, 0.7rem);
             letter-spacing: 0.4em;
@@ -182,7 +166,7 @@
             justify-content: space-between;
             max-width: 1280px;
             margin: 0 auto;
-            padding: 0 28px;
+            padding: 0 16px;
             width: 100%;
         }
         .navbar .logo {
@@ -198,9 +182,7 @@
             font-size: clamp(1rem, 3vw, 1.3rem);
             letter-spacing: 0.08em;
         }
-        .navbar .logo .main span {
-            color: var(--lime);
-        }
+        .navbar .logo .main span { color: var(--lime); }
         .navbar .logo .sub {
             font-size: clamp(0.4rem, 1.2vw, 0.55rem);
             letter-spacing: 0.2em;
@@ -211,9 +193,7 @@
             display: none;
         }
         @media (min-width: 640px) {
-            .navbar .logo .sub {
-                display: inline;
-            }
+            .navbar .logo .sub { display: inline; }
         }
 
         .navbar .nav-links {
@@ -315,15 +295,9 @@
         }
 
         @media (min-width: 1024px) {
-            .navbar .nav-links {
-                display: flex;
-            }
-            .navbar .cta-btn {
-                display: block;
-            }
-            .navbar .hamburger {
-                display: none;
-            }
+            .navbar .nav-links { display: flex; }
+            .navbar .cta-btn { display: block; }
+            .navbar .hamburger { display: none; }
         }
 
         /* Mobile menu */
@@ -344,9 +318,7 @@
             overflow-y: auto;
             overscroll-behavior: contain;
         }
-        .mobile-menu.open {
-            right: 0;
-        }
+        .mobile-menu.open { right: 0; }
         .mobile-menu .menu-item {
             display: flex;
             align-items: baseline;
@@ -363,29 +335,14 @@
             opacity: 0;
             animation: menuSlideIn 0.6s ease forwards;
         }
-        .mobile-menu.open .menu-item:nth-child(1) {
-            animation-delay: 0.05s;
-        }
-        .mobile-menu.open .menu-item:nth-child(2) {
-            animation-delay: 0.10s;
-        }
-        .mobile-menu.open .menu-item:nth-child(3) {
-            animation-delay: 0.15s;
-        }
-        .mobile-menu.open .menu-item:nth-child(4) {
-            animation-delay: 0.20s;
-        }
-        .mobile-menu.open .menu-item:nth-child(5) {
-            animation-delay: 0.25s;
-        }
-        .mobile-menu.open .menu-item:nth-child(6) {
-            animation-delay: 0.30s;
-        }
+        .mobile-menu.open .menu-item:nth-child(1) { animation-delay: 0.05s; }
+        .mobile-menu.open .menu-item:nth-child(2) { animation-delay: 0.10s; }
+        .mobile-menu.open .menu-item:nth-child(3) { animation-delay: 0.15s; }
+        .mobile-menu.open .menu-item:nth-child(4) { animation-delay: 0.20s; }
+        .mobile-menu.open .menu-item:nth-child(5) { animation-delay: 0.25s; }
+        .mobile-menu.open .menu-item:nth-child(6) { animation-delay: 0.30s; }
         @keyframes menuSlideIn {
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
+            to { transform: translateX(0); opacity: 1; }
         }
         .mobile-menu .menu-item .num {
             font-family: 'DM Mono', monospace;
@@ -394,9 +351,7 @@
             opacity: 0.6;
             font-weight: 400;
         }
-        .mobile-menu .menu-item:hover {
-            color: var(--text-primary);
-        }
+        .mobile-menu .menu-item:hover { color: var(--text-primary); }
         .mobile-menu .cta-mobile {
             margin-top: 16px;
             background: var(--lime);
@@ -413,13 +368,8 @@
             text-transform: uppercase;
             letter-spacing: 0.06em;
         }
-        .mobile-menu .cta-mobile:hover {
-            transform: scale(1.02);
-        }
-
-        body.menu-open {
-            overflow: hidden;
-        }
+        .mobile-menu .cta-mobile:hover { transform: scale(1.02); }
+        body.menu-open { overflow: hidden; }
 
         /* ---------- HERO ---------- */
         .hero {
@@ -436,22 +386,23 @@
             inset: 0;
             z-index: 0;
             background:
-                radial-gradient(ellipse at 30% 50%, rgba(181, 255, 75, 0.06) 0%, transparent 60%),
-                radial-gradient(ellipse at 70% 30%, rgba(245, 179, 66, 0.03) 0%, transparent 50%);
+                radial-gradient(ellipse at 30% 50%, rgba(181,255,75,0.06) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 30%, rgba(245,179,66,0.03) 0%, transparent 50%);
         }
         .hero .hero-image-wrap {
             position: absolute;
             inset: 0;
             z-index: 0;
         }
-        .hero .hero-image-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.5;
-            transform: scale(1.05);
-            transition: transform 1.8s ease, opacity 1.2s ease;
-        }
+        ..hero .hero-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center; /* ← centers the subject */
+    opacity: 0.5;
+    transform: scale(1.05);
+    transition: transform 1.8s ease, opacity 1.2s ease;
+}
         .hero.loaded .hero-image-wrap img {
             transform: scale(1);
             opacity: 0.7;
@@ -460,6 +411,7 @@
             width: 100%;
             height: 100%;
             background: radial-gradient(ellipse at 40% 50%, var(--bg-mid) 0%, var(--bg-primary) 80%);
+            display: block;
         }
         .hero .hero-overlay-gradient {
             position: absolute;
@@ -473,7 +425,7 @@
             position: relative;
             z-index: 2;
             max-width: 820px;
-            padding: clamp(100px, 15vh, 120px) 28px clamp(40px, 5vh, 60px);
+            padding: clamp(100px, 15vh, 120px) 16px clamp(40px, 5vh, 60px);
             width: 100%;
         }
         .hero .tech-label {
@@ -486,9 +438,7 @@
             opacity: 0;
             animation: fadeInUp 1s ease 0.4s forwards;
         }
-        .hero .tech-label span {
-            color: var(--lime);
-        }
+        .hero .tech-label span { color: var(--lime); }
         .hero h1 {
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
@@ -504,24 +454,13 @@
             transform: translateY(40px);
             animation: heroWord 1s ease forwards;
         }
-        .hero h1 .word:nth-child(1) {
-            animation-delay: 0.3s;
-        }
-        .hero h1 .word:nth-child(2) {
-            animation-delay: 0.5s;
-        }
-        .hero h1 .word:nth-child(3) {
-            animation-delay: 0.7s;
-        }
+        .hero h1 .word:nth-child(1) { animation-delay: 0.3s; }
+        .hero h1 .word:nth-child(2) { animation-delay: 0.5s; }
+        .hero h1 .word:nth-child(3) { animation-delay: 0.7s; }
         @keyframes heroWord {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            to { opacity: 1; transform: translateY(0); }
         }
-        .hero h1 .highlight {
-            color: var(--lime);
-        }
+        .hero h1 .highlight { color: var(--lime); }
         .hero .sub-text {
             font-size: clamp(0.9rem, 1.4vw, 1.15rem);
             color: var(--text-secondary);
@@ -580,7 +519,7 @@
             white-space: nowrap;
         }
         .hero .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255,255,255,0.05);
             border-color: var(--text-secondary);
             transform: translateY(-2px);
         }
@@ -598,9 +537,7 @@
             animation: fadeIn 1.2s ease 1.4s forwards;
         }
         @media (min-width: 1024px) {
-            .hero .floating-modules {
-                display: flex;
-            }
+            .hero .floating-modules { display: flex; }
         }
         .hero .floating-module {
             background: var(--glass-bg);
@@ -611,9 +548,7 @@
             min-width: 140px;
             transition: transform 0.4s ease;
         }
-        .hero .floating-module:hover {
-            transform: translateY(-4px);
-        }
+        .hero .floating-module:hover { transform: translateY(-4px); }
         .hero .floating-module .label {
             font-size: 0.55rem;
             text-transform: uppercase;
@@ -627,9 +562,7 @@
             font-size: 1.2rem;
             color: var(--text-primary);
         }
-        .hero .floating-module .value.lime {
-            color: var(--lime);
-        }
+        .hero .floating-module .value.lime { color: var(--lime); }
         .hero .floating-module .value .stars {
             color: var(--warm);
             font-size: 0.8rem;
@@ -660,32 +593,20 @@
             animation: scrollPulse 2.4s ease-in-out infinite;
         }
         @keyframes scrollPulse {
-            0%,
-            100% {
-                transform: scaleY(0.3);
-                opacity: 0.3;
-            }
-            50% {
-                transform: scaleY(1);
-                opacity: 1;
-            }
+            0%, 100% { transform: scaleY(0.3); opacity: 0.3; }
+            50% { transform: scaleY(1); opacity: 1; }
         }
 
         @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            to { opacity: 1; transform: translateY(0); }
         }
         @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
+            to { opacity: 1; }
         }
 
         /* ---------- SECTION COMMON ---------- */
         section {
-            padding: clamp(60px, 8vh, 80px) 0;
+            padding: clamp(40px, 6vh, 60px) 0;
             position: relative;
             background: var(--bg-primary);
         }
@@ -713,20 +634,14 @@
             max-width: 560px;
             font-size: clamp(0.9rem, 1.2vw, 1.05rem);
         }
-        .section-header {
-            margin-bottom: 52px;
-        }
-        .section-header.center {
-            text-align: center;
-        }
-        .section-header.center .section-sub {
-            margin: 0 auto;
-        }
+        .section-header { margin-bottom: 32px; }
+        .section-header.center { text-align: center; }
+        .section-header.center .section-sub { margin: 0 auto; }
 
-        /* ---------- EXPERIENCE (FIXED MOBILE WIDTH) ---------- */
+        /* ---------- EXPERIENCE ---------- */
         #experience {
             background: var(--bg-secondary);
-            padding: clamp(60px, 10vh, 100px) 0;
+            padding: clamp(40px, 6vh, 60px) 0;
         }
         .experience-hero {
             position: relative;
@@ -736,26 +651,31 @@
             border: 1px solid var(--border-color);
             width: 100%;
             max-width: 100%;
-            aspect-ratio: 16/7;
-            min-height: 300px;
+            aspect-ratio: 16/9;
+            max-height: 420px;
+            min-height: 200px;
         }
         @media (max-width: 768px) {
             .experience-hero {
                 aspect-ratio: 4/3;
-                min-height: 200px;
+                max-height: 320px;
+                min-height: 160px;
             }
         }
         @media (max-width: 480px) {
             .experience-hero {
                 aspect-ratio: 1/1;
-                min-height: 150px;
+                max-height: 260px;
+                min-height: 140px;
             }
         }
         .experience-hero img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center; /* ← centers the subject */
+    display: block;
+}
         .experience-hero .fallback {
             width: 100%;
             height: 100%;
@@ -764,27 +684,27 @@
         .experience-hero .overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(0deg, var(--bg-primary) 0%, transparent 60%);
+            background: linear-gradient(0deg, rgba(8,9,9,0.85) 0%, rgba(0,0,0,0.1) 70%);
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: clamp(20px, 4vw, 40px) clamp(20px, 4vw, 36px);
+            padding: clamp(16px, 3vw, 28px) clamp(16px, 3vw, 28px);
         }
         .experience-hero .overlay h2 {
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
-            font-size: clamp(1.6rem, 4vw, 3.2rem);
+            font-size: clamp(1.4rem, 3.5vw, 2.6rem);
             letter-spacing: -0.03em;
             color: var(--text-primary);
         }
         .experience-hero .overlay .tags {
             display: flex;
-            gap: clamp(12px, 2vw, 24px);
-            margin-top: 12px;
+            gap: clamp(8px, 1.5vw, 16px);
+            margin-top: 8px;
             flex-wrap: wrap;
         }
         .experience-hero .overlay .tags .tag {
-            font-size: clamp(0.55rem, 0.9vw, 0.7rem);
+            font-size: clamp(0.5rem, 0.8vw, 0.65rem);
             font-family: 'DM Mono', monospace;
             color: var(--text-secondary);
             text-transform: uppercase;
@@ -795,11 +715,14 @@
             font-weight: 700;
         }
 
-        /* ---------- BOOKING (SIMPLIFIED & CLEAN) ---------- */
+        /* ============================================================
+           🚀 BOOKING SYSTEM – FULLY RESPONSIVE (FIXED)
+           ============================================================ */
         #booking {
             background: var(--bg-secondary);
             position: relative;
-            padding: clamp(60px, 10vh, 100px) 0 clamp(80px, 10vh, 120px);
+            padding: clamp(40px, 6vh, 60px) 0 clamp(70px, 10vh, 90px);
+            overflow: hidden;
         }
         #booking::before {
             content: '';
@@ -812,75 +735,97 @@
             opacity: 0.1;
         }
 
+        /* Layout – stacks on mobile, side‑by‑side on desktop */
         .booking-layout {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 40px;
+            gap: 24px;
+            width: 100%;
+            max-width: 100%;
         }
         @media (min-width: 1024px) {
             .booking-layout {
                 grid-template-columns: 1.6fr 1fr;
-                gap: 60px;
+                gap: 40px;
             }
         }
 
+        /* ---- Booking Card (left side) ---- */
         .booking-card {
             background: var(--bg-card);
             border-radius: var(--radius);
-            padding: clamp(24px, 4vw, 36px) clamp(20px, 3vw, 32px);
+            padding: clamp(16px, 2.5vw, 28px);
             border: 1px solid var(--border-color);
             box-shadow: var(--shadow);
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden; /* ← CRITICAL: prevents horizontal scroll */
         }
+
         .booking-card .form-group {
-            margin-bottom: clamp(24px, 3vw, 32px);
+            margin-bottom: clamp(14px, 2vw, 22px);
         }
         .booking-card .form-group:last-of-type {
             margin-bottom: 0;
         }
+
         .booking-card label {
             display: block;
-            font-size: clamp(0.7rem, 1vw, 0.85rem);
+            font-size: clamp(0.6rem, 0.8vw, 0.75rem);
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.08em;
             color: var(--text-secondary);
-            margin-bottom: 12px;
+            margin-bottom: 6px;
             font-family: 'DM Mono', monospace;
         }
+
+        /* ---- Options Grid – 2 cols on mobile, 3 on larger ---- */
         .booking-card .options-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 12px;
+            gap: 8px;
+            width: 100%;
         }
         @media (min-width: 480px) {
             .booking-card .options-grid {
                 grid-template-columns: repeat(3, 1fr);
-                gap: 14px;
+                gap: 10px;
             }
         }
+        /* On very tiny screens, keep 2 cols but tighter */
+        @media (max-width: 360px) {
+            .booking-card .options-grid {
+                gap: 5px;
+            }
+        }
+
+        /* ---- Option Buttons ---- */
         .booking-card .opt {
-            padding: clamp(14px, 2vw, 18px) clamp(10px, 1.5vw, 16px);
+            padding: clamp(8px, 1.2vw, 14px) clamp(4px, 0.8vw, 10px);
             border-radius: var(--radius-sm);
             background: var(--bg-mid);
             border: 1.5px solid transparent;
-            font-size: clamp(0.8rem, 1vw, 0.95rem);
+            font-size: clamp(0.6rem, 0.8vw, 0.85rem);
             font-weight: 500;
             color: var(--text-secondary);
             cursor: pointer;
             transition: all 0.3s ease;
             font-family: 'Inter', sans-serif;
             text-align: center;
-            line-height: 1.3;
+            line-height: 1.2;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 4px;
+            justify-content: center;
+            gap: 2px;
             touch-action: manipulation;
-            min-height: 56px;
+            min-height: 38px;
+            width: 100%;
         }
         .booking-card .opt .opt-icon {
-            width: clamp(24px, 3vw, 32px);
-            height: clamp(24px, 3vw, 32px);
+            width: clamp(18px, 2vw, 26px);
+            height: clamp(18px, 2vw, 26px);
             object-fit: contain;
             opacity: 0.7;
             transition: opacity 0.3s;
@@ -919,34 +864,36 @@
             border-color: var(--lime);
         }
         .booking-card .opt .badge {
-            font-size: 0.5rem;
+            font-size: 0.4rem;
             font-weight: 600;
             text-transform: uppercase;
             opacity: 0.6;
             font-family: 'DM Mono', monospace;
         }
         .booking-card .opt .sub {
-            font-size: 0.6rem;
+            font-size: 0.5rem;
             opacity: 0.6;
             display: block;
             font-weight: 400;
         }
         .booking-card .opt .label-text {
-            font-size: clamp(0.7rem, 0.9vw, 0.85rem);
+            font-size: clamp(0.55rem, 0.7vw, 0.75rem);
         }
 
-        /* Date picker - horizontal scroll */
+        /* ---- Date Picker – horizontal scroll, no overflow ---- */
         .date-picker {
             display: flex;
-            gap: 10px;
+            gap: 6px;
             overflow-x: auto;
-            padding: 4px 0 12px;
+            padding: 4px 0 8px;
             scrollbar-width: thin;
             scrollbar-color: var(--bg-mid) transparent;
             -webkit-overflow-scrolling: touch;
             overscroll-behavior-x: contain;
             touch-action: pan-x;
             scroll-snap-type: x mandatory;
+            width: 100%;
+            max-width: 100%;
         }
         .date-picker::-webkit-scrollbar {
             height: 3px;
@@ -958,20 +905,27 @@
             background: var(--bg-mid);
             border-radius: 4px;
         }
+
         .date-picker .date-opt {
             flex-shrink: 0;
-            padding: clamp(10px, 1.5vw, 14px) clamp(16px, 2vw, 24px);
+            padding: clamp(4px, 0.8vw, 10px) clamp(8px, 1.2vw, 16px);
             border-radius: var(--radius-sm);
             background: var(--bg-mid);
             border: 1.5px solid transparent;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
-            min-width: 60px;
+            min-width: 40px; /* reduced from 50px */
             scroll-snap-align: start;
         }
+        @media (max-width: 400px) {
+            .date-picker .date-opt {
+                min-width: 34px;
+                padding: 3px 6px;
+            }
+        }
         .date-picker .date-opt .day {
-            font-size: clamp(0.5rem, 0.8vw, 0.6rem);
+            font-size: clamp(0.35rem, 0.6vw, 0.55rem);
             text-transform: uppercase;
             color: var(--text-secondary);
             font-family: 'DM Mono', monospace;
@@ -979,7 +933,7 @@
         .date-picker .date-opt .num {
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
-            font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+            font-size: clamp(0.8rem, 1.3vw, 1.2rem);
             color: var(--text-primary);
         }
         .date-picker .date-opt.selected {
@@ -995,64 +949,86 @@
             color: var(--bg-primary);
         }
 
-        /* Time options - clean grid */
-        #timeOptions {
-            grid-template-columns: 1fr 1fr !important;
-        }
-        @media (min-width: 480px) {
-            #timeOptions {
-                grid-template-columns: repeat(3, 1fr) !important;
-            }
-        }
-
-        /* Duration & Players - clean grid */
+        /* Time / Duration / Players – same grid rules */
+        #timeOptions,
         #durationOptions,
         #playersOptions {
             grid-template-columns: 1fr 1fr !important;
         }
         @media (min-width: 480px) {
+            #timeOptions,
             #durationOptions,
             #playersOptions {
                 grid-template-columns: repeat(3, 1fr) !important;
             }
         }
 
-        /* Booking summary - clean & clear */
+        /* ---- Legend (AVAILABLE / POPULAR / BOOKED) ---- */
+        .booking-legend {
+            display: flex;
+            gap: 12px;
+            margin-top: 6px;
+            font-size: clamp(0.4rem, 0.6vw, 0.5rem);
+            font-family: 'DM Mono', monospace;
+            color: var(--text-secondary);
+            flex-wrap: wrap;
+        }
+        .booking-legend span { display: flex; align-items: center; gap: 4px; }
+        .booking-legend .lime-dot { color: var(--lime); }
+        .booking-legend .warm-dot { color: var(--warm); }
+        .booking-legend .muted-dot { opacity: 0.3; }
+
+        /* ---- Duration + Players side‑by‑side (always 2 cols) ---- */
+        .duration-players-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            width: 100%;
+        }
+        @media (max-width: 360px) {
+            .duration-players-row {
+                gap: 8px;
+            }
+        }
+
+        /* ---- Booking Summary (right side) ---- */
         .booking-summary {
             background: var(--bg-card);
             border-radius: var(--radius);
-            padding: clamp(24px, 3vw, 32px) clamp(24px, 3vw, 32px);
+            padding: clamp(16px, 2.5vw, 28px);
             border: 1px solid var(--border-color);
             height: fit-content;
             position: sticky;
             top: 100px;
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
         }
         @media (max-width: 1023px) {
             .booking-summary {
                 position: static;
                 margin-top: 0;
-                padding: clamp(20px, 2.5vw, 28px) clamp(20px, 2.5vw, 28px);
             }
         }
         .booking-summary h4 {
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 600;
-            font-size: clamp(0.8rem, 1vw, 0.9rem);
+            font-size: clamp(0.7rem, 0.9vw, 0.8rem);
             text-transform: uppercase;
             letter-spacing: 0.08em;
             color: var(--text-secondary);
-            margin-bottom: 20px;
+            margin-bottom: 12px;
         }
         .booking-summary .detail-row {
             display: flex;
             justify-content: space-between;
-            padding: 8px 0;
+            padding: 5px 0;
             border-bottom: 1px solid var(--border-color);
-            font-size: clamp(0.85rem, 1vw, 0.95rem);
+            font-size: clamp(0.7rem, 0.8vw, 0.85rem);
         }
         .booking-summary .detail-row .key {
             color: var(--text-secondary);
-            font-size: clamp(0.65rem, 0.8vw, 0.75rem);
+            font-size: clamp(0.5rem, 0.6vw, 0.65rem);
             text-transform: uppercase;
             font-family: 'DM Mono', monospace;
             letter-spacing: 0.04em;
@@ -1060,32 +1036,30 @@
         .booking-summary .detail-row .val {
             font-weight: 500;
             color: var(--text-primary);
-            font-size: clamp(0.85rem, 1vw, 0.95rem);
+            font-size: clamp(0.7rem, 0.8vw, 0.85rem);
         }
         .booking-summary .total {
-            margin-top: 16px;
-            padding-top: 16px;
-            border-top: 2px solid rgba(181, 255, 75, 0.1);
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 2px solid rgba(181,255,75,0.1);
             display: flex;
             justify-content: space-between;
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
-            font-size: clamp(1.2rem, 1.5vw, 1.4rem);
+            font-size: clamp(1rem, 1.3vw, 1.2rem);
             color: var(--text-primary);
         }
-        .booking-summary .total .amount {
-            color: var(--lime);
-        }
+        .booking-summary .total .amount { color: var(--lime); }
         .booking-summary .btn-continue {
             width: 100%;
-            margin-top: 20px;
+            margin-top: 14px;
             background: var(--lime);
             color: var(--charcoal);
             border: none;
-            padding: clamp(16px, 2vw, 18px);
+            padding: clamp(12px, 1.5vw, 16px);
             border-radius: 50px;
             font-weight: 700;
-            font-size: clamp(0.85rem, 1vw, 0.95rem);
+            font-size: clamp(0.7rem, 0.9vw, 0.85rem);
             font-family: 'Inter', sans-serif;
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -1103,7 +1077,7 @@
             box-shadow: none;
         }
 
-        /* Sticky booking bar - clean & simple */
+        /* ---- Sticky Bottom Bar ---- */
         .sticky-booking-bar {
             display: none;
             position: fixed;
@@ -1114,28 +1088,24 @@
             background: var(--glass-bg);
             backdrop-filter: blur(20px);
             border-top: 1px solid var(--border-color);
-            padding: 12px 20px;
-            padding-bottom: max(12px, env(safe-area-inset-bottom));
+            padding: 8px 16px;
+            padding-bottom: max(8px, env(safe-area-inset-bottom));
             justify-content: space-between;
             align-items: center;
             gap: 12px;
         }
         @media (max-width: 1023px) {
-            .sticky-booking-bar {
-                display: flex;
-            }
-            #booking {
-                padding-bottom: clamp(80px, 12vh, 100px);
-            }
+            .sticky-booking-bar { display: flex; }
+            #booking { padding-bottom: clamp(70px, 10vh, 90px); }
         }
         .sticky-booking-bar .info .price {
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
-            font-size: clamp(1rem, 1.8vw, 1.2rem);
+            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
             color: var(--lime);
         }
         .sticky-booking-bar .info .desc {
-            font-size: clamp(0.55rem, 0.8vw, 0.7rem);
+            font-size: clamp(0.45rem, 0.6vw, 0.6rem);
             color: var(--text-secondary);
             font-family: 'DM Mono', monospace;
         }
@@ -1143,10 +1113,10 @@
             background: var(--lime);
             color: var(--charcoal);
             border: none;
-            padding: clamp(10px, 1.2vw, 14px) clamp(20px, 2.5vw, 32px);
+            padding: clamp(6px, 0.8vw, 12px) clamp(14px, 1.5vw, 24px);
             border-radius: 50px;
             font-weight: 700;
-            font-size: clamp(0.65rem, 0.9vw, 0.8rem);
+            font-size: clamp(0.55rem, 0.7vw, 0.7rem);
             font-family: 'Inter', sans-serif;
             cursor: pointer;
             text-transform: uppercase;
@@ -1162,57 +1132,51 @@
         /* ---------- FACILITIES ---------- */
         #facilities {
             background: var(--bg-primary);
-            padding: clamp(60px, 10vh, 100px) 0;
+            padding: clamp(40px, 6vh, 60px) 0;
         }
         .facility-editorial {
             display: flex;
             flex-direction: column;
-            gap: clamp(40px, 6vh, 60px);
+            gap: clamp(30px, 4vh, 40px);
         }
         .facility-editorial .item {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 24px;
+            gap: 20px;
             align-items: center;
         }
         @media (min-width: 768px) {
             .facility-editorial .item {
                 grid-template-columns: 1fr 1fr;
-                gap: 40px;
+                gap: 30px;
             }
-            .facility-editorial .item:nth-child(even) {
-                direction: rtl;
-            }
-            .facility-editorial .item:nth-child(even) .info {
-                direction: ltr;
-            }
+            .facility-editorial .item:nth-child(even) { direction: rtl; }
+            .facility-editorial .item:nth-child(even) .info { direction: ltr; }
         }
         .facility-editorial .item .image-wrap {
-            border-radius: var(--radius);
-            overflow: hidden;
-            aspect-ratio: 4/3;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            position: relative;
-        }
-        .facility-editorial .item .image-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s ease;
-        }
-        .facility-editorial .item .image-wrap:hover img {
-            transform: scale(1.04);
-        }
-        .facility-editorial .item .image-wrap .fallback {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--bg-mid), var(--bg-primary));
-        }
+    border-radius: var(--radius);
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    position: relative;
+    width: 100%;
+}
+
+.facility-editorial .item .image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center; /* ← centers the subject for ALL facility images */
+    display: block;
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Remove the old nth-child object-position rules – they are no longer needed */
         .facility-editorial .item .info .number {
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
-            font-size: clamp(2rem, 4vw, 3rem);
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
             color: var(--lime);
             opacity: 0.2;
             line-height: 1;
@@ -1221,7 +1185,7 @@
         .facility-editorial .item .info h3 {
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
-            font-size: clamp(1.4rem, 3vw, 2.4rem);
+            font-size: clamp(1.3rem, 2.5vw, 2rem);
             letter-spacing: -0.02em;
             margin-bottom: 6px;
             color: var(--text-primary);
@@ -1229,7 +1193,7 @@
         .facility-editorial .item .info p {
             color: var(--text-secondary);
             max-width: 400px;
-            font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+            font-size: clamp(0.8rem, 1vw, 0.9rem);
         }
         .facility-editorial .item .info .arrow-link {
             display: inline-flex;
@@ -1238,23 +1202,21 @@
             color: var(--lime);
             text-decoration: none;
             font-weight: 600;
-            font-size: clamp(0.75rem, 1vw, 0.85rem);
-            margin-top: 12px;
+            font-size: clamp(0.7rem, 0.9vw, 0.8rem);
+            margin-top: 10px;
             transition: gap 0.3s ease;
         }
-        .facility-editorial .item .info .arrow-link:hover {
-            gap: 18px;
-        }
+        .facility-editorial .item .info .arrow-link:hover { gap: 18px; }
         .facility-editorial .item .info .arrow-link .arrow-icon {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
             object-fit: contain;
         }
 
         /* ---------- WHY NCG ---------- */
         #why {
             background: var(--bg-primary);
-            padding: clamp(60px, 10vh, 100px) 0;
+            padding: clamp(40px, 6vh, 60px) 0;
         }
         .why-statement {
             font-family: 'Space Grotesk', sans-serif;
@@ -1263,23 +1225,21 @@
             letter-spacing: -0.03em;
             line-height: 1.05;
             max-width: 700px;
-            margin-bottom: 48px;
+            margin-bottom: 40px;
             color: var(--text-primary);
         }
-        .why-statement .lime {
-            color: var(--lime);
-        }
+        .why-statement .lime { color: var(--lime); }
         .why-list {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 6px;
             max-width: 600px;
         }
         .why-list .item {
             display: flex;
             align-items: center;
             gap: clamp(12px, 2vw, 20px);
-            padding: clamp(12px, 1.5vw, 14px) clamp(16px, 2vw, 20px);
+            padding: clamp(10px, 1.2vw, 12px) clamp(14px, 1.5vw, 18px);
             border-radius: var(--radius-sm);
             border-left: 2px solid transparent;
             transition: all 0.4s ease;
@@ -1288,37 +1248,33 @@
         }
         .why-list .item .num {
             font-family: 'DM Mono', monospace;
-            font-size: clamp(0.6rem, 0.9vw, 0.7rem);
+            font-size: clamp(0.55rem, 0.8vw, 0.65rem);
             color: var(--text-secondary);
             min-width: 28px;
         }
         .why-list .item .text {
             font-weight: 500;
-            font-size: clamp(0.85rem, 1.2vw, 1rem);
+            font-size: clamp(0.8rem, 1.1vw, 0.95rem);
         }
         .why-list .item .desc {
-            font-size: clamp(0.7rem, 0.9vw, 0.8rem);
+            font-size: clamp(0.65rem, 0.8vw, 0.75rem);
             color: var(--text-secondary);
             margin-left: auto;
             display: none;
         }
         @media (min-width: 640px) {
-            .why-list .item .desc {
-                display: block;
-            }
+            .why-list .item .desc { display: block; }
         }
         .why-list .item.active {
             border-left-color: var(--lime);
-            background: rgba(181, 255, 75, 0.04);
+            background: rgba(181,255,75,0.04);
         }
-        .why-list .item.active .num {
-            color: var(--lime);
-        }
+        .why-list .item.active .num { color: var(--lime); }
 
         /* ---------- STATISTICS ---------- */
         #stats {
             background: var(--bg-secondary);
-            padding: clamp(50px, 8vh, 80px) 0;
+            padding: clamp(40px, 6vh, 60px) 0;
         }
         .stats-grid {
             display: grid;
@@ -1327,9 +1283,7 @@
             text-align: center;
         }
         @media (min-width: 640px) {
-            .stats-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
+            .stats-grid { grid-template-columns: repeat(4, 1fr); }
         }
         .stat-block .number {
             font-family: 'Space Grotesk', sans-serif;
@@ -1350,14 +1304,14 @@
         /* ---------- REVIEWS ---------- */
         #reviews {
             background: var(--bg-primary);
-            padding: clamp(60px, 10vh, 100px) 0;
+            padding: clamp(40px, 6vh, 60px) 0;
         }
         .reviews-header {
             display: flex;
             align-items: baseline;
             gap: clamp(12px, 2vw, 24px);
             flex-wrap: wrap;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
         .reviews-header .big-rating {
             font-family: 'Space Grotesk', sans-serif;
@@ -1375,26 +1329,21 @@
             color: var(--text-secondary);
             font-size: clamp(0.7rem, 1vw, 0.8rem);
         }
-
         .reviews-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 20px;
+            gap: 16px;
         }
         @media (min-width: 640px) {
-            .reviews-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .reviews-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (min-width: 1024px) {
-            .reviews-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
+            .reviews-grid { grid-template-columns: repeat(3, 1fr); }
         }
         .review-card {
             background: var(--bg-card);
             border-radius: var(--radius-sm);
-            padding: clamp(20px, 2.5vw, 24px) clamp(18px, 2vw, 22px);
+            padding: clamp(16px, 2vw, 20px) clamp(14px, 1.8vw, 18px);
             border: 1px solid var(--border-color);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
@@ -1406,61 +1355,61 @@
             color: var(--warm);
             font-size: clamp(0.8rem, 1.2vw, 0.9rem);
             letter-spacing: 2px;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
         .review-card .quote {
-            font-size: clamp(0.8rem, 1vw, 0.9rem);
+            font-size: clamp(0.75rem, 0.9vw, 0.85rem);
             color: var(--text-secondary);
             line-height: 1.6;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         .review-card .name {
             font-weight: 600;
-            font-size: clamp(0.75rem, 0.9vw, 0.85rem);
+            font-size: clamp(0.7rem, 0.8vw, 0.8rem);
             color: var(--text-primary);
         }
         .review-card .name .sub {
             font-weight: 400;
             color: var(--text-secondary);
-            font-size: clamp(0.6rem, 0.8vw, 0.7rem);
+            font-size: clamp(0.55rem, 0.7vw, 0.65rem);
             font-family: 'DM Mono', monospace;
         }
         .review-card .demo-badge {
-            font-size: 0.5rem;
+            font-size: 0.45rem;
             text-transform: uppercase;
             color: var(--text-secondary);
             font-family: 'DM Mono', monospace;
             letter-spacing: 0.06em;
-            margin-top: 6px;
+            margin-top: 4px;
             opacity: 0.4;
         }
 
         /* ---------- LOCATION ---------- */
         #location {
             background: var(--bg-secondary);
-            padding: clamp(60px, 10vh, 100px) 0;
+            padding: clamp(40px, 6vh, 60px) 0;
         }
         .location-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 40px;
+            gap: 30px;
         }
         @media (min-width: 1024px) {
             .location-grid {
                 grid-template-columns: 1fr 1fr;
-                gap: 60px;
+                gap: 50px;
             }
         }
         .location-info .detail {
             display: flex;
             align-items: flex-start;
             gap: 14px;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
         }
         .location-info .detail .icon-wrap {
             flex-shrink: 0;
-            width: 28px;
-            height: 28px;
+            width: 26px;
+            height: 26px;
             margin-top: 2px;
         }
         .location-info .detail .icon-wrap img {
@@ -1479,23 +1428,23 @@
             margin-bottom: 1px;
         }
         .location-info .detail .text {
-            font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+            font-size: clamp(0.8rem, 1vw, 0.9rem);
             color: var(--text-primary);
         }
         .location-info .btn-group {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 16px;
+            gap: 10px;
+            margin-top: 14px;
         }
         .location-info .btn-group .btn-outline {
             background: transparent;
             border: 1px solid var(--border-color);
             color: var(--text-primary);
-            padding: clamp(10px, 1.5vw, 12px) clamp(20px, 3vw, 28px);
+            padding: clamp(8px, 1.2vw, 10px) clamp(16px, 2vw, 24px);
             border-radius: 50px;
             font-weight: 500;
-            font-size: clamp(0.65rem, 1vw, 0.75rem);
+            font-size: clamp(0.6rem, 0.8vw, 0.7rem);
             font-family: 'Inter', sans-serif;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -1516,10 +1465,10 @@
             background: var(--lime);
             color: var(--charcoal);
             border: none;
-            padding: clamp(10px, 1.5vw, 12px) clamp(24px, 3vw, 32px);
+            padding: clamp(8px, 1.2vw, 10px) clamp(20px, 2.5vw, 28px);
             border-radius: 50px;
             font-weight: 700;
-            font-size: clamp(0.65rem, 1vw, 0.75rem);
+            font-size: clamp(0.6rem, 0.8vw, 0.7rem);
             font-family: 'Inter', sans-serif;
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -1562,7 +1511,7 @@
 
         /* ---------- FINAL CTA ---------- */
         #final-cta {
-            padding: clamp(80px, 12vh, 120px) 0;
+            padding: clamp(60px, 10vh, 90px) 0;
             background: var(--bg-primary);
             position: relative;
             overflow: hidden;
@@ -1572,8 +1521,8 @@
             inset: 0;
             z-index: 0;
             background:
-                radial-gradient(ellipse at 30% 50%, rgba(181, 255, 75, 0.06) 0%, transparent 60%),
-                radial-gradient(ellipse at 70% 50%, rgba(245, 179, 66, 0.03) 0%, transparent 50%);
+                radial-gradient(ellipse at 30% 50%, rgba(181,255,75,0.06) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 50%, rgba(245,179,66,0.03) 0%, transparent 50%);
         }
         #final-cta .content {
             position: relative;
@@ -1591,13 +1540,11 @@
             margin-bottom: 16px;
             color: var(--text-primary);
         }
-        #final-cta h2 .lime {
-            color: var(--lime);
-        }
+        #final-cta h2 .lime { color: var(--lime); }
         #final-cta p {
             color: var(--text-secondary);
             font-size: clamp(0.9rem, 1.2vw, 1.05rem);
-            margin-bottom: 36px;
+            margin-bottom: 30px;
         }
         #final-cta .btn-group {
             display: flex;
@@ -1651,7 +1598,7 @@
         footer {
             background: var(--bg-secondary);
             border-top: 1px solid var(--border-color);
-            padding: clamp(40px, 6vh, 60px) 0 clamp(24px, 3vh, 32px);
+            padding: clamp(32px, 5vh, 48px) 0 clamp(20px, 3vh, 28px);
             position: relative;
             overflow: hidden;
         }
@@ -1671,19 +1618,15 @@
         footer .grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 32px;
+            gap: 28px;
             position: relative;
             z-index: 1;
         }
         @media (min-width: 640px) {
-            footer .grid {
-                grid-template-columns: 2fr 1fr 1fr;
-            }
+            footer .grid { grid-template-columns: 2fr 1fr 1fr; }
         }
         @media (min-width: 1024px) {
-            footer .grid {
-                grid-template-columns: 2fr 1fr 1fr 1fr;
-            }
+            footer .grid { grid-template-columns: 2fr 1fr 1fr 1fr; }
         }
         footer .brand h3 {
             font-family: 'Space Grotesk', sans-serif;
@@ -1692,16 +1635,14 @@
             letter-spacing: 0.04em;
             color: var(--text-primary);
         }
-        footer .brand h3 span {
-            color: var(--lime);
-        }
+        footer .brand h3 span { color: var(--lime); }
         footer .brand .sub {
             font-size: clamp(0.5rem, 0.8vw, 0.6rem);
             color: var(--text-secondary);
             letter-spacing: 0.15em;
             text-transform: uppercase;
             font-family: 'DM Mono', monospace;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
         footer .brand p {
             color: var(--text-secondary);
@@ -1715,10 +1656,9 @@
             text-transform: uppercase;
             letter-spacing: 0.08em;
             color: var(--text-secondary);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
-        footer .col a,
-        footer .col span {
+        footer .col a, footer .col span {
             display: block;
             color: var(--text-secondary);
             text-decoration: none;
@@ -1726,12 +1666,10 @@
             padding: 4px 0;
             transition: color 0.3s;
         }
-        footer .col a:hover {
-            color: var(--text-primary);
-        }
+        footer .col a:hover { color: var(--text-primary); }
         footer .bottom {
-            margin-top: 40px;
-            padding-top: 20px;
+            margin-top: 32px;
+            padding-top: 16px;
             border-top: 1px solid var(--border-color);
             text-align: center;
             font-size: clamp(0.55rem, 0.8vw, 0.65rem);
@@ -1747,7 +1685,7 @@
             position: fixed;
             inset: 0;
             z-index: 99999;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0,0,0,0.7);
             backdrop-filter: blur(16px);
             display: flex;
             align-items: center;
@@ -1764,7 +1702,7 @@
         .modal {
             background: var(--bg-card);
             border-radius: var(--radius);
-            padding: clamp(28px, 4vw, 40px) clamp(20px, 3vw, 36px);
+            padding: clamp(24px, 3vw, 32px) clamp(20px, 2.5vw, 28px);
             max-width: 480px;
             width: 100%;
             border: 1px solid var(--border-color);
@@ -1781,39 +1719,39 @@
         .modal h3 {
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
-            font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+            font-size: clamp(1.2rem, 2vw, 1.4rem);
             margin-bottom: 4px;
             color: var(--text-primary);
         }
         .modal .sub {
             color: var(--text-secondary);
-            font-size: clamp(0.75rem, 1vw, 0.85rem);
-            margin-bottom: 20px;
+            font-size: clamp(0.7rem, 0.9vw, 0.8rem);
+            margin-bottom: 16px;
         }
         .modal .summary-demo {
             background: var(--bg-primary);
             border-radius: var(--radius-sm);
-            padding: 16px 20px;
-            margin-bottom: 24px;
+            padding: 14px 16px;
+            margin-bottom: 20px;
             border: 1px solid var(--border-color);
         }
         .modal .summary-demo .row {
             display: flex;
             justify-content: space-between;
             padding: 4px 0;
-            font-size: clamp(0.75rem, 1vw, 0.85rem);
+            font-size: clamp(0.7rem, 0.9vw, 0.8rem);
             color: var(--text-primary);
         }
         .modal .summary-demo .row .key {
             color: var(--text-secondary);
             font-family: 'DM Mono', monospace;
-            font-size: clamp(0.55rem, 0.8vw, 0.65rem);
+            font-size: clamp(0.5rem, 0.7vw, 0.6rem);
             text-transform: uppercase;
             letter-spacing: 0.04em;
         }
         .modal .btn-group {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             flex-wrap: wrap;
         }
         .modal .btn-group .btn-close {
@@ -1821,13 +1759,13 @@
             background: transparent;
             border: 1px solid var(--border-color);
             color: var(--text-primary);
-            padding: 12px;
+            padding: 10px;
             border-radius: 50px;
             font-weight: 500;
             cursor: pointer;
             transition: background 0.3s;
             font-family: 'Inter', sans-serif;
-            font-size: clamp(0.7rem, 0.9vw, 0.8rem);
+            font-size: clamp(0.65rem, 0.8vw, 0.75rem);
         }
         .modal .btn-group .btn-close:hover {
             background: var(--bg-mid);
@@ -1837,13 +1775,13 @@
             background: #25D366;
             color: #fff;
             border: none;
-            padding: 12px;
+            padding: 10px;
             border-radius: 50px;
             font-weight: 700;
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             font-family: 'Inter', sans-serif;
-            font-size: clamp(0.7rem, 0.9vw, 0.8rem);
+            font-size: clamp(0.65rem, 0.8vw, 0.75rem);
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -1853,7 +1791,7 @@
         }
         .modal .btn-group .btn-whatsapp:hover {
             transform: scale(1.02);
-            box-shadow: 0 0 30px rgba(37, 211, 102, 0.25);
+            box-shadow: 0 0 30px rgba(37,211,102,0.25);
         }
 
         /* ---------- EXTRA SMALL SCREENS ---------- */
@@ -1864,22 +1802,22 @@
             }
             .booking-card .options-grid {
                 grid-template-columns: 1fr 1fr !important;
-                gap: 8px;
+                gap: 4px;
             }
             .booking-card .opt {
-                font-size: 0.7rem;
-                padding: 10px 6px;
-                min-height: 44px;
+                font-size: 0.6rem;
+                padding: 6px 3px;
+                min-height: 32px;
             }
             .date-picker .date-opt {
-                min-width: 44px;
-                padding: 6px 10px;
+                min-width: 32px;
+                padding: 3px 4px;
             }
             .date-picker .date-opt .num {
-                font-size: 0.9rem;
+                font-size: 0.7rem;
             }
             .sticky-booking-bar .info .desc {
-                font-size: 0.5rem;
+                font-size: 0.4rem;
             }
             .hero .cta-group .btn-primary,
             .hero .cta-group .btn-secondary {
@@ -1894,50 +1832,50 @@
                 justify-content: center;
             }
             .booking-summary {
-                padding: 16px;
+                padding: 12px;
             }
             .booking-summary .detail-row {
-                font-size: 0.75rem;
-                padding: 6px 0;
+                font-size: 0.65rem;
+                padding: 3px 0;
             }
             .booking-summary .total {
-                font-size: 1rem;
+                font-size: 0.85rem;
             }
             .booking-summary .btn-continue {
-                font-size: 0.7rem;
-                padding: 12px;
+                font-size: 0.6rem;
+                padding: 8px;
             }
         }
 
         @media (max-width: 380px) {
             .booking-card {
-                padding: 16px 12px;
+                padding: 10px 8px;
             }
             .date-picker {
-                gap: 6px;
+                gap: 4px;
             }
             .date-picker .date-opt {
-                padding: 4px 8px;
-                min-width: 38px;
+                padding: 3px 4px;
+                min-width: 30px;
             }
             .date-picker .date-opt .num {
-                font-size: 0.8rem;
+                font-size: 0.65rem;
             }
             .date-picker .date-opt .day {
-                font-size: 0.4rem;
+                font-size: 0.3rem;
             }
         }
 
         @media (min-width: 381px) and (max-width: 480px) {
             .booking-card .options-grid {
-                gap: 10px;
+                gap: 6px;
             }
             .booking-card .opt {
-                padding: 12px 10px;
-                min-height: 52px;
+                padding: 8px 6px;
+                min-height: 38px;
             }
             .date-picker .date-opt {
-                padding: 8px 14px;
+                padding: 4px 8px;
             }
         }
 
@@ -1966,11 +1904,28 @@
                 opacity: 0.7;
             }
         }
+
+        /* Fix: hide broken image icon when src is empty */
+        img:not([src]), img[src=""], img[src="#"] {
+            opacity: 0;
+        }
+        .image-wrap img:not([src]), .image-wrap img[src=""], .image-wrap img[src="#"] {
+            opacity: 0;
+        }
+        .image-wrap .fallback {
+            display: block;
+        }
+        .hero-image-wrap .fallback {
+            display: block;
+        }
+        .experience-hero .fallback {
+            display: block;
+        }
     </style>
 </head>
 <body>
 
-    <!-- LOADER -->
+    <!-- ================= LOADER ================= -->
     <div id="loader" role="status" aria-label="Loading">
         <div class="brand">THE <span>NCG</span></div>
         <div class="sub">North Community Ground</div>
@@ -1980,7 +1935,7 @@
     <!-- GRAIN -->
     <div class="grain" aria-hidden="true"></div>
 
-    <!-- MOBILE MENU -->
+    <!-- ================= MOBILE MENU ================= -->
     <nav class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
         <a href="#home" class="menu-item" data-nav><span class="num">01</span> HOME</a>
         <a href="#facilities" class="menu-item" data-nav><span class="num">02</span> FACILITIES</a>
@@ -1990,7 +1945,7 @@
         <button type="button" class="cta-mobile" data-nav-cta>BOOK NOW</button>
     </nav>
 
-    <!-- NAVBAR -->
+    <!-- ================= NAVBAR ================= -->
     <header class="navbar" id="navbar" role="banner">
         <div class="inner">
             <a href="#home" class="logo" aria-label="The NCG Home">
@@ -2011,12 +1966,11 @@
         </div>
     </header>
 
-    <!-- ===== HERO ===== -->
+    <!-- ================= HERO ================= -->
     <section class="hero" id="home">
         <div class="hero-bg"></div>
         <div class="hero-image-wrap">
-            <!-- Replace src with actual hero image -->
-            <img src="" alt="The NCG indoor sports facility" />
+            <img src="../assets/images/hero image.png" alt="The NCG indoor sports facility" />
             <div class="fallback"></div>
         </div>
         <div class="hero-overlay-gradient"></div>
@@ -2061,7 +2015,7 @@
         </div>
     </section>
 
-    <!-- ===== BOOKING (SIMPLIFIED) ===== -->
+    <!-- ================= BOOKING ================= -->
     <section id="booking" aria-label="Booking">
         <div class="container">
             <div class="section-header">
@@ -2070,6 +2024,7 @@
             </div>
 
             <div class="booking-layout">
+                <!-- Booking Card -->
                 <div class="booking-card" id="bookingWidget">
                     <!-- Facility -->
                     <div class="form-group">
@@ -2106,15 +2061,15 @@
                     <div class="form-group">
                         <label>Choose Time</label>
                         <div class="options-grid" id="timeOptions"></div>
-                        <div style="display:flex;gap:16px;margin-top:10px;font-size:0.55rem;font-family:'DM Mono',monospace;color:var(--text-secondary);flex-wrap:wrap;">
-                            <span>● AVAILABLE</span>
-                            <span style="color:var(--warm);">● POPULAR</span>
-                            <span style="opacity:0.3;">● BOOKED</span>
+                        <div class="booking-legend">
+                            <span><span class="lime-dot">●</span> AVAILABLE</span>
+                            <span><span class="warm-dot">●</span> POPULAR</span>
+                            <span><span class="muted-dot">●</span> BOOKED</span>
                         </div>
                     </div>
 
                     <!-- Duration & Players -->
-                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+                    <div class="duration-players-row">
                         <div class="form-group">
                             <label>Duration</label>
                             <div class="options-grid" id="durationOptions">
@@ -2136,6 +2091,7 @@
                     </div>
                 </div>
 
+                <!-- Booking Summary -->
                 <div class="booking-summary" id="bookingSummary">
                     <h4>YOUR GAME</h4>
                     <div id="summaryDetails">
@@ -2154,6 +2110,7 @@
             </div>
         </div>
 
+        <!-- Sticky Bottom Bar -->
         <div class="sticky-booking-bar" id="stickyBar">
             <div class="info">
                 <span class="price" id="stickyPrice">PKR 2,500</span>
@@ -2163,7 +2120,7 @@
         </div>
     </section>
 
-    <!-- ===== FACILITIES ===== -->
+    <!-- ================= FACILITIES ================= -->
     <section id="facilities" aria-label="Facilities">
         <div class="container">
             <div class="section-header">
@@ -2173,7 +2130,7 @@
             <div class="facility-editorial">
                 <div class="item reveal">
                     <div class="image-wrap">
-                        <img src="" alt="Football / Futsal" />
+                        <img src="../assets/images/football.jpg" alt="Football / Futsal facility at The NCG" />
                         <div class="fallback"></div>
                     </div>
                     <div class="info">
@@ -2188,7 +2145,7 @@
                 </div>
                 <div class="item reveal">
                     <div class="image-wrap">
-                        <img src="" alt="Cricket" />
+                        <img src="../assets/images/cricket_new.jpg" alt="Cricket facility at The NCG" />
                         <div class="fallback"></div>
                     </div>
                     <div class="info">
@@ -2203,7 +2160,7 @@
                 </div>
                 <div class="item reveal">
                     <div class="image-wrap">
-                        <img src="" alt="Training" />
+                        <img src="../assets/images/padel_new.jpg" alt="Training sessions at The NCG" />
                         <div class="fallback"></div>
                     </div>
                     <div class="info">
@@ -2220,11 +2177,11 @@
         </div>
     </section>
 
-    <!-- ===== EXPERIENCE (FIXED LAYOUT) ===== -->
+    <!-- ================= EXPERIENCE ================= -->
     <section id="experience" aria-label="Experience">
         <div class="container">
             <div class="experience-hero reveal">
-                <img src="" alt="The NCG Experience" />
+                <img src="../assets/images/more than a game.jpg" alt="The NCG Experience" />
                 <div class="fallback"></div>
                 <div class="overlay">
                     <h2>MORE THAN A GAME.</h2>
@@ -2239,7 +2196,7 @@
         </div>
     </section>
 
-    <!-- ===== WHY NCG ===== -->
+    <!-- ================= WHY NCG ================= -->
     <section id="why" aria-label="Why The NCG">
         <div class="container">
             <div class="section-header">
@@ -2259,7 +2216,7 @@
         </div>
     </section>
 
-    <!-- ===== STATISTICS ===== -->
+    <!-- ================= STATISTICS ================= -->
     <section id="stats" aria-label="Statistics">
         <div class="container">
             <div class="stats-grid">
@@ -2271,7 +2228,7 @@
         </div>
     </section>
 
-    <!-- ===== REVIEWS ===== -->
+    <!-- ================= REVIEWS ================= -->
     <section id="reviews" aria-label="Reviews">
         <div class="container">
             <div class="reviews-header">
@@ -2321,7 +2278,7 @@
         </div>
     </section>
 
-    <!-- ===== LOCATION ===== -->
+    <!-- ================= LOCATION ================= -->
     <section id="location" aria-label="Location">
         <div class="container">
             <div class="section-header">
@@ -2370,7 +2327,7 @@
         </div>
     </section>
 
-    <!-- ===== FINAL CTA ===== -->
+    <!-- ================= FINAL CTA ================= -->
     <section id="final-cta" aria-label="Call to action">
         <div class="bg-glow"></div>
         <div class="container">
@@ -2385,7 +2342,7 @@
         </div>
     </section>
 
-    <!-- ===== FOOTER ===== -->
+    <!-- ================= FOOTER ================= -->
     <footer role="contentinfo">
         <div class="bg-deco">NCG</div>
         <div class="container">
@@ -2412,16 +2369,16 @@
                 </div>
                 <div class="col">
                     <h4>Social</h4>
-                    <a href="#" aria-label="Instagram">Instagram</a>
-                    <a href="#" aria-label="Facebook">Facebook</a>
-                    <a href="#" aria-label="YouTube">YouTube</a>
+                    <a href="https://www.instagram.com/the_ncg_karachi/" aria-label="Instagram">Instagram</a>
+                    <a href="https://www.facebook.com/p/The-NCG-61566085596080/" aria-label="Facebook">Facebook</a>
+                    <!-- <a href="#" aria-label="YouTube">YouTube</a> -->
                 </div>
             </div>
             <div class="bottom">© 2026 The NCG — North Community Ground. All rights reserved.</div>
         </div>
     </footer>
 
-    <!-- ===== MODAL ===== -->
+    <!-- ================= MODAL ================= -->
     <div class="modal-overlay" id="confirmationModal" role="dialog" aria-modal="true" aria-label="Booking confirmation">
         <div class="modal">
             <h3>🎉 Ready to play?</h3>
@@ -2504,19 +2461,12 @@
             }
         });
 
-        // Close menu on link click
         document.querySelectorAll('[data-nav]').forEach(el => {
-            el.addEventListener('click', () => {
-                closeMobileMenu();
-            });
+            el.addEventListener('click', () => { closeMobileMenu(); });
         });
 
-        // Close menu on CTA click inside mobile
-        document.querySelector('.cta-mobile')?.addEventListener('click', () => {
-            closeMobileMenu();
-        });
+        document.querySelector('.cta-mobile')?.addEventListener('click', () => { closeMobileMenu(); });
 
-        // Close on Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 if (mobileMenu.classList.contains('open')) closeMobileMenu();
@@ -2637,7 +2587,6 @@
         };
         const durationMultiplier = { '1 Hour': 1, '2 Hours': 1.8, '3 Hours': 2.5 };
 
-        // Dates
         function generateDates() {
             const dates = [];
             const now = new Date();
@@ -2655,7 +2604,6 @@
         }
         const dateData = generateDates();
 
-        // Times
         const timeData = [
             { label: '06:00 PM', value: '06:00 PM', status: 'AVAILABLE' },
             { label: '07:00 PM', value: '07:00 PM', status: 'AVAILABLE' },
@@ -2664,7 +2612,6 @@
             { label: '10:00 PM', value: '10:00 PM', status: 'AVAILABLE' },
         ];
 
-        // Render date picker
         const datePicker = document.getElementById('datePicker');
         dateData.forEach((d, idx) => {
             const btn = document.createElement('div');
@@ -2682,7 +2629,6 @@
         });
         state.date = dateData[0].value;
 
-        // Render time options
         const timeContainer = document.getElementById('timeOptions');
         timeData.forEach((t, idx) => {
             const btn = document.createElement('button');
@@ -2696,8 +2642,7 @@
             btn.innerHTML = `${t.label} <span class="badge">${t.status}</span>`;
             if (t.status !== 'BOOKED') {
                 btn.addEventListener('click', () => {
-                    document.querySelectorAll('#timeOptions .opt:not(.booked)').forEach(b => b.classList.remove(
-                        'selected'));
+                    document.querySelectorAll('#timeOptions .opt:not(.booked)').forEach(b => b.classList.remove('selected'));
                     btn.classList.add('selected');
                     state.time = t.value;
                     updateSummary();
@@ -2709,7 +2654,6 @@
         const firstAvail = timeData.find(t => t.status !== 'BOOKED');
         if (firstAvail) state.time = firstAvail.value;
 
-        // Facility selection
         document.querySelectorAll('#facilityOptions .opt').forEach(btn => {
             btn.addEventListener('click', () => {
                 document.querySelectorAll('#facilityOptions .opt').forEach(b => b.classList.remove('selected'));
@@ -2720,7 +2664,6 @@
             });
         });
 
-        // Duration
         document.querySelectorAll('#durationOptions .opt').forEach(btn => {
             btn.addEventListener('click', () => {
                 document.querySelectorAll('#durationOptions .opt').forEach(b => b.classList.remove('selected'));
@@ -2731,7 +2674,6 @@
             });
         });
 
-        // Players
         document.querySelectorAll('#playersOptions .opt').forEach(btn => {
             btn.addEventListener('click', () => {
                 document.querySelectorAll('#playersOptions .opt').forEach(b => b.classList.remove('selected'));
@@ -2764,7 +2706,6 @@
             document.getElementById('stickyContinue').disabled = !valid;
         }
 
-        // Continue booking
         const continueBtn = document.getElementById('continueBooking');
         const stickyContinue = document.getElementById('stickyContinue');
         const modal = document.getElementById('confirmationModal');
@@ -2827,9 +2768,9 @@
             });
         });
 
-        console.log('✅ The NCG — Fully responsive with clean, simplified booking!');
-        console.log('📸 Replace all <img src=""> with your actual images.');
-        console.log('📍 Google Maps embedded with the correct location.');
+        console.log('✅ The NCG — Booking system fully responsive on mobile.');
+        console.log('📸 Replace image src attributes with your own files.');
+        console.log('📍 Google Maps embedded correctly.');
     </script>
 </body>
 </html>
