@@ -1,153 +1,83 @@
-⚽ The NCG — North Community Ground
-Play without limits. Premium indoor sports facility booking platform.
+<p align="center">
+  <img src="assets/images/the_ncg_logo_web_optimized%20(1).png" alt="The NCG Logo" width="120" height="120" />
+</p>
 
-https://img.shields.io/badge/Deployed%2520on-Vercel-000000?logo=vercel
-https://img.shields.io/badge/Built%2520with-HTML%2520%257C%2520CSS%2520%257C%2520JS-f7f7f7?logo=html5
-https://img.shields.io/badge/License-MIT-green
-https://img.shields.io/badge/Responsive-Yes-brightgreen
+<h1 align="center">⚡ THE NCG</h1>
+<p align="center">
+  <strong>NORTH COMMUNITY GROUND</strong><br />
+  <em>Play without limits. Premium indoor sports in North Karachi.</em>
+</p>
 
-📌 Overview
-The NCG (North Community Ground) is a modern, fully responsive website for an indoor sports facility in North Karachi, Pakistan. Users can explore facilities, check live availability, and book slots instantly. The design features a sleek dark theme with vibrant lime green accents, premium typography, and mobile-first interactions.
+<p align="center">
+  <!-- Badges -->
+  <a href="#"><img src="https://img.shields.io/badge/version-1.0.0-blue?style=for-the-badge&color=0a0a0a&labelColor=B5FF4B" alt="Version" /></a>
+  <a href="#"><img src="https://img.shields.io/badge/status-live-brightgreen?style=for-the-badge&color=0a0a0a&labelColor=B5FF4B" alt="Status" /></a>
+  <a href="#"><img src="https://img.shields.io/badge/responsive-yes-success?style=for-the-badge&color=0a0a0a&labelColor=B5FF4B" alt="Responsive" /></a>
+  <a href="#"><img src="https://img.shields.io/badge/license-MIT-green?style=for-the-badge&color=0a0a0a&labelColor=B5FF4B" alt="License" /></a>
+  <a href="#"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen?style=for-the-badge&color=0a0a0a&labelColor=B5FF4B" alt="PRs Welcome" /></a>
+</p>
 
-🔗 Live Demo: https://your-project-name.vercel.app
-(Replace with your actual Vercel URL)
+<p align="center">
+  <a href="https://your-project-name.vercel.app"><img src="https://img.shields.io/badge/🌐%20View%20Live%20Demo-000?style=for-the-badge&logo=vercel&logoColor=white&color=0a0a0a&labelColor=B5FF4B" alt="Live Demo" /></a>
+  <a href="https://vercel.com/new/clone?repository-url=https://github.com/your-username/the-ncg"><img src="https://img.shields.io/badge/🚀%20Deploy%20on%20Vercel-000?style=for-the-badge&logo=vercel&logoColor=white&color=0a0a0a&labelColor=B5FF4B" alt="Deploy on Vercel" /></a>
+</p>
 
-✨ Features
-Feature	Description
-Fully Responsive	Optimized for all screen sizes – from 320px to 4K displays
-Interactive Booking	Choose facility, date, time, duration, and player count
-Live Status Indicators	AVAILABLE / POPULAR / BOOKED slots with visual cues
-Sticky Mobile Bar	Seamless booking flow on smartphones
-Dark Premium Theme	High-contrast design with neon lime accents and subtle grain texture
-WhatsApp Integration	One-click booking requests via WhatsApp
-Scroll Animations	Smooth reveal effects for sections
-Loading Screen	Elegant loader with progress bar
-Google Maps Embed	Accurate location with embedded map
-SEO & Social Ready	Open Graph tags and JSON-LD structured data
-No Dependencies	Pure vanilla HTML, CSS, and JavaScript
-🛠️ Tech Stack
-HTML5 – Semantic, accessible markup
+<hr />
 
-CSS3 – Custom properties, Flexbox, Grid, clamp() fluid typography
+## ✦ Overview
 
-JavaScript (Vanilla) – DOM manipulation, booking logic, Intersection Observer
+> **The NCG** is a premium, fully responsive booking platform for an indoor sports facility in North Karachi. Built with vanilla HTML, CSS, and JavaScript, it delivers a sleek dark theme, interactive booking, WhatsApp integration, and a seamless mobile experience.
 
-Google Fonts – Space Grotesk, Inter, DM Mono
+<br />
 
-Icons8 – Facility icons
+## ✦ Features
 
-Vercel – Hosting & deployment
+<table align="center">
+  <tr>
+    <td align="center">📱<br /><strong>Fully Responsive</strong><br /><sub>320px → 4K displays</sub></td>
+    <td align="center">🎨<br /><strong>Premium Dark Theme</strong><br /><sub>Neon lime & subtle grain</sub></td>
+    <td align="center">⚡<br /><strong>Live Status</strong><br /><sub>AVAILABLE / POPULAR / BOOKED</sub></td>
+  </tr>
+  <tr>
+    <td align="center">📅<br /><strong>Smart Booking</strong><br /><sub>Date · Time · Duration · Players</sub></td>
+    <td align="center">💬<br /><strong>WhatsApp Integration</strong><br /><sub>One‑click requests</sub></td>
+    <td align="center">🔄<br /><strong>Scroll Animations</strong><br /><sub>Smooth reveal effects</sub></td>
+  </tr>
+  <tr>
+    <td align="center">📍<br /><strong>Google Maps</strong><br /><sub>Embedded location</sub></td>
+    <td align="center">🔒<br /><strong>Zero Dependencies</strong><br /><sub>Pure vanilla code</sub></td>
+    <td align="center">🚀<br /><strong>SEO & Social Ready</strong><br /><sub>OG tags + JSON‑LD</sub></td>
+  </tr>
+</table>
 
-📁 Project Structure
-text
+<br />
+
+## ✦ Tech Stack
+
+<p align="center">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" alt="HTML5" />
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white" alt="CSS3" />
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JavaScript" />
+  <img src="https://img.shields.io/badge/Google%20Fonts-4285F4?style=flat-square&logo=googlefonts&logoColor=white" alt="Google Fonts" />
+  <img src="https://img.shields.io/badge/Icons8-1FB141?style=flat-square&logo=icons8&logoColor=white" alt="Icons8" />
+  <img src="https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white" alt="Vercel" />
+</p>
+
+<br />
+
+## ✦ Project Structure
+
+```bash
 the-ncg/
-├── index.html          # Main HTML file
-├── style.css           # All styles (dark theme, responsive, animations)
-├── script.js           # All JavaScript (loader, booking, scroll, modal)
-├── assets/
-│   └── images/
+├── 📄 index.html          # Main HTML file
+├── 🎨 style.css           # All styles (dark theme, responsive, animations)
+├── ⚡ script.js           # All JavaScript (loader, booking, scroll, modal)
+├── 📁 assets/
+│   └── 📁 images/
 │       ├── hero-image.png
 │       ├── football.jpg
 │       ├── cricket.jpg
 │       ├── padel.jpg
 │       ├── more-than-a-game.jpg
-│       └── the_ncg_logo_web_optimized (1).png
-├── .gitignore
-└── README.md
-🚀 Getting Started
-Local Setup
-Clone the repository and open index.html in your browser.
-
-bash
-git clone https://github.com/your-username/the-ncg.git
-cd the-ncg
-open index.html
-No build tools, dependencies, or package managers required – pure static web.
-
-🌐 Deployment
-This project is optimized for Vercel, Netlify, or any static hosting service.
-
-Deploy with Vercel (Recommended)
-Push your code to a GitHub repository.
-
-Go to Vercel.com and click "Add New Project".
-
-Import your repo – Vercel auto-detects the static site.
-
-You'll get a live URL instantly (e.g., https://your-project.vercel.app).
-
-Deploy with Netlify
-Drag and drop your project folder to Netlify Drop.
-
-Or connect your GitHub repo via Netlify Dashboard.
-
-📸 Screenshots
-(Replace these with actual screenshots after deployment)
-
-https://assets/images/screenshot-hero.png
-https://assets/images/screenshot-booking.png
-https://assets/images/screenshot-mobile.png
-
-🔒 Security & Performance
-Static Site – No backend, no database, zero server-side vulnerabilities.
-
-HTTPS – Always deployed via secure protocols.
-
-Optimized Images – Lazy loading on facility images.
-
-No Dependencies – Minimal attack surface and faster load times.
-
-CSS Variables – Consistent theming and easier maintenance.
-
-📊 Performance Metrics
-Metric	Score
-Performance	⭐⭐⭐⭐⭐ (Google Lighthouse)
-Accessibility	⭐⭐⭐⭐☆
-Best Practices	⭐⭐⭐⭐⭐
-SEO	⭐⭐⭐⭐☆
-(Run Lighthouse in DevTools for exact scores)
-
-🤝 Contributing
-This is a business project for The NCG. If you have suggestions or find issues, feel free to open an issue or pull request.
-
-Fork the repository
-
-Create your feature branch (git checkout -b feature/AmazingFeature)
-
-Commit your changes (git commit -m 'Add some AmazingFeature')
-
-Push to the branch (git push origin feature/AmazingFeature)
-
-Open a Pull Request
-
-📄 License
-Distributed under the MIT License. See LICENSE file for more information.
-
-📞 Contact
-The NCG (North Community Ground)
-📍 Plot #12, Sector 11-B, North Karachi, Karachi, 71500, Pakistan
-📞 +92 300 0900269
-📱 WhatsApp Booking
-📍 Google Maps
-
-🙏 Acknowledgments
-Design inspiration from modern sports & tech brands
-
-Fonts courtesy of Google Fonts
-
-Icons by Icons8
-
-Favicon by SVG Repo
-
-Built with ❤️ for the players and community of North Karachi
-
-📝 To-Do (Future Enhancements)
-□ User authentication for booking history
-□ Payment gateway integration
-□ Real-time availability sync
-□ Email/SMS confirmation notifications
-□ Admin dashboard for facility management
-□ Multi-language support (Urdu/English)
-Made with ❤️ for the players and community of North Karachi. ⚽🏏🏸
-
-Last updated: August 2026
+│       └── the_ncg_logo_web_optimized.png
+└── 📝 README.md
