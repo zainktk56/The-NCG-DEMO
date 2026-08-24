@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/images/the_ncg_logo_web_optimized%20(1).png" alt="The NCG Logo" width="120" height="120" />
+  <img src="./Frontend/images/reduced logo.jpg" alt="The NCG Logo" width="120" height="120" />
 </p>
 
 <h1 align="center">⚡ THE NCG</h1>
@@ -18,7 +18,7 @@
 </p>
 
 <p align="center">
-  <a href="https://your-project-name.vercel.app"><img src="https://img.shields.io/badge/🌐%20View%20Live%20Demo-000?style=for-the-badge&logo=vercel&logoColor=white&color=0a0a0a&labelColor=B5FF4B" alt="Live Demo" /></a>
+  <a href="https://the-ncg.vercel.app"><img src="https://img.shields.io/badge/🌐%20View%20Live%20Demo-000?style=for-the-badge&logo=vercel&logoColor=white&color=0a0a0a&labelColor=B5FF4B" alt="Live Demo" /></a>
   <a href="https://vercel.com/new/clone?repository-url=https://github.com/your-username/the-ncg"><img src="https://img.shields.io/badge/🚀%20Deploy%20on%20Vercel-000?style=for-the-badge&logo=vercel&logoColor=white&color=0a0a0a&labelColor=B5FF4B" alt="Deploy on Vercel" /></a>
 </p>
 
