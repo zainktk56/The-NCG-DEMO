@@ -1,5 +1,28 @@
 // script.js
-import { db } from './firebase-config.js';
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { 
+    getFirestore, 
+    collection as firestoreCollection,  // ✅ RENAMED to avoid conflict
+    addDoc, 
+    serverTimestamp 
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+// ★★★ EMBEDDED FIREBASE CONFIG ★★★
+const firebaseConfig = {
+    apiKey: "AIzaSyCpyHk6kGeCrZik7nSQbkhR0wug8o1-ahM",
+    authDomain: "thencg-131ee.firebaseapp.com",
+    projectId: "thencg-131ee",
+    storageBucket: "thencg-131ee.firebasestorage.app",
+    messagingSenderId: "885392442490",
+    appId: "1:885392442490:web:5bede0cbeb45e13bf4e7c3"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const auth = getAuth(app);
+
+console.log('✅ Firebase initialized successfully!');
 
 // ============================================================
 // 1. LOADER
@@ -316,8 +339,6 @@ document.getElementById('customerPhone')?.addEventListener('input', validateBook
 // ============================================================
 // 9. SUBMIT BOOKING TO FIREBASE
 // ============================================================
-import { collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
 const continueBtn = document.getElementById('continueBooking');
 const stickyContinue = document.getElementById('stickyContinue');
 const modal = document.getElementById('confirmationModal');
@@ -343,7 +364,7 @@ async function submitBookingToFirebase() {
     };
 
     try {
-        const docRef = await addDoc(collection(db, 'bookings'), bookingData);
+        const docRef = await addDoc(firestoreCollection(db, 'bookings'), bookingData);  // ✅ updated
         console.log('✅ Booking saved with ID:', docRef.id);
 
         document.getElementById('modalFacility').textContent = state.facility;
@@ -419,23 +440,3 @@ console.log('✅ The NCG — Full‑stack Firebase version ready!');
 console.log('📸 Replace image src attributes with your own files.');
 console.log('📍 Google Maps embedded correctly.');
 console.log('🔥 Firebase connected. Bookings will be saved to Firestore.');
-
-
-// Add this to your script.js
-document.addEventListener('keydown', (e) => {
-    // Press "A" + "D" + "M" + "I" + "N" in sequence
-    const secret = ['a', 'd', 'm', 'i', 'n'];
-    const key = e.key.toLowerCase();
-    
-    // Simple sequence detector
-    if (!window._secretIndex) window._secretIndex = 0;
-    if (key === secret[window._secretIndex]) {
-        window._secretIndex++;
-        if (window._secretIndex === secret.length) {
-            window._secretIndex = 0;
-            window.location.href = 'admin.html';
-        }
-    } else {
-        window._secretIndex = 0;
-    }
-});

@@ -595,287 +595,288 @@
 
     <!-- ===== JAVASCRIPT ===== -->
     <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-        import {
-            getFirestore,
-            collection,
-            query,
-            where,
-            onSnapshot,
-            updateDoc,
-            doc,
-            orderBy,
-            getDocs,
-            setDoc
-        } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-        import {
-            getAuth,
-            signInWithEmailAndPassword,
-            onAuthStateChanged,
-            signOut
-        } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import {
+    getFirestore,
+    collection as firestoreCollection,  // ✅ renamed to avoid conflict
+    query,
+    where,
+    onSnapshot,
+    updateDoc,
+    doc,
+    orderBy,
+    getDocs,
+    setDoc
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import {
+    getAuth,
+    signInWithEmailAndPassword,
+    onAuthStateChanged,
+    signOut
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
-        // ============================================================
-        // FIREBASE CONFIG
-        // ============================================================
-        const firebaseConfig = {
-            apiKey: "AIzaSyCpyHk6kGeCrZik7nSQbkhR0wug8o1-ahM",
-            authDomain: "thencg-131ee.firebaseapp.com",
-            projectId: "thencg-131ee",
-            storageBucket: "thencg-131ee.firebasestorage.app",
-            messagingSenderId: "885392442490",
-            appId: "1:885392442490:web:5bede0cbeb45e13bf4e7c3"
-        };
+// ★★★ EMBEDDED FIREBASE CONFIG (no separate file needed) ★★★
+const firebaseConfig = {
+    apiKey: "AIzaSyCpyHk6kGeCrZik7nSQbkhR0wug8o1-ahM",
+    authDomain: "thencg-131ee.firebaseapp.com",
+    projectId: "thencg-131ee",
+    storageBucket: "thencg-131ee.firebasestorage.app",
+    messagingSenderId: "885392442490",
+    appId: "1:885392442490:web:5bede0cbeb45e13bf4e7c3"
+};
 
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-        const auth = getAuth(app);
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const auth = getAuth(app);
 
-        // ============================================================
-        // DOM REFS
-        // ============================================================
-        const loginScreen = document.getElementById('loginScreen');
-        const dashboard = document.getElementById('dashboard');
-        const loginBtn = document.getElementById('loginBtn');
-        const logoutBtn = document.getElementById('logoutBtn');
-        const loginError = document.getElementById('loginError');
-        const adminEmail = document.getElementById('adminEmail');
-        const adminPassword = document.getElementById('adminPassword');
-        const togglePassword = document.getElementById('togglePassword');
-        const eyeIcon = document.getElementById('eyeIcon');
-        const pendingList = document.getElementById('pendingList');
-        const allBookingsList = document.getElementById('allBookingsList');
-        const slotList = document.getElementById('slotList');
-        const pendingCount = document.getElementById('pendingCount');
-        const totalCount = document.getElementById('totalCount');
+// ============================================================
+// DOM REFS
+// ============================================================
+const loginScreen = document.getElementById('loginScreen');
+const dashboard = document.getElementById('dashboard');
+const loginBtn = document.getElementById('loginBtn');
+const logoutBtn = document.getElementById('logoutBtn');
+const loginError = document.getElementById('loginError');
+const adminEmail = document.getElementById('adminEmail');
+const adminPassword = document.getElementById('adminPassword');
+const togglePassword = document.getElementById('togglePassword');
+const eyeIcon = document.getElementById('eyeIcon');
+const pendingList = document.getElementById('pendingList');
+const allBookingsList = document.getElementById('allBookingsList');
+const slotList = document.getElementById('slotList');
+const pendingCount = document.getElementById('pendingCount');
+const totalCount = document.getElementById('totalCount');
 
-        // ============================================================
-        // PASSWORD TOGGLE
-        // ============================================================
-        togglePassword.addEventListener('click', function() {
-            const type = adminPassword.getAttribute('type') === 'password' ? 'text' : 'password';
-            adminPassword.setAttribute('type', type);
+// ============================================================
+// PASSWORD TOGGLE
+// ============================================================
+togglePassword.addEventListener('click', function() {
+    const type = adminPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+    adminPassword.setAttribute('type', type);
 
-            if (type === 'password') {
-                eyeIcon.src = 'https://img.icons8.com/ios-filled/22/8A8F8A/visible.png';
-                eyeIcon.alt = 'Show password';
-            } else {
-                eyeIcon.src = 'https://img.icons8.com/ios-filled/22/8A8F8A/invisible.png';
-                eyeIcon.alt = 'Hide password';
-            }
-        });
+    if (type === 'password') {
+        eyeIcon.src = 'https://img.icons8.com/ios-filled/22/8A8F8A/visible.png';
+        eyeIcon.alt = 'Show password';
+    } else {
+        eyeIcon.src = 'https://img.icons8.com/ios-filled/22/8A8F8A/invisible.png';
+        eyeIcon.alt = 'Hide password';
+    }
+});
 
-        adminPassword.addEventListener('keydown', (e) => { if (e.key === 'Enter') loginBtn.click(); });
-        adminEmail.addEventListener('keydown', (e) => { if (e.key === 'Enter') loginBtn.click(); });
+adminPassword.addEventListener('keydown', (e) => { if (e.key === 'Enter') loginBtn.click(); });
+adminEmail.addEventListener('keydown', (e) => { if (e.key === 'Enter') loginBtn.click(); });
 
-        // ============================================================
-        // AUTH
-        // ============================================================
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                loginScreen.style.display = 'none';
-                dashboard.style.display = 'block';
-                loadData();
-            } else {
-                loginScreen.style.display = 'block';
-                dashboard.style.display = 'none';
-            }
-        });
+// ============================================================
+// AUTH STATE
+// ============================================================
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        loginScreen.style.display = 'none';
+        dashboard.style.display = 'block';
+        loadData();
+    } else {
+        loginScreen.style.display = 'block';
+        dashboard.style.display = 'none';
+    }
+});
 
-        loginBtn.addEventListener('click', async () => {
-            try {
-                await signInWithEmailAndPassword(auth, adminEmail.value, adminPassword.value);
-                loginError.style.display = 'none';
-            } catch (error) {
-                loginError.style.display = 'block';
-                console.error('Login error:', error);
-            }
-        });
+// ============================================================
+// LOGIN / LOGOUT
+// ============================================================
+loginBtn.addEventListener('click', async () => {
+    try {
+        await signInWithEmailAndPassword(auth, adminEmail.value, adminPassword.value);
+        loginError.style.display = 'none';
+    } catch (error) {
+        loginError.style.display = 'block';
+        console.error('Login error:', error);
+    }
+});
 
-        logoutBtn.addEventListener('click', async () => {
-            await signOut(auth);
-        });
+logoutBtn.addEventListener('click', async () => {
+    await signOut(auth);
+});
 
-        // ============================================================
-        // LOAD DATA
-        // ============================================================
-        function loadData() {
-            // --- PENDING ---
-            const qPending = query(
-                collection(db, 'bookings'),
-                where('status', '==', 'PENDING'),
-                orderBy('createdAt', 'asc')
-            );
-            onSnapshot(qPending, (snapshot) => {
-                pendingList.innerHTML = '';
-                let count = 0;
-                if (snapshot.empty) {
-                    pendingList.innerHTML = '<div class="empty">No pending bookings. 🎉</div>';
-                } else {
-                    snapshot.forEach((doc) => {
-                        count++;
-                        const data = doc.data();
-                        const div = document.createElement('div');
-                        div.className = 'booking-item pending';
-                        div.innerHTML = `
-                            <div class="top">
-                                <div>
-                                    <div class="name">${data.customerName || 'Unknown'}</div>
-                                    <div class="phone">📱 ${data.customerPhone || 'N/A'}</div>
-                                </div>
-                                <span style="font-size:0.65rem; background:#2A2D2A; padding:2px 10px; border-radius:50px;">${data.facility}</span>
-                            </div>
-                            <div class="details">📅 ${data.date} · 🕒 ${data.time} · ⏱ ${data.duration} · 👥 ${data.players}</div>
-                            <div class="actions">
-                                <button class="btn-confirm" data-id="${doc.id}">
-                                    <img src="https://img.icons8.com/ios-filled/14/000000/checkmark.png" alt="Confirm" />
-                                    Confirm
-                                </button>
-                                <button class="btn-cancel" data-id="${doc.id}">
-                                    <img src="https://img.icons8.com/ios-filled/14/FFFFFF/cancel.png" alt="Cancel" />
-                                    Cancel
-                                </button>
-                            </div>
-                        `;
-                        pendingList.appendChild(div);
-                    });
-                }
-                pendingCount.textContent = count;
-
-                document.querySelectorAll('#pendingList .btn-confirm').forEach(btn => {
-                    btn.addEventListener('click', async () => {
-                        await updateDoc(doc(db, 'bookings', btn.dataset.id), { status: 'CONFIRMED' });
-                    });
-                });
-                document.querySelectorAll('#pendingList .btn-cancel').forEach(btn => {
-                    btn.addEventListener('click', async () => {
-                        await updateDoc(doc(db, 'bookings', btn.dataset.id), { status: 'CANCELLED' });
-                    });
-                });
-            });
-
-            // --- ALL BOOKINGS ---
-            const qAll = query(collection(db, 'bookings'), orderBy('createdAt', 'desc'));
-            onSnapshot(qAll, (snapshot) => {
-                allBookingsList.innerHTML = '';
-                let count = 0;
-                if (snapshot.empty) {
-                    allBookingsList.innerHTML = '<div class="empty">No bookings yet.</div>';
-                } else {
-                    snapshot.forEach((doc) => {
-                        count++;
-                        const data = doc.data();
-                        const statusClass = data.status?.toLowerCase() || 'pending';
-                        const div = document.createElement('div');
-                        div.className = `booking-item ${statusClass}`;
-                        div.innerHTML = `
-                            <div class="top">
-                                <div>
-                                    <div class="name">${data.customerName || 'Unknown'} <span style="font-size:0.6rem; color:#8A8F8A;">#${statusClass}</span></div>
-                                    <div class="phone">📱 ${data.customerPhone || 'N/A'}</div>
-                                </div>
-                                <span style="font-size:0.6rem; color:#8A8F8A;">${data.facility}</span>
-                            </div>
-                            <div class="details">📅 ${data.date} · 🕒 ${data.time}</div>
-                            ${statusClass === 'pending' ? `
-                                <div class="actions">
-                                    <button class="btn-confirm" data-id="${doc.id}">
-                                        <img src="https://img.icons8.com/ios-filled/14/000000/checkmark.png" alt="Confirm" />
-                                        Confirm
-                                    </button>
-                                    <button class="btn-cancel" data-id="${doc.id}">
-                                        <img src="https://img.icons8.com/ios-filled/14/FFFFFF/cancel.png" alt="Cancel" />
-                                        Cancel
-                                    </button>
-                                </div>
-                            ` : ''}
-                        `;
-                        allBookingsList.appendChild(div);
-                    });
-                }
-                totalCount.textContent = count;
-
-                document.querySelectorAll('#allBookingsList .btn-confirm').forEach(btn => {
-                    btn.addEventListener('click', async () => {
-                        await updateDoc(doc(db, 'bookings', btn.dataset.id), { status: 'CONFIRMED' });
-                    });
-                });
-                document.querySelectorAll('#allBookingsList .btn-cancel').forEach(btn => {
-                    btn.addEventListener('click', async () => {
-                        await updateDoc(doc(db, 'bookings', btn.dataset.id), { status: 'CANCELLED' });
-                    });
-                });
-            });
-
-            // --- SLOTS ---
-            const qSlots = query(collection(db, 'slots'));
-            onSnapshot(qSlots, (snapshot) => {
-                slotList.innerHTML = '';
-                if (snapshot.empty) {
-                    slotList.innerHTML = '<div class="empty">No slots found. Please add slots in Firestore.</div>';
-                } else {
-                    snapshot.forEach((doc) => {
-                        const data = doc.data();
-                        const status = data.status || 'AVAILABLE';
-                        const statusClass = `status-${status.toLowerCase()}`;
-                        const div = document.createElement('div');
-                        div.className = 'slot-item';
-                        div.innerHTML = `
-                            <div class="info">
-                                <img src="https://img.icons8.com/ios-filled/16/B5FF4B/clock.png" alt="Clock" />
-                                <strong>${data.facility}</strong> · ${data.date} · ${data.time}
-                            </div>
-                            <div style="display:flex; gap:8px; align-items:center;">
-                                <span class="status ${statusClass}">${status}</span>
-                                <button class="toggle-btn" data-id="${doc.id}" data-current="${status}">
-                                    <img src="https://img.icons8.com/ios-filled/14/FFFFFF/refresh.png" alt="Toggle" />
-                                    Toggle
-                                </button>
-                            </div>
-                        `;
-                        slotList.appendChild(div);
-                    });
-                    document.querySelectorAll('.toggle-btn').forEach(btn => {
-                        btn.addEventListener('click', async () => {
-                            const current = btn.dataset.current;
-                            const statuses = ['AVAILABLE', 'POPULAR', 'BOOKED'];
-                            let idx = statuses.indexOf(current);
-                            let next = statuses[(idx + 1) % statuses.length];
-                            await updateDoc(doc(db, 'slots', btn.dataset.id), { status: next });
-                        });
-                    });
-                }
+// ============================================================
+// LOAD DATA (Real-time listeners)
+// ============================================================
+function loadData() {
+    // --- PENDING BOOKINGS ---
+    const qPending = query(
+        firestoreCollection(db, 'bookings'),  // ✅ updated
+        where('status', '==', 'PENDING'),
+        orderBy('createdAt', 'asc')
+    );
+    onSnapshot(qPending, (snapshot) => {
+        pendingList.innerHTML = '';
+        let count = 0;
+        if (snapshot.empty) {
+            pendingList.innerHTML = '<div class="empty">No pending bookings. 🎉</div>';
+        } else {
+            snapshot.forEach((doc) => {
+                count++;
+                const data = doc.data();
+                const div = document.createElement('div');
+                div.className = 'booking-item pending';
+                div.innerHTML = `
+                    <div class="top">
+                        <div>
+                            <div class="name">${data.customerName || 'Unknown'}</div>
+                            <div class="phone">📱 ${data.customerPhone || 'N/A'}</div>
+                        </div>
+                        <span style="font-size:0.65rem; background:#2A2D2A; padding:2px 10px; border-radius:50px;">${data.facility}</span>
+                    </div>
+                    <div class="details">📅 ${data.date} · 🕒 ${data.time} · ⏱ ${data.duration} · 👥 ${data.players}</div>
+                    <div class="actions">
+                        <button class="btn-confirm" data-id="${doc.id}">
+                            <img src="https://img.icons8.com/ios-filled/14/000000/checkmark.png" alt="Confirm" />
+                            Confirm
+                        </button>
+                        <button class="btn-cancel" data-id="${doc.id}">
+                            <img src="https://img.icons8.com/ios-filled/14/FFFFFF/cancel.png" alt="Cancel" />
+                            Cancel
+                        </button>
+                    </div>
+                `;
+                pendingList.appendChild(div);
             });
         }
+        pendingCount.textContent = count;
 
-        // ============================================================
-        // SEED SLOTS (Uncomment to run once)
-        // ============================================================
-        async function seedSlots() {
-            const snapshot = await getDocs(collection(db, 'slots'));
-            if (snapshot.empty) {
-                const facilities = ['Football / Futsal', 'Cricket', 'Indoor Ground', 'Training Session'];
-                const times = ['06:00 PM', '07:00 PM', '08:00 PM', '09:00 PM', '10:00 PM'];
-                const dates = ['2026-08-30', '2026-08-31', '2026-09-01'];
-                for (const facility of facilities) {
-                    for (const date of dates) {
-                        for (const time of times) {
-                            const id = `${facility}_${date}_${time}`.replace(/\s/g, '_');
-                            await setDoc(doc(db, 'slots', id), {
-                                facility,
-                                date,
-                                time,
-                                status: 'AVAILABLE'
-                            });
-                        }
-                    }
+        document.querySelectorAll('#pendingList .btn-confirm').forEach(btn => {
+            btn.addEventListener('click', async () => {
+                await updateDoc(doc(db, 'bookings', btn.dataset.id), { status: 'CONFIRMED' });
+            });
+        });
+        document.querySelectorAll('#pendingList .btn-cancel').forEach(btn => {
+            btn.addEventListener('click', async () => {
+                await updateDoc(doc(db, 'bookings', btn.dataset.id), { status: 'CANCELLED' });
+            });
+        });
+    });
+
+    // --- ALL BOOKINGS ---
+    const qAll = query(firestoreCollection(db, 'bookings'), orderBy('createdAt', 'desc'));  // ✅ updated
+    onSnapshot(qAll, (snapshot) => {
+        allBookingsList.innerHTML = '';
+        let count = 0;
+        if (snapshot.empty) {
+            allBookingsList.innerHTML = '<div class="empty">No bookings yet.</div>';
+        } else {
+            snapshot.forEach((doc) => {
+                count++;
+                const data = doc.data();
+                const statusClass = data.status?.toLowerCase() || 'pending';
+                const div = document.createElement('div');
+                div.className = `booking-item ${statusClass}`;
+                div.innerHTML = `
+                    <div class="top">
+                        <div>
+                            <div class="name">${data.customerName || 'Unknown'} <span style="font-size:0.6rem; color:#8A8F8A;">#${statusClass}</span></div>
+                            <div class="phone">📱 ${data.customerPhone || 'N/A'}</div>
+                        </div>
+                        <span style="font-size:0.6rem; color:#8A8F8A;">${data.facility}</span>
+                    </div>
+                    <div class="details">📅 ${data.date} · 🕒 ${data.time}</div>
+                    ${statusClass === 'pending' ? `
+                        <div class="actions">
+                            <button class="btn-confirm" data-id="${doc.id}">
+                                <img src="https://img.icons8.com/ios-filled/14/000000/checkmark.png" alt="Confirm" />
+                                Confirm
+                            </button>
+                            <button class="btn-cancel" data-id="${doc.id}">
+                                <img src="https://img.icons8.com/ios-filled/14/FFFFFF/cancel.png" alt="Cancel" />
+                                Cancel
+                            </button>
+                        </div>
+                    ` : ''}
+                `;
+                allBookingsList.appendChild(div);
+            });
+        }
+        totalCount.textContent = count;
+
+        document.querySelectorAll('#allBookingsList .btn-confirm').forEach(btn => {
+            btn.addEventListener('click', async () => {
+                await updateDoc(doc(db, 'bookings', btn.dataset.id), { status: 'CONFIRMED' });
+            });
+        });
+        document.querySelectorAll('#allBookingsList .btn-cancel').forEach(btn => {
+            btn.addEventListener('click', async () => {
+                await updateDoc(doc(db, 'bookings', btn.dataset.id), { status: 'CANCELLED' });
+            });
+        });
+    });
+
+    // --- SLOTS ---
+    const qSlots = query(firestoreCollection(db, 'slots'));  // ✅ updated
+    onSnapshot(qSlots, (snapshot) => {
+        slotList.innerHTML = '';
+        if (snapshot.empty) {
+            slotList.innerHTML = '<div class="empty">No slots found. Please add slots in Firestore.</div>';
+        } else {
+            snapshot.forEach((doc) => {
+                const data = doc.data();
+                const status = data.status || 'AVAILABLE';
+                const statusClass = `status-${status.toLowerCase()}`;
+                const div = document.createElement('div');
+                div.className = 'slot-item';
+                div.innerHTML = `
+                    <div class="info">
+                        <img src="https://img.icons8.com/ios-filled/16/B5FF4B/clock.png" alt="Clock" />
+                        <strong>${data.facility}</strong> · ${data.date} · ${data.time}
+                    </div>
+                    <div style="display:flex; gap:8px; align-items:center;">
+                        <span class="status ${statusClass}">${status}</span>
+                        <button class="toggle-btn" data-id="${doc.id}" data-current="${status}">
+                            <img src="https://img.icons8.com/ios-filled/14/FFFFFF/refresh.png" alt="Toggle" />
+                            Toggle
+                        </button>
+                    </div>
+                `;
+                slotList.appendChild(div);
+            });
+            document.querySelectorAll('.toggle-btn').forEach(btn => {
+                btn.addEventListener('click', async () => {
+                    const current = btn.dataset.current;
+                    const statuses = ['AVAILABLE', 'POPULAR', 'BOOKED'];
+                    let idx = statuses.indexOf(current);
+                    let next = statuses[(idx + 1) % statuses.length];
+                    await updateDoc(doc(db, 'slots', btn.dataset.id), { status: next });
+                });
+            });
+        }
+    });
+}
+
+// ============================================================
+// SEED SLOTS (Uncomment to run once)
+// ============================================================
+async function seedSlots() {
+    const snapshot = await getDocs(firestoreCollection(db, 'slots'));  // ✅ updated
+    if (snapshot.empty) {
+        const facilities = ['Football / Futsal', 'Cricket', 'Indoor Ground', 'Training Session'];
+        const times = ['06:00 PM', '07:00 PM', '08:00 PM', '09:00 PM', '10:00 PM'];
+        const dates = ['2026-08-30', '2026-08-31', '2026-09-01'];
+        for (const facility of facilities) {
+            for (const date of dates) {
+                for (const time of times) {
+                    const id = `${facility}_${date}_${time}`.replace(/\s/g, '_');
+                    await setDoc(doc(db, 'slots', id), {
+                        facility,
+                        date,
+                        time,
+                        status: 'AVAILABLE'
+                    });
                 }
-                console.log('✅ Slots seeded successfully!');
             }
         }
-        // Uncomment to seed: seedSlots();
+        console.log('✅ Slots seeded successfully!');
+    }
+}
+// Uncomment to seed: seedSlots();
 
-        console.log('🔥 Admin Dashboard connected to Firebase.');
+console.log('🔥 Admin Dashboard connected to Firebase.');
     </script>
 </body>
 </html>
