@@ -1,65 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, viewport-fit=cover">
     <title>The NCG — North Community Ground | Indoor Sports & Booking</title>
-    <meta name="description" content="Play, compete and connect at The NCG — North Community Ground in North Karachi." />
+    <meta name="description"
+        content="Play, compete and connect at The NCG — North Community Ground in North Karachi." />
+
+    <!-- ===== EXTERNAL FILES ===== -->
+    <link rel="icon" type="image/x-icon" href="assets/images/reduced logo.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="icon" type="image/x-icon" href="./images/reduced logo.jpg">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
-
-    <!-- ===== OPEN GRAPH (Vercel Ready) ===== -->
-    <meta property="og:title" content="The NCG — North Community Ground" />
-    <meta property="og:description" content="Play without limits. Premium indoor sports in North Karachi." />
-    <!-- ★★★ REPLACE your-project-name WITH YOUR ACTUAL VERCEL PROJECT NAME ★★★ -->
-    <meta property="og:image" content="https://the-ncg.vercel.app/assets/images/hero-image.png" />
-    <meta property="og:url" content="https://the-ncg.vercel.app" />
-    <meta property="og:type" content="website" />
-
-    <!-- ===== TWITTER CARD ===== -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="The NCG — North Community Ground" />
-    <meta name="twitter:description" content="Play without limits. Premium indoor sports in North Karachi." />
-    <meta name="twitter:image" content="https://the-ncg.vercel.app/assets/images/hero-image.png" />
-
-    <!-- ===== JSON-LD STRUCTURED DATA ===== -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SportsActivityLocation",
-      "@id": "https://the-ncg.vercel.app/#organization",
-      "url": "https://the-ncg.vercel.app",
-      "name": "The NCG (North Community Ground)",
-      "description": "Premium indoor sports facility in North Karachi.",
-      "telephone": "+923000900269",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Plot #12, Sector 11-B",
-        "addressLocality": "North Karachi",
-        "addressCountry": "PK"
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "opens": "00:00",
-        "closes": "23:59"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "24.9756",
-        "longitude": "67.0573"
-      }
-    }
-    </script>
-
-    <!-- ===== CSS ===== -->
-    <link rel="stylesheet" href="styles.css" />
-    <script src="script.js" defer></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=DM+Mono:wght@300;400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-    <!-- ================= LOADER ================= -->
+    <!-- ===== LOADER ===== -->
     <div id="loader" role="status" aria-label="Loading">
         <div class="brand">THE <span>NCG</span></div>
         <div class="sub">North Community Ground</div>
@@ -68,10 +29,10 @@
         </div>
     </div>
 
-    <!-- GRAIN -->
+    <!-- ===== GRAIN ===== -->
     <div class="grain" aria-hidden="true"></div>
 
-    <!-- ================= MOBILE MENU ================= -->
+    <!-- ===== MOBILE MENU ===== -->
     <nav class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
         <a href="#home" class="menu-item" data-nav><span class="num">01</span> HOME</a>
         <a href="#facilities" class="menu-item" data-nav><span class="num">02</span> FACILITIES</a>
@@ -81,7 +42,7 @@
         <button type="button" class="cta-mobile" data-nav-cta>BOOK NOW</button>
     </nav>
 
-    <!-- ================= NAVBAR ================= -->
+    <!-- ===== NAVBAR ===== -->
     <header class="navbar" id="navbar" role="banner">
         <div class="inner">
             <a href="#home" class="logo" aria-label="The NCG Home">
@@ -102,15 +63,14 @@
         </div>
     </header>
 
-    <!-- ================= HERO ================= -->
+    <!-- ===== HERO ===== -->
     <section class="hero" id="home">
         <div class="hero-bg"></div>
         <div class="hero-image-wrap">
-            <img src="./images/hero image.png" alt="The NCG indoor sports facility" />
+            <img src="assets/images/hero image.png" alt="The NCG indoor sports facility" />
             <div class="fallback"></div>
         </div>
         <div class="hero-overlay-gradient"></div>
-
         <div class="container">
             <div class="content">
                 <div class="tech-label"><span>●</span> NCG / NORTH KARACHI / 24H</div>
@@ -127,7 +87,6 @@
                 </div>
             </div>
         </div>
-
         <div class="floating-modules">
             <div class="floating-module">
                 <div class="label">Live Availability</div>
@@ -145,23 +104,20 @@
                 <div class="label" style="font-size:0.5rem;">● Always open</div>
             </div>
         </div>
-
         <div class="scroll-indicator">
             <span>Scroll</span>
             <div class="line"></div>
         </div>
     </section>
 
-    <!-- ================= BOOKING ================= -->
+    <!-- ===== BOOKING ===== -->
     <section id="booking" aria-label="Booking">
         <div class="container">
             <div class="section-header">
                 <span class="section-label">BOOK YOUR GAME</span>
                 <h2 class="section-title">Secure your slot in seconds</h2>
             </div>
-
             <div class="booking-layout">
-                <!-- Booking Card -->
                 <div class="booking-card" id="bookingWidget">
                     <!-- Facility -->
                     <div class="form-group">
@@ -191,13 +147,11 @@
                             </button>
                         </div>
                     </div>
-
                     <!-- Date -->
                     <div class="form-group">
                         <label>Select Date</label>
                         <div class="date-picker" id="datePicker"></div>
                     </div>
-
                     <!-- Time -->
                     <div class="form-group">
                         <label>Choose Time</label>
@@ -208,7 +162,6 @@
                             <span><span class="muted-dot">●</span> BOOKED</span>
                         </div>
                     </div>
-
                     <!-- Duration & Players -->
                     <div class="duration-players-row">
                         <div class="form-group">
@@ -230,8 +183,22 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Customer Info -->
+                    <div style="margin-top: 20px;">
+                        <div class="row-two" style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+                            <div class="form-group">
+                                <label for="customerName">Your Name *</label>
+                                <input type="text" id="customerName" placeholder="John Doe" required
+                                    style="width:100%; padding:0.7rem 0.9rem; border-radius:var(--radius-sm); background:var(--bg-mid); border:1px solid var(--border-color); color:var(--text-primary);">
+                            </div>
+                            <div class="form-group">
+                                <label for="customerPhone">Phone Number *</label>
+                                <input type="tel" id="customerPhone" placeholder="+92 300 1234567" required
+                                    style="width:100%; padding:0.7rem 0.9rem; border-radius:var(--radius-sm); background:var(--bg-mid); border:1px solid var(--border-color); color:var(--text-primary);">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
                 <!-- Booking Summary -->
                 <div class="booking-summary" id="bookingSummary">
                     <h4>YOUR GAME</h4>
@@ -255,8 +222,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- Sticky Bottom Bar -->
         <div class="sticky-booking-bar" id="stickyBar">
             <div class="info">
                 <span class="price" id="stickyPrice">PKR 2,500</span>
@@ -266,7 +231,7 @@
         </div>
     </section>
 
-    <!-- ================= FACILITIES ================= -->
+    <!-- ===== FACILITIES ===== -->
     <section id="facilities" aria-label="Facilities">
         <div class="container">
             <div class="section-header">
@@ -276,7 +241,7 @@
             <div class="facility-editorial">
                 <div class="item reveal">
                     <div class="image-wrap">
-                        <img src="./images/football.jpg" alt="Football / Futsal facility at The NCG" />
+                        <img src="assets/images/football.jpg" alt="Football / Futsal facility at The NCG" />
                         <div class="fallback"></div>
                     </div>
                     <div class="info">
@@ -292,7 +257,7 @@
                 </div>
                 <div class="item reveal">
                     <div class="image-wrap">
-                        <img src="./images/cricket_new.jpg" alt="Cricket facility at The NCG" />
+                        <img src="assets/images/cricket_new.jpg" alt="Cricket facility at The NCG" />
                         <div class="fallback"></div>
                     </div>
                     <div class="info">
@@ -308,7 +273,7 @@
                 </div>
                 <div class="item reveal">
                     <div class="image-wrap">
-                        <img src="./images/padel_new.jpg" alt="Training sessions at The NCG" />
+                        <img src="assets/images/padel_new.jpg" alt="Training sessions at The NCG" />
                         <div class="fallback"></div>
                     </div>
                     <div class="info">
@@ -326,11 +291,11 @@
         </div>
     </section>
 
-    <!-- ================= EXPERIENCE ================= -->
+    <!-- ===== EXPERIENCE ===== -->
     <section id="experience" aria-label="Experience">
         <div class="container">
             <div class="experience-hero reveal">
-                <img src="./images/more than a game.jpg" alt="The NCG Experience" />
+                <img src="assets/images/more than a game.jpg" alt="The NCG Experience" />
                 <div class="fallback"></div>
                 <div class="overlay">
                     <h2>MORE THAN A GAME.</h2>
@@ -345,7 +310,7 @@
         </div>
     </section>
 
-    <!-- ================= WHY NCG ================= -->
+    <!-- ===== WHY NCG ===== -->
     <section id="why" aria-label="Why The NCG">
         <div class="container">
             <div class="section-header">
@@ -370,7 +335,7 @@
         </div>
     </section>
 
-    <!-- ================= STATISTICS ================= -->
+    <!-- ===== STATISTICS ===== -->
     <section id="stats" aria-label="Statistics">
         <div class="container">
             <div class="stats-grid">
@@ -394,7 +359,7 @@
         </div>
     </section>
 
-    <!-- ================= REVIEWS ================= -->
+    <!-- ===== REVIEWS ===== -->
     <section id="reviews" aria-label="Reviews">
         <div class="container">
             <div class="reviews-header">
@@ -452,7 +417,7 @@
         </div>
     </section>
 
-    <!-- ================= LOCATION ================= -->
+    <!-- ===== LOCATION ===== -->
     <section id="location" aria-label="Location">
         <div class="container">
             <div class="section-header">
@@ -506,7 +471,7 @@
         </div>
     </section>
 
-    <!-- ================= FINAL CTA ================= -->
+    <!-- ===== FINAL CTA ===== -->
     <section id="final-cta" aria-label="Call to action">
         <div class="bg-glow"></div>
         <div class="container">
@@ -521,7 +486,7 @@
         </div>
     </section>
 
-    <!-- ================= FOOTER ================= -->
+    <!-- ===== FOOTER ===== -->
     <footer role="contentinfo">
         <div class="bg-deco">NCG</div>
         <div class="container">
@@ -548,35 +513,41 @@
                 </div>
                 <div class="col">
                     <h4>Social</h4>
-                    <a href="https://www.instagram.com/the_ncg_karachi/" aria-label="Instagram">Instagram</a>
-                    <a href="https://www.facebook.com/p/The-NCG-61566085596080/" aria-label="Facebook">Facebook</a>
-                    <!-- <a href="#" aria-label="YouTube">YouTube</a> -->
+                    <a href="#" aria-label="Instagram">Instagram</a>
+                    <a href="#" aria-label="Facebook">Facebook</a>
+                    <a href="#" aria-label="YouTube">YouTube</a>
+
+                     <a href="admin.html" style="color: #171A18; font-size: 0.1px; text-decoration: none;">Admin</a>
                 </div>
             </div>
             <div class="bottom">© 2026 The NCG — North Community Ground. All rights reserved.</div>
         </div>
     </footer>
 
-    <!-- ================= MODAL ================= -->
+    <!-- ===== MODAL ===== -->
     <div class="modal-overlay" id="confirmationModal" role="dialog" aria-modal="true" aria-label="Booking confirmation">
         <div class="modal">
             <h3>🎉 Ready to play?</h3>
-            <p class="sub">This is a preview of the future online booking system.</p>
+            <p class="sub">We'll notify the admin immediately. They'll confirm your slot shortly!</p>
             <div class="summary-demo" id="modalSummary">
                 <div class="row"><span class="key">Facility</span><span id="modalFacility">—</span></div>
                 <div class="row"><span class="key">Date</span><span id="modalDate">—</span></div>
                 <div class="row"><span class="key">Time</span><span id="modalTime">—</span></div>
                 <div class="row"><span class="key">Duration</span><span id="modalDuration">—</span></div>
                 <div class="row"><span class="key">Players</span><span id="modalPlayers">—</span></div>
+                <div class="row"><span class="key">Name</span><span id="modalName">—</span></div>
+                <div class="row"><span class="key">Phone</span><span id="modalPhone">—</span></div>
             </div>
             <div class="btn-group">
                 <button type="button" class="btn-close" id="modalClose">Close</button>
-                <button type="button" class="btn-whatsapp" id="modalWhatsApp">💬 Request Booking</button>
+                <button type="button" class="btn-whatsapp" id="modalWhatsApp">💬 Notify Admin via WhatsApp</button>
             </div>
         </div>
     </div>
 
-    <script src="./script.js"></script>
+    <!-- ===== JAVASCRIPT ===== -->
+    <script type="module" src="script.js"></script>
+
 </body>
 
 </html>

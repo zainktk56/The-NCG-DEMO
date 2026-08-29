@@ -1,0 +1,14 @@
+# Firebase secrets (important!)
+firebase-config.js
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node (if you ever add it)
+node_modules/
+.env
+
+# IDE
+.vscode/
+.idea/

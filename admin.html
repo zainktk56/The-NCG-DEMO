@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NCG Admin Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+     <link rel="icon" type="image/x-icon" href="assets/images/reduced logo.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:opsz,wght@14..32,300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #080909;
+            color: #F0F2F0;
+            font-family: 'Inter', sans-serif;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* ---------- LOGIN ---------- */
+        .login-box {
+            max-width: 420px;
+            margin: 0 auto;
+            background: #171A18;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            text-align: center;
+        }
+        .login-box .logo-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            margin-bottom: 8px;
+        }
+        .login-box .logo-wrap img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            border-radius: 12px;
+        }
+        .login-box .logo-wrap .brand {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+        }
+        .login-box .logo-wrap .brand span {
+            color: #B5FF4B;
+        }
+        .login-box .logo-wrap .sub {
+            font-size: 0.5rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #8A8F8A;
+            font-weight: 400;
+            font-family: 'DM Mono', monospace;
+            display: block;
+            margin-top: 0px;
+        }
+        .login-box .tagline {
+            color: #8A8F8A;
+            margin-bottom: 28px;
+            font-size: 0.85rem;
+            font-weight: 400;
+        }
+
+        .login-box input[type="email"],
+        .login-box input[type="password"],
+        .login-box input[type="text"] {
+            width: 100%;
+            padding: 14px 16px;
+            margin-bottom: 16px;
+            border-radius: 12px;
+            background: #2A2D2A;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: #F0F2F0;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s;
+        }
+        .login-box input:focus {
+            outline: none;
+            border-color: #B5FF4B;
+        }
+
+        .login-box .password-wrapper {
+            position: relative;
+            width: 100%;
+        }
+        .login-box .password-wrapper input {
+            padding-right: 52px;
+            margin-bottom: 16px;
+        }
+        .login-box .password-wrapper .toggle-btn {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+        .login-box .password-wrapper .toggle-btn:hover {
+            opacity: 1;
+        }
+        .login-box .password-wrapper .toggle-btn img {
+            width: 22px;
+            height: 22px;
+            display: block;
+        }
+
+        .login-box .login-btn {
+            width: 100%;
+            padding: 14px;
+            background: #B5FF4B;
+            color: #080909;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .login-box .login-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(181, 255, 75, 0.25);
+        }
+        .login-box .login-btn img {
+            width: 20px;
+            height: 20px;
+            filter: brightness(0);
+        }
+        .login-box .error {
+            color: #ff6b6b;
+            margin-top: 12px;
+            display: none;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+        .login-box .login-footer {
+            margin-top: 18px;
+            text-align: center;
+            font-size: 0.65rem;
+            color: #8A8F8A;
+            font-family: 'DM Mono', monospace;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        .login-box .login-footer img {
+            width: 14px;
+            height: 14px;
+            opacity: 0.5;
+        }
+
+        /* ---------- DASHBOARD ---------- */
+        #dashboard {
+            display: none;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .header .left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .header .left img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+        .header .left .brand-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+        .header .left .brand-text span {
+            color: #B5FF4B;
+        }
+        .header .left .brand-sub {
+            font-size: 0.5rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #8A8F8A;
+            font-family: 'DM Mono', monospace;
+            display: block;
+        }
+        .header .right {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .header .badge {
+            background: #B5FF4B;
+            color: #080909;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .header .badge img {
+            width: 12px;
+            height: 12px;
+            filter: brightness(0);
+        }
+        .header .logout-btn {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: #F0F2F0;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .header .logout-btn:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .header .logout-btn img {
+            width: 18px;
+            height: 18px;
+            opacity: 0.6;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: #171A18;
+            border-radius: 20px;
+            padding: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .card .card-header {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.05rem;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .card .card-header .left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .card .card-header .left img {
+            width: 20px;
+            height: 20px;
+        }
+        .card .card-header .count {
+            background: #2A2D2A;
+            padding: 2px 14px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            color: #8A8F8A;
+        }
+
+        .booking-item {
+            background: #101211;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+            border-left: 4px solid #B5FF4B;
+            transition: all 0.3s;
+        }
+        .booking-item.pending {
+            border-left-color: #F5B342;
+        }
+        .booking-item.confirmed {
+            border-left-color: #B5FF4B;
+            opacity: 0.6;
+        }
+        .booking-item.cancelled {
+            border-left-color: #ff6b6b;
+            opacity: 0.4;
+            text-decoration: line-through;
+        }
+        .booking-item .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .booking-item .name {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        .booking-item .phone {
+            color: #8A8F8A;
+            font-size: 0.85rem;
+        }
+        .booking-item .details {
+            color: #8A8F8A;
+            font-size: 0.8rem;
+            margin: 4px 0 8px;
+        }
+        .booking-item .actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+        .booking-item .actions button {
+            padding: 6px 16px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.7rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .booking-item .actions button:hover {
+            transform: scale(1.05);
+        }
+        .booking-item .actions button img {
+            width: 14px;
+            height: 14px;
+        }
+        .btn-confirm {
+            background: #B5FF4B;
+            color: #080909;
+        }
+        .btn-confirm img {
+            filter: brightness(0);
+        }
+        .btn-cancel {
+            background: #ff6b6b;
+            color: #fff;
+        }
+
+        .slot-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .slot-item .info {
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .slot-item .info img {
+            width: 16px;
+            height: 16px;
+            opacity: 0.5;
+        }
+        .slot-item .status {
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.6rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-family: 'DM Mono', monospace;
+        }
+        .status-available {
+            background: rgba(181, 255, 75, 0.2);
+            color: #B5FF4B;
+        }
+        .status-popular {
+            background: rgba(245, 179, 66, 0.2);
+            color: #F5B342;
+        }
+        .status-booked {
+            background: rgba(255, 107, 107, 0.2);
+            color: #ff6b6b;
+        }
+        .slot-item .toggle-btn {
+            background: #2A2D2A;
+            border: none;
+            color: #F0F2F0;
+            padding: 4px 14px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.6rem;
+            font-family: 'Inter', sans-serif;
+            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .slot-item .toggle-btn:hover {
+            background: #3A3D3A;
+        }
+        .slot-item .toggle-btn img {
+            width: 14px;
+            height: 14px;
+            opacity: 0.6;
+        }
+
+        .empty {
+            color: #8A8F8A;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .scroll-list {
+            max-height: 500px;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+        .scroll-list::-webkit-scrollbar {
+            width: 4px;
+        }
+        .scroll-list::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .scroll-list::-webkit-scrollbar-thumb {
+            background: #2A2D2A;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 480px) {
+            .login-box {
+                padding: 28px 20px;
+            }
+            .login-box .logo-wrap .brand {
+                font-size: 1.4rem;
+            }
+            .header .left .brand-text {
+                font-size: 1.2rem;
+            }
+            .card {
+                padding: 16px;
+            }
+            .booking-item {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== LOGIN SCREEN ===== -->
+    <div id="loginScreen" class="container">
+        <div class="login-box">
+
+            <!-- ★★★ LOGO (like index.html) ★★★ -->
+            <div class="logo-wrap">
+                <img src="assets/images/reduced logo.jpg" alt="The NCG Logo" />
+                <div>
+                    <div class="brand">THE <span>NCG</span></div>
+                    <span class="sub">North Community Ground</span>
+                </div>
+            </div>
+
+            <p class="tagline">Enter your credentials to manage the ground.</p>
+
+            <input type="email" id="adminEmail" placeholder="admin@thencg.com" />
+
+            <div class="password-wrapper">
+                <input type="password" id="adminPassword" placeholder="Password" />
+                <button type="button" class="toggle-btn" id="togglePassword" aria-label="Toggle password visibility">
+                    <img src="https://img.icons8.com/ios-filled/22/8A8F8A/visible.png" alt="Show password" id="eyeIcon" />
+                </button>
+            </div>
+
+            <button class="login-btn" id="loginBtn">
+                <img src="https://img.icons8.com/ios-filled/20/000000/login-rounded-right.png" alt="Login" />
+                Login
+            </button>
+
+            <div class="error" id="loginError">Invalid email or password. Please try again.</div>
+
+            <div class="login-footer">
+                <img src="https://img.icons8.com/ios-filled/14/8A8F8A/lock.png" alt="Lock" />
+                Secure admin access
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== DASHBOARD ===== -->
+    <div id="dashboard" class="container">
+        <div class="header">
+            <div class="left">
+                <img src="assets/images/reduced logo.jpg" alt="The NCG Logo" />
+                <div>
+                    <div class="brand-text">THE <span>NCG</span> · ADMIN</div>
+                    <span class="brand-sub">North Community Ground</span>
+                </div>
+            </div>
+            <div class="right">
+                <span class="badge">
+                    <img src="https://img.icons8.com/ios-filled/12/000000/circled.png" alt="Live" />
+                    LIVE
+                </span>
+                <button class="logout-btn" id="logoutBtn">
+                    <img src="https://img.icons8.com/ios-filled/18/FFFFFF/exit.png" alt="Logout" />
+                    Logout
+                </button>
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <!-- PENDING BOOKINGS -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="left">
+                        <img src="https://img.icons8.com/ios-filled/20/B5FF4B/clipboard.png" alt="Pending" />
+                        Pending Requests
+                    </span>
+                    <span class="count" id="pendingCount">0</span>
+                </div>
+                <div class="scroll-list" id="pendingList">
+                    <div class="empty">No pending bookings. 🎉</div>
+                </div>
+            </div>
+
+            <!-- ALL BOOKINGS -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="left">
+                        <img src="https://img.icons8.com/ios-filled/20/B5FF4B/document.png" alt="All Bookings" />
+                        All Bookings
+                    </span>
+                    <span class="count" id="totalCount">0</span>
+                </div>
+                <div class="scroll-list" id="allBookingsList">
+                    <div class="empty">No bookings yet.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLOT MANAGEMENT -->
+        <div class="card" style="margin-top:30px;">
+            <div class="card-header">
+                <span class="left">
+                    <img src="https://img.icons8.com/ios-filled/20/B5FF4B/clock.png" alt="Slot Management" />
+                    Slot Management
+                </span>
+                <span style="font-size:0.65rem; color:#8A8F8A; font-weight:400;">Click Toggle to cycle status</span>
+            </div>
+            <div id="slotList"></div>
+        </div>
+    </div>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import {
+            getFirestore,
+            collection,
+            query,
+            where,
+            onSnapshot,
+            updateDoc,
+            doc,
+            orderBy,
+            getDocs,
+            setDoc
+        } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+        import {
+            getAuth,
+            signInWithEmailAndPassword,
+            onAuthStateChanged,
+            signOut
+        } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+        // ============================================================
+        // FIREBASE CONFIG
+        // ============================================================
+        const firebaseConfig = {
+            apiKey: "AIzaSyCpyHk6kGeCrZik7nSQbkhR0wug8o1-ahM",
+            authDomain: "thencg-131ee.firebaseapp.com",
+            projectId: "thencg-131ee",
+            storageBucket: "thencg-131ee.firebasestorage.app",
+            messagingSenderId: "885392442490",
+            appId: "1:885392442490:web:5bede0cbeb45e13bf4e7c3"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+
+        // ============================================================
+        // DOM REFS
+        // ============================================================
+        const loginScreen = document.getElementById('loginScreen');
+        const dashboard = document.getElementById('dashboard');
+        const loginBtn = document.getElementById('loginBtn');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const loginError = document.getElementById('loginError');
+        const adminEmail = document.getElementById('adminEmail');
+        const adminPassword = document.getElementById('adminPassword');
+        const togglePassword = document.getElementById('togglePassword');
+        const eyeIcon = document.getElementById('eyeIcon');
+        const pendingList = document.getElementById('pendingList');
+        const allBookingsList = document.getElementById('allBookingsList');
+        const slotList = document.getElementById('slotList');
+        const pendingCount = document.getElementById('pendingCount');
+        const totalCount = document.getElementById('totalCount');
+
+        // ============================================================
+        // PASSWORD TOGGLE
+        // ============================================================
+        togglePassword.addEventListener('click', function() {
+            const type = adminPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+            adminPassword.setAttribute('type', type);
+
+            if (type === 'password') {
+                eyeIcon.src = 'https://img.icons8.com/ios-filled/22/8A8F8A/visible.png';
+                eyeIcon.alt = 'Show password';
+            } else {
+                eyeIcon.src = 'https://img.icons8.com/ios-filled/22/8A8F8A/invisible.png';
+                eyeIcon.alt = 'Hide password';
+            }
+        });
+
+        adminPassword.addEventListener('keydown', (e) => { if (e.key === 'Enter') loginBtn.click(); });
+        adminEmail.addEventListener('keydown', (e) => { if (e.key === 'Enter') loginBtn.click(); });
+
+        // ============================================================
+        // AUTH
+        // ============================================================
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                loginScreen.style.display = 'none';
+                dashboard.style.display = 'block';
+                loadData();
+            } else {
+                loginScreen.style.display = 'block';
+                dashboard.style.display = 'none';
+            }
+        });
+
+        loginBtn.addEventListener('click', async () => {
+            try {
+                await signInWithEmailAndPassword(auth, adminEmail.value, adminPassword.value);
+                loginError.style.display = 'none';
+            } catch (error) {
+                loginError.style.display = 'block';
+                console.error('Login error:', error);
+            }
+        });
+
+        logoutBtn.addEventListener('click', async () => {
+            await signOut(auth);
+        });
+
+        // ============================================================
+        // LOAD DATA
+        // ============================================================
+        function loadData() {
+            // --- PENDING ---
+            const qPending = query(
+                collection(db, 'bookings'),
+                where('status', '==', 'PENDING'),
+                orderBy('createdAt', 'asc')
+            );
+            onSnapshot(qPending, (snapshot) => {
+                pendingList.innerHTML = '';
+                let count = 0;
+                if (snapshot.empty) {
+                    pendingList.innerHTML = '<div class="empty">No pending bookings. 🎉</div>';
+                } else {
+                    snapshot.forEach((doc) => {
+                        count++;
+                        const data = doc.data();
+                        const div = document.createElement('div');
+                        div.className = 'booking-item pending';
+                        div.innerHTML = `
+                            <div class="top">
+                                <div>
+                                    <div class="name">${data.customerName || 'Unknown'}</div>
+                                    <div class="phone">📱 ${data.customerPhone || 'N/A'}</div>
+                                </div>
+                                <span style="font-size:0.65rem; background:#2A2D2A; padding:2px 10px; border-radius:50px;">${data.facility}</span>
+                            </div>
+                            <div class="details">📅 ${data.date} · 🕒 ${data.time} · ⏱ ${data.duration} · 👥 ${data.players}</div>
+                            <div class="actions">
+                                <button class="btn-confirm" data-id="${doc.id}">
+                                    <img src="https://img.icons8.com/ios-filled/14/000000/checkmark.png" alt="Confirm" />
+                                    Confirm
+                                </button>
+                                <button class="btn-cancel" data-id="${doc.id}">
+                                    <img src="https://img.icons8.com/ios-filled/14/FFFFFF/cancel.png" alt="Cancel" />
+                                    Cancel
+                                </button>
+                            </div>
+                        `;
+                        pendingList.appendChild(div);
+                    });
+                }
+                pendingCount.textContent = count;
+
+                document.querySelectorAll('#pendingList .btn-confirm').forEach(btn => {
+                    btn.addEventListener('click', async () => {
+                        await updateDoc(doc(db, 'bookings', btn.dataset.id), { status: 'CONFIRMED' });
+                    });
+                });
+                document.querySelectorAll('#pendingList .btn-cancel').forEach(btn => {
+                    btn.addEventListener('click', async () => {
+                        await updateDoc(doc(db, 'bookings', btn.dataset.id), { status: 'CANCELLED' });
+                    });
+                });
+            });
+
+            // --- ALL BOOKINGS ---
+            const qAll = query(collection(db, 'bookings'), orderBy('createdAt', 'desc'));
+            onSnapshot(qAll, (snapshot) => {
+                allBookingsList.innerHTML = '';
+                let count = 0;
+                if (snapshot.empty) {
+                    allBookingsList.innerHTML = '<div class="empty">No bookings yet.</div>';
+                } else {
+                    snapshot.forEach((doc) => {
+                        count++;
+                        const data = doc.data();
+                        const statusClass = data.status?.toLowerCase() || 'pending';
+                        const div = document.createElement('div');
+                        div.className = `booking-item ${statusClass}`;
+                        div.innerHTML = `
+                            <div class="top">
+                                <div>
+                                    <div class="name">${data.customerName || 'Unknown'} <span style="font-size:0.6rem; color:#8A8F8A;">#${statusClass}</span></div>
+                                    <div class="phone">📱 ${data.customerPhone || 'N/A'}</div>
+                                </div>
+                                <span style="font-size:0.6rem; color:#8A8F8A;">${data.facility}</span>
+                            </div>
+                            <div class="details">📅 ${data.date} · 🕒 ${data.time}</div>
+                            ${statusClass === 'pending' ? `
+                                <div class="actions">
+                                    <button class="btn-confirm" data-id="${doc.id}">
+                                        <img src="https://img.icons8.com/ios-filled/14/000000/checkmark.png" alt="Confirm" />
+                                        Confirm
+                                    </button>
+                                    <button class="btn-cancel" data-id="${doc.id}">
+                                        <img src="https://img.icons8.com/ios-filled/14/FFFFFF/cancel.png" alt="Cancel" />
+                                        Cancel
+                                    </button>
+                                </div>
+                            ` : ''}
+                        `;
+                        allBookingsList.appendChild(div);
+                    });
+                }
+                totalCount.textContent = count;
+
+                document.querySelectorAll('#allBookingsList .btn-confirm').forEach(btn => {
+                    btn.addEventListener('click', async () => {
+                        await updateDoc(doc(db, 'bookings', btn.dataset.id), { status: 'CONFIRMED' });
+                    });
+                });
+                document.querySelectorAll('#allBookingsList .btn-cancel').forEach(btn => {
+                    btn.addEventListener('click', async () => {
+                        await updateDoc(doc(db, 'bookings', btn.dataset.id), { status: 'CANCELLED' });
+                    });
+                });
+            });
+
+            // --- SLOTS ---
+            const qSlots = query(collection(db, 'slots'));
+            onSnapshot(qSlots, (snapshot) => {
+                slotList.innerHTML = '';
+                if (snapshot.empty) {
+                    slotList.innerHTML = '<div class="empty">No slots found. Please add slots in Firestore.</div>';
+                } else {
+                    snapshot.forEach((doc) => {
+                        const data = doc.data();
+                        const status = data.status || 'AVAILABLE';
+                        const statusClass = `status-${status.toLowerCase()}`;
+                        const div = document.createElement('div');
+                        div.className = 'slot-item';
+                        div.innerHTML = `
+                            <div class="info">
+                                <img src="https://img.icons8.com/ios-filled/16/B5FF4B/clock.png" alt="Clock" />
+                                <strong>${data.facility}</strong> · ${data.date} · ${data.time}
+                            </div>
+                            <div style="display:flex; gap:8px; align-items:center;">
+                                <span class="status ${statusClass}">${status}</span>
+                                <button class="toggle-btn" data-id="${doc.id}" data-current="${status}">
+                                    <img src="https://img.icons8.com/ios-filled/14/FFFFFF/refresh.png" alt="Toggle" />
+                                    Toggle
+                                </button>
+                            </div>
+                        `;
+                        slotList.appendChild(div);
+                    });
+                    document.querySelectorAll('.toggle-btn').forEach(btn => {
+                        btn.addEventListener('click', async () => {
+                            const current = btn.dataset.current;
+                            const statuses = ['AVAILABLE', 'POPULAR', 'BOOKED'];
+                            let idx = statuses.indexOf(current);
+                            let next = statuses[(idx + 1) % statuses.length];
+                            await updateDoc(doc(db, 'slots', btn.dataset.id), { status: next });
+                        });
+                    });
+                }
+            });
+        }
+
+        // ============================================================
+        // SEED SLOTS (Uncomment to run once)
+        // ============================================================
+        async function seedSlots() {
+            const snapshot = await getDocs(collection(db, 'slots'));
+            if (snapshot.empty) {
+                const facilities = ['Football / Futsal', 'Cricket', 'Indoor Ground', 'Training Session'];
+                const times = ['06:00 PM', '07:00 PM', '08:00 PM', '09:00 PM', '10:00 PM'];
+                const dates = ['2026-08-30', '2026-08-31', '2026-09-01'];
+                for (const facility of facilities) {
+                    for (const date of dates) {
+                        for (const time of times) {
+                            const id = `${facility}_${date}_${time}`.replace(/\s/g, '_');
+                            await setDoc(doc(db, 'slots', id), {
+                                facility,
+                                date,
+                                time,
+                                status: 'AVAILABLE'
+                            });
+                        }
+                    }
+                }
+                console.log('✅ Slots seeded successfully!');
+            }
+        }
+        // Uncomment to seed: seedSlots();
+
+        console.log('🔥 Admin Dashboard connected to Firebase.');
+    </script>
+</body>
+</html>
