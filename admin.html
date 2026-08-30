@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
   <title>NCG Admin Dashboard</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
-  <title>NCG Admin Dashboard</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-   <link rel="icon" type="image/x-icon" href="assets/images/reduced logo.jpg">
+  <link rel="icon" type="image/x-icon" href="assets/images/reduced logo.jpg">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:opsz,wght@14..32,300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:opsz,wght@14..32,300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap"
+    rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <style>
     /* ─── RESET & VARIABLES ─── */
-    * { margin:0; padding:0; box-sizing:border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     :root {
       --bg-primary: #080909;
       --bg-secondary: #101211;
@@ -27,15 +28,19 @@
       --text-primary: #F0F2F0;
       --text-secondary: #8A8F8A;
       --lime: #B5FF4B;
-      --lime-glow: rgba(181,255,75,0.25);
+      --lime-glow: rgba(181, 255, 75, 0.25);
       --warm: #F5B342;
       --danger: #ff6b6b;
-      --border-color: rgba(255,255,255,0.06);
+      --border-color: rgba(255, 255, 255, 0.06);
       --radius: 20px;
       --radius-sm: 12px;
-      --shadow: 0 25px 60px rgba(0,0,0,0.8);
+      --shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
     }
-    html { scroll-behavior: smooth; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       background: var(--bg-primary);
       color: var(--text-primary);
@@ -46,463 +51,1156 @@
       align-items: center;
       justify-content: center;
     }
-    .container { max-width:1280px; margin:0 auto; width:100%; }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      width: 100%;
+    }
 
     /* ─── LOGIN ─── */
     .login-box {
-      max-width: 420px; margin:0 auto; background:var(--bg-card); padding:40px;
-      border-radius:var(--radius); border:1px solid var(--border-color); text-align:center;
+      max-width: 420px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      padding: 40px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border-color);
+      text-align: center;
     }
+
     .login-box .logo-wrap {
-      display:flex; align-items:center; justify-content:center; gap:14px; margin-bottom:8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 8px;
     }
-    .login-box .logo-wrap img { width:48px; height:48px; object-fit:contain; border-radius:12px; }
+
+    .login-box .logo-wrap img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+
     .login-box .logo-wrap .brand {
-      font-family:'Space Grotesk',sans-serif; font-size:1.8rem; font-weight:700; letter-spacing:0.06em;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
     }
-    .login-box .logo-wrap .brand span { color:var(--lime); }
+
+    .login-box .logo-wrap .brand span {
+      color: var(--lime);
+    }
+
     .login-box .logo-wrap .sub {
-      font-size:0.5rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-secondary);
-      font-family:'DM Mono',monospace; display:block;
+      font-size: 0.5rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      font-family: 'DM Mono', monospace;
+      display: block;
     }
-    .login-box .tagline { color:var(--text-secondary); margin-bottom:28px; font-size:0.85rem; }
+
+    .login-box .tagline {
+      color: var(--text-secondary);
+      margin-bottom: 28px;
+      font-size: 0.85rem;
+    }
+
     .login-box input[type="email"],
     .login-box input[type="password"],
     .login-box input[type="text"] {
-      width:100%; padding:14px 16px; margin-bottom:16px; border-radius:var(--radius-sm);
-      background:var(--bg-mid); border:1px solid var(--border-color); color:var(--text-primary);
-      font-size:1rem; font-family:'Inter',sans-serif; transition:border-color 0.3s;
+      width: 100%;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-mid);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      transition: border-color 0.3s;
     }
-    .login-box input:focus { outline:none; border-color:var(--lime); }
-    .login-box .password-wrapper { position:relative; width:100%; }
-    .login-box .password-wrapper input { padding-right:52px; margin-bottom:16px; }
+
+    .login-box input:focus {
+      outline: none;
+      border-color: var(--lime);
+    }
+
+    .login-box .password-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .login-box .password-wrapper input {
+      padding-right: 52px;
+      margin-bottom: 16px;
+    }
+
     .login-box .password-wrapper .toggle-btn {
-      position:absolute; right:14px; top:50%; transform:translateY(-50%);
-      background:none; border:none; cursor:pointer; padding:6px; opacity:0.6; transition:opacity 0.3s;
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      opacity: 0.6;
+      transition: opacity 0.3s;
     }
-    .login-box .password-wrapper .toggle-btn:hover { opacity:1; }
-    .login-box .password-wrapper .toggle-btn img { width:22px; height:22px; display:block; }
+
+    .login-box .password-wrapper .toggle-btn:hover {
+      opacity: 1;
+    }
+
+    .login-box .password-wrapper .toggle-btn img {
+      width: 22px;
+      height: 22px;
+      display: block;
+    }
+
     .login-box .login-btn {
-      width:100%; padding:14px; background:var(--lime); color:var(--bg-primary); border:none;
-      border-radius:50px; font-weight:700; font-size:1rem; cursor:pointer;
-      transition:transform 0.3s, box-shadow 0.3s; font-family:'Inter',sans-serif;
-      display:flex; align-items:center; justify-content:center; gap:10px;
+      width: 100%;
+      padding: 14px;
+      background: var(--lime);
+      color: var(--bg-primary);
+      border: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
     }
-    .login-box .login-btn:hover { transform:scale(1.02); box-shadow:0 0 30px var(--lime-glow); }
-    .login-box .login-btn img { width:20px; height:20px; filter:brightness(0); }
-    .login-box .error { color:var(--danger); margin-top:12px; display:none; font-size:0.85rem; }
+
+    .login-box .login-btn:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 30px var(--lime-glow);
+    }
+
+    .login-box .login-btn img {
+      width: 20px;
+      height: 20px;
+      filter: brightness(0);
+    }
+
+    .login-box .error {
+      color: var(--danger);
+      margin-top: 12px;
+      display: none;
+      font-size: 0.85rem;
+    }
+
     .login-box .login-footer {
-      margin-top:18px; font-size:0.65rem; color:var(--text-secondary);
-      font-family:'DM Mono',monospace; display:flex; align-items:center; justify-content:center; gap:6px;
+      margin-top: 18px;
+      font-size: 0.65rem;
+      color: var(--text-secondary);
+      font-family: 'DM Mono', monospace;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
     }
-    .login-box .login-footer img { width:14px; height:14px; opacity:0.5; }
+
+    .login-box .login-footer img {
+      width: 14px;
+      height: 14px;
+      opacity: 0.5;
+    }
 
     /* ─── DASHBOARD ─── */
-    #dashboard { display:none; }
+    #dashboard {
+      display: none;
+    }
+
     .header {
-      display:flex; justify-content:space-between; align-items:center;
-      padding:16px 0 20px; border-bottom:1px solid var(--border-color); margin-bottom:24px;
-      flex-wrap:wrap; gap:12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0 20px;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 12px;
     }
-    .header .left { display:flex; align-items:center; gap:14px; }
-    .header .left img { width:40px; height:40px; object-fit:contain; border-radius:10px; }
+
+    .header .left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .header .left img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
     .header .left .brand-text {
-      font-family:'Space Grotesk',sans-serif; font-size:1.4rem; font-weight:700;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
     }
-    .header .left .brand-text span { color:var(--lime); }
+
+    .header .left .brand-text span {
+      color: var(--lime);
+    }
+
     .header .left .brand-sub {
-      font-size:0.45rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-secondary);
-      font-family:'DM Mono',monospace; display:block;
+      font-size: 0.45rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      font-family: 'DM Mono', monospace;
+      display: block;
     }
-    .header .right { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+
+    .header .right {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
     .header .badge {
-      background:var(--lime); color:var(--bg-primary); padding:4px 14px; border-radius:50px;
-      font-weight:600; font-size:0.65rem; display:flex; align-items:center; gap:6px;
+      background: var(--lime);
+      color: var(--bg-primary);
+      padding: 4px 14px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.65rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
-    .header .badge img { width:12px; height:12px; filter:brightness(0); }
+
+    .header .badge img {
+      width: 12px;
+      height: 12px;
+      filter: brightness(0);
+    }
+
     .header .logout-btn {
-      background:transparent; border:1px solid var(--border-color); color:var(--text-primary);
-      padding:8px 18px; border-radius:50px; cursor:pointer; transition:background 0.3s;
-      font-family:'Inter',sans-serif; font-size:0.7rem; display:flex; align-items:center; gap:8px;
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 8px 18px;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background 0.3s;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
-    .header .logout-btn:hover { background:rgba(255,255,255,0.05); }
-    .header .logout-btn img { width:16px; height:16px; opacity:0.6; }
+
+    .header .logout-btn:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .header .logout-btn img {
+      width: 16px;
+      height: 16px;
+      opacity: 0.6;
+    }
 
     /* ─── STATS ─── */
     .stats-grid {
-      display:grid; grid-template-columns:repeat(auto-fit, minmax(140px,1fr));
-      gap:16px; margin-bottom:28px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
     }
+
     .stat-card {
-      background:var(--bg-card); border-radius:var(--radius-sm); padding:16px 20px;
-      border:1px solid var(--border-color); text-align:center;
+      background: var(--bg-card);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      border: 1px solid var(--border-color);
+      text-align: center;
     }
+
     .stat-card .number {
-      font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.8rem; color:var(--lime);
-      line-height:1.2;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: var(--lime);
+      line-height: 1.2;
     }
+
     .stat-card .label {
-      font-size:0.6rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-secondary);
-      font-family:'DM Mono',monospace; margin-top:2px;
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-secondary);
+      font-family: 'DM Mono', monospace;
+      margin-top: 2px;
     }
-    .stat-card .number.danger { color:var(--danger); }
-    .stat-card .number.warm { color:var(--warm); }
+
+    .stat-card .number.danger {
+      color: var(--danger);
+    }
+
+    .stat-card .number.warm {
+      color: var(--warm);
+    }
 
     /* ─── CARDS ─── */
-    .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
-    @media (max-width:768px) { .grid-2 { grid-template-columns:1fr; } }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    @media (max-width:768px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
 
     .card {
-      background:var(--bg-card); border-radius:var(--radius); padding:20px;
-      border:1px solid var(--border-color); margin-bottom:24px;
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      padding: 20px;
+      border: 1px solid var(--border-color);
+      margin-bottom: 24px;
     }
+
     .card .card-header {
-      font-family:'Space Grotesk',sans-serif; font-size:0.95rem; margin-bottom:14px;
-      display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
     }
-    .card .card-header .left { display:flex; align-items:center; gap:10px; }
-    .card .card-header .left img { width:20px; height:20px; }
+
+    .card .card-header .left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card .card-header .left img {
+      width: 20px;
+      height: 20px;
+    }
+
     .card .card-header .count {
-      background:var(--bg-mid); padding:2px 12px; border-radius:50px; font-size:0.65rem;
-      color:var(--text-secondary);
+      background: var(--bg-mid);
+      padding: 2px 12px;
+      border-radius: 50px;
+      font-size: 0.65rem;
+      color: var(--text-secondary);
     }
 
     /* ─── BOOKING ITEMS ─── */
     .booking-item {
-      background:var(--bg-secondary); border-radius:var(--radius-sm); padding:14px 16px;
-      margin-bottom:10px; border-left:4px solid var(--lime); transition:all 0.3s;
+      background: var(--bg-secondary);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      margin-bottom: 10px;
+      border-left: 4px solid var(--lime);
+      transition: all 0.3s;
     }
-    .booking-item.pending { border-left-color:var(--warm); }
-    .booking-item.confirmed { border-left-color:var(--lime); opacity:0.6; }
-    .booking-item.cancelled { border-left-color:var(--danger); opacity:0.4; text-decoration:line-through; }
+
+    .booking-item.pending {
+      border-left-color: var(--warm);
+    }
+
+    .booking-item.confirmed {
+      border-left-color: var(--lime);
+      opacity: 0.6;
+    }
+
+    .booking-item.cancelled {
+      border-left-color: var(--danger);
+      opacity: 0.4;
+      text-decoration: line-through;
+    }
+
     .booking-item .top {
-      display:flex; justify-content:space-between; align-items:flex-start; gap:10px; flex-wrap:wrap;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      flex-wrap: wrap;
     }
-    .booking-item .name { font-weight:600; font-size:0.9rem; }
-    .booking-item .phone { color:var(--text-secondary); font-size:0.8rem; }
+
+    .booking-item .name {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .booking-item .phone {
+      color: var(--text-secondary);
+      font-size: 0.8rem;
+    }
+
     .booking-item .details {
-      display:flex; flex-wrap:wrap; gap:6px 12px; color:var(--text-secondary); font-size:0.75rem; margin:4px 0 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 12px;
+      color: var(--text-secondary);
+      font-size: 0.75rem;
+      margin: 4px 0 8px;
     }
-    .booking-item .details span { background:var(--bg-mid); padding:2px 8px; border-radius:4px; }
+
+    .booking-item .details span {
+      background: var(--bg-mid);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
     .booking-item .actions {
-      display:flex; gap:8px; flex-wrap:wrap; margin-top:6px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 6px;
     }
+
     .booking-item .actions button {
-      padding:5px 14px; border:none; border-radius:50px; font-weight:600; font-size:0.65rem;
-      cursor:pointer; transition:transform 0.2s; font-family:'Inter',sans-serif;
-      display:flex; align-items:center; gap:6px;
+      padding: 5px 14px;
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.65rem;
+      cursor: pointer;
+      transition: transform 0.2s;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
-    .booking-item .actions button:hover { transform:scale(1.04); }
-    .booking-item .actions button img { width:14px; height:14px; }
-    .btn-confirm { background:var(--lime); color:var(--bg-primary); }
-    .btn-confirm img { filter:brightness(0); }
-    .btn-cancel { background:var(--danger); color:#fff; }
+
+    .booking-item .actions button:hover {
+      transform: scale(1.04);
+    }
+
+    .booking-item .actions button img {
+      width: 14px;
+      height: 14px;
+    }
+
+    .btn-confirm {
+      background: var(--lime);
+      color: var(--bg-primary);
+    }
+
+    .btn-confirm img {
+      filter: brightness(0);
+    }
+
+    .btn-cancel {
+      background: var(--danger);
+      color: #fff;
+    }
 
     /* ─── SLOT ITEMS ─── */
     .slot-item {
-      display:flex; justify-content:space-between; align-items:center;
-      padding:10px 12px; margin-bottom:6px; border-radius:var(--radius-sm);
-      background:var(--bg-secondary); border-left:4px solid var(--bg-mid);
-      transition:background 0.2s; flex-wrap:wrap; gap:8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 12px;
+      margin-bottom: 6px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-secondary);
+      border-left: 4px solid var(--bg-mid);
+      transition: background 0.2s;
+      flex-wrap: wrap;
+      gap: 8px;
     }
-    .slot-item.status-available { border-left-color:var(--lime); background:rgba(181,255,75,0.04); }
-    .slot-item.status-popular { border-left-color:var(--warm); background:rgba(245,179,66,0.06); }
-    .slot-item.status-booked { border-left-color:var(--danger); background:rgba(255,107,107,0.08); }
-    .slot-item .info {
-      font-size:0.8rem; display:flex; align-items:center; gap:8px; flex:1; flex-wrap:wrap;
-    }
-    .slot-item .info img { width:16px; height:16px; opacity:0.5; }
-    .slot-item .status-badge {
-      padding:2px 10px; border-radius:50px; font-size:0.55rem; font-weight:600;
-      text-transform:uppercase; font-family:'DM Mono',monospace;
-    }
-    .slot-item.status-available .status-badge { background:rgba(181,255,75,0.2); color:var(--lime); }
-    .slot-item.status-popular .status-badge { background:rgba(245,179,66,0.2); color:var(--warm); }
-    .slot-item.status-booked .status-badge { background:rgba(255,107,107,0.2); color:var(--danger); }
-    .slot-item .slot-actions {
-      display:flex; gap:6px; flex-wrap:wrap;
-    }
-    .slot-item .slot-actions button {
-      padding:4px 12px; border:none; border-radius:50px; font-weight:600; font-size:0.6rem;
-      cursor:pointer; transition:transform 0.2s; font-family:'Inter',sans-serif;
-      display:flex; align-items:center; gap:4px;
-    }
-    .slot-item .slot-actions button:hover { transform:scale(1.04); }
-    .slot-item .slot-actions button:disabled { opacity:0.4; cursor:not-allowed; }
 
-    .empty { color:var(--text-secondary); text-align:center; padding:24px 0; font-size:0.85rem; }
-    .scroll-list { max-height:420px; overflow-y:auto; padding-right:4px; }
-    .scroll-list::-webkit-scrollbar { width:4px; }
-    .scroll-list::-webkit-scrollbar-track { background:transparent; }
-    .scroll-list::-webkit-scrollbar-thumb { background:var(--bg-mid); border-radius:4px; }
+    .slot-item.status-available {
+      border-left-color: var(--lime);
+      background: rgba(181, 255, 75, 0.04);
+    }
+
+    .slot-item.status-popular {
+      border-left-color: var(--warm);
+      background: rgba(245, 179, 66, 0.06);
+    }
+
+    .slot-item.status-booked {
+      border-left-color: var(--danger);
+      background: rgba(255, 107, 107, 0.08);
+    }
+
+    .slot-item .info {
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+      flex-wrap: wrap;
+    }
+
+    .slot-item .info img {
+      width: 16px;
+      height: 16px;
+      opacity: 0.5;
+    }
+
+    .slot-item .status-badge {
+      padding: 2px 10px;
+      border-radius: 50px;
+      font-size: 0.55rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-family: 'DM Mono', monospace;
+    }
+
+    .slot-item.status-available .status-badge {
+      background: rgba(181, 255, 75, 0.2);
+      color: var(--lime);
+    }
+
+    .slot-item.status-popular .status-badge {
+      background: rgba(245, 179, 66, 0.2);
+      color: var(--warm);
+    }
+
+    .slot-item.status-booked .status-badge {
+      background: rgba(255, 107, 107, 0.2);
+      color: var(--danger);
+    }
+
+    .slot-item .slot-actions {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .slot-item .slot-actions button {
+      padding: 4px 12px;
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.6rem;
+      cursor: pointer;
+      transition: transform 0.2s;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .slot-item .slot-actions button:hover {
+      transform: scale(1.04);
+    }
+
+    .slot-item .slot-actions button:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .empty {
+      color: var(--text-secondary);
+      text-align: center;
+      padding: 24px 0;
+      font-size: 0.85rem;
+    }
+
+    .scroll-list {
+      max-height: 420px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+
+    .scroll-list::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .scroll-list::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .scroll-list::-webkit-scrollbar-thumb {
+      background: var(--bg-mid);
+      border-radius: 4px;
+    }
 
     /* ─── ADD SLOT MODAL ─── */
     .modal-overlay {
-      position:fixed; inset:0; z-index:99999; background:rgba(0,0,0,0.7);
-      backdrop-filter:blur(12px); display:flex; align-items:center; justify-content:center;
-      opacity:0; visibility:hidden; transition:opacity 0.4s ease, visibility 0.4s ease;
-      padding:20px;
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+      padding: 20px;
     }
-    .modal-overlay.open { opacity:1; visibility:visible; }
+
+    .modal-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
     .modal-overlay .modal {
-      background:var(--bg-card); border-radius:var(--radius); padding:32px 28px;
-      max-width:520px; width:100%; border:1px solid var(--border-color);
-      box-shadow:var(--shadow); transform:scale(0.95) translateY(10px);
-      transition:transform 0.4s ease; max-height:95vh; overflow-y:auto;
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      max-width: 520px;
+      width: 100%;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow);
+      transform: scale(0.95) translateY(10px);
+      transition: transform 0.4s ease;
+      max-height: 95vh;
+      overflow-y: auto;
     }
-    .modal-overlay.open .modal { transform:scale(1) translateY(0); }
-    .modal h2 { font-family:'Space Grotesk',sans-serif; font-size:1.4rem; margin-bottom:6px; }
-    .modal .sub { color:var(--text-secondary); font-size:0.85rem; margin-bottom:20px; }
-    .modal .form-group { margin-bottom:16px; }
+
+    .modal-overlay.open .modal {
+      transform: scale(1) translateY(0);
+    }
+
+    .modal h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.4rem;
+      margin-bottom: 6px;
+    }
+
+    .modal .sub {
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      margin-bottom: 20px;
+    }
+
+    .modal .form-group {
+      margin-bottom: 16px;
+    }
+
     .modal .form-group label {
-      display:block; font-size:0.75rem; font-weight:600; text-transform:uppercase;
-      letter-spacing:0.06em; color:var(--text-secondary); margin-bottom:4px;
-      font-family:'DM Mono',monospace;
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-secondary);
+      margin-bottom: 4px;
+      font-family: 'DM Mono', monospace;
     }
+
     .modal .form-group input,
     .modal .form-group select {
-      width:100%; padding:10px 14px; border-radius:var(--radius-sm); background:var(--bg-mid);
-      border:1px solid var(--border-color); color:var(--text-primary); font-size:0.9rem;
-      font-family:'Inter',sans-serif; transition:border-color 0.3s;
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-mid);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      font-size: 0.9rem;
+      font-family: 'Inter', sans-serif;
+      transition: border-color 0.3s;
     }
+
     .modal .form-group input:focus,
-    .modal .form-group select:focus { outline:none; border-color:var(--lime); }
+    .modal .form-group select:focus {
+      outline: none;
+      border-color: var(--lime);
+    }
+
     .modal .modal-actions {
-      display:flex; gap:12px; margin-top:20px; flex-wrap:wrap;
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+      flex-wrap: wrap;
     }
+
     .modal .modal-actions button {
-      padding:10px 24px; border:none; border-radius:50px; font-weight:700; font-size:0.85rem;
-      cursor:pointer; transition:transform 0.2s; font-family:'Inter',sans-serif; flex:1; min-width:100px;
+      padding: 10px 24px;
+      border: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: transform 0.2s;
+      font-family: 'Inter', sans-serif;
+      flex: 1;
+      min-width: 100px;
     }
-    .modal .modal-actions button:hover { transform:scale(1.02); }
-    .modal .modal-actions .btn-primary { background:var(--lime); color:var(--bg-primary); }
-    .modal .modal-actions .btn-secondary { background:transparent; border:1px solid var(--border-color); color:var(--text-primary); }
+
+    .modal .modal-actions button:hover {
+      transform: scale(1.02);
+    }
+
+    .modal .modal-actions .btn-primary {
+      background: var(--lime);
+      color: var(--bg-primary);
+    }
+
+    .modal .modal-actions .btn-secondary {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+    }
 
     /* ─── NOTIFICATIONS ─── */
     .notification-item {
-      display:flex; justify-content:space-between; align-items:center;
-      padding:10px 12px; margin-bottom:6px; border-radius:var(--radius-sm);
-      background:var(--bg-secondary); border-left:4px solid var(--lime);
-      gap:10px; flex-wrap:wrap;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 12px;
+      margin-bottom: 6px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-secondary);
+      border-left: 4px solid var(--lime);
+      gap: 10px;
+      flex-wrap: wrap;
     }
-    .notification-item.inactive { border-left-color:var(--text-secondary); opacity:0.5; }
-    .notification-item .content { flex:1; }
-    .notification-item .content .title { font-weight:600; font-size:0.85rem; }
-    .notification-item .content .message { font-size:0.75rem; color:var(--text-secondary); }
+
+    .notification-item.inactive {
+      border-left-color: var(--text-secondary);
+      opacity: 0.5;
+    }
+
+    .notification-item .content {
+      flex: 1;
+    }
+
+    .notification-item .content .title {
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+
+    .notification-item .content .message {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+    }
+
     .notification-item .content .meta {
-      font-size:0.6rem; color:var(--text-secondary); font-family:'DM Mono',monospace;
+      font-size: 0.6rem;
+      color: var(--text-secondary);
+      font-family: 'DM Mono', monospace;
     }
+
     .notification-item .actions {
-      display:flex; gap:6px; flex-wrap:wrap;
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
     }
+
     .notification-item .actions button {
-      padding:4px 12px; border:none; border-radius:50px; font-weight:600; font-size:0.6rem;
-      cursor:pointer; transition:transform 0.2s; font-family:'Inter',sans-serif;
+      padding: 4px 12px;
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.6rem;
+      cursor: pointer;
+      transition: transform 0.2s;
+      font-family: 'Inter', sans-serif;
     }
-    .notification-item .actions button:hover { transform:scale(1.04); }
-    .notification-item .actions .btn-active { background:var(--lime); color:var(--bg-primary); }
-    .notification-item .actions .btn-inactive { background:var(--bg-mid); color:var(--text-secondary); }
-    .notification-item .actions .btn-delete { background:var(--danger); color:#fff; }
+
+    .notification-item .actions button:hover {
+      transform: scale(1.04);
+    }
+
+    .notification-item .actions .btn-active {
+      background: var(--lime);
+      color: var(--bg-primary);
+    }
+
+    .notification-item .actions .btn-inactive {
+      background: var(--bg-mid);
+      color: var(--text-secondary);
+    }
+
+    .notification-item .actions .btn-delete {
+      background: var(--danger);
+      color: #fff;
+    }
 
     .add-notification-row {
-      display:flex; gap:10px; flex-wrap:wrap; margin-bottom:14px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
     }
+
     .add-notification-row input,
     .add-notification-row select {
-      padding:8px 12px; border-radius:var(--radius-sm); background:var(--bg-mid);
-      border:1px solid var(--border-color); color:var(--text-primary); font-size:0.8rem;
-      font-family:'Inter',sans-serif; flex:1; min-width:120px;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-mid);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      font-size: 0.8rem;
+      font-family: 'Inter', sans-serif;
+      flex: 1;
+      min-width: 120px;
     }
+
     .add-notification-row input:focus,
-    .add-notification-row select:focus { outline:none; border-color:var(--lime); }
-    .add-notification-row button {
-      padding:8px 18px; background:var(--lime); color:var(--bg-primary); border:none;
-      border-radius:50px; font-weight:700; font-size:0.75rem; cursor:pointer;
-      transition:transform 0.2s; font-family:'Inter',sans-serif; white-space:nowrap;
+    .add-notification-row select:focus {
+      outline: none;
+      border-color: var(--lime);
     }
-    .add-notification-row button:hover { transform:scale(1.04); }
-    .add-notification-row button:disabled { opacity:0.5; cursor:not-allowed; }
+
+    .add-notification-row button {
+      padding: 8px 18px;
+      background: var(--lime);
+      color: var(--bg-primary);
+      border: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: transform 0.2s;
+      font-family: 'Inter', sans-serif;
+      white-space: nowrap;
+    }
+
+    .add-notification-row button:hover {
+      transform: scale(1.04);
+    }
+
+    .add-notification-row button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
 
     /* ─── PRICING ─── */
     .pricing-facility-row {
-      display:flex;
-      align-items:center;
-      gap:12px;
-      padding:10px 0;
-      border-bottom:1px solid var(--border-color);
-      flex-wrap:wrap;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border-color);
+      flex-wrap: wrap;
     }
+
     .pricing-facility-row .facility-name {
-      flex:1;
-      font-weight:600;
-      font-size:0.9rem;
-      min-width:140px;
+      flex: 1;
+      font-weight: 600;
+      font-size: 0.9rem;
+      min-width: 140px;
     }
+
     .pricing-facility-row .facility-name img {
-      width:20px;
-      height:20px;
-      vertical-align:middle;
-      margin-right:8px;
-      opacity:0.7;
+      width: 20px;
+      height: 20px;
+      vertical-align: middle;
+      margin-right: 8px;
+      opacity: 0.7;
     }
+
     .pricing-facility-row .price-control {
-      display:flex;
-      align-items:center;
-      gap:8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
+
     .pricing-facility-row .price-control input {
-      width:100px;
-      padding:6px 10px;
-      border-radius:var(--radius-sm);
-      background:var(--bg-mid);
-      border:1px solid var(--border-color);
-      color:var(--text-primary);
-      text-align:center;
-      font-family:'Inter',sans-serif;
-      font-size:0.9rem;
-      transition:border-color 0.3s;
+      width: 100px;
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-mid);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      text-align: center;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      transition: border-color 0.3s;
     }
-    .pricing-facility-row .price-control input:focus { outline:none; border-color:var(--lime); }
+
+    .pricing-facility-row .price-control input:focus {
+      outline: none;
+      border-color: var(--lime);
+    }
+
     .pricing-facility-row .price-control .currency {
-      font-size:0.8rem;
-      color:var(--text-secondary);
-      font-weight:500;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      font-weight: 500;
     }
+
     .pricing-facility-row .save-price-btn {
-      padding:4px 16px;
-      background:var(--lime);
-      color:var(--bg-primary);
-      border:none;
-      border-radius:50px;
-      font-weight:600;
-      font-size:0.7rem;
-      cursor:pointer;
-      transition:transform 0.2s, box-shadow 0.2s;
-      font-family:'Inter',sans-serif;
-      white-space:nowrap;
+      padding: 4px 16px;
+      background: var(--lime);
+      color: var(--bg-primary);
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.7rem;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      font-family: 'Inter', sans-serif;
+      white-space: nowrap;
     }
+
     .pricing-facility-row .save-price-btn:hover {
-      transform:scale(1.03);
-      box-shadow:0 0 20px var(--lime-glow);
+      transform: scale(1.03);
+      box-shadow: 0 0 20px var(--lime-glow);
     }
+
     .pricing-facility-row .save-price-btn:disabled {
-      opacity:0.5;
-      cursor:not-allowed;
-      transform:none;
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
     }
+
     .pricing-facility-row .price-status {
-      font-size:0.7rem;
-      margin-left:4px;
-      min-width:60px;
+      font-size: 0.7rem;
+      margin-left: 4px;
+      min-width: 60px;
     }
-    .pricing-facility-row .price-status.saved { color:var(--lime); }
-    .pricing-facility-row .price-status.error { color:var(--danger); }
-    .pricing-facility-row .price-status.saving { color:var(--warm); }
+
+    .pricing-facility-row .price-status.saved {
+      color: var(--lime);
+    }
+
+    .pricing-facility-row .price-status.error {
+      color: var(--danger);
+    }
+
+    .pricing-facility-row .price-status.saving {
+      color: var(--warm);
+    }
 
     .pricing-multipliers {
-      margin-top:16px;
-      padding-top:16px;
-      border-top:1px solid var(--border-color);
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-color);
     }
+
     .pricing-multipliers h4 {
-      font-size:0.8rem;
-      color:var(--text-secondary);
-      font-family:'DM Mono',monospace;
-      margin-bottom:10px;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      font-family: 'DM Mono', monospace;
+      margin-bottom: 10px;
     }
+
     .pricing-multipliers .multiplier-row {
-      display:flex;
-      align-items:center;
-      gap:12px;
-      margin-bottom:6px;
-      flex-wrap:wrap;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
     }
+
     .pricing-multipliers .multiplier-row label {
-      font-size:0.8rem;
-      color:var(--text-primary);
-      min-width:80px;
+      font-size: 0.8rem;
+      color: var(--text-primary);
+      min-width: 80px;
     }
+
     .pricing-multipliers .multiplier-row input {
-      width:80px;
-      padding:4px 8px;
-      border-radius:var(--radius-sm);
-      background:var(--bg-mid);
-      border:1px solid var(--border-color);
-      color:var(--text-primary);
-      text-align:center;
-      font-family:'Inter',sans-serif;
-      font-size:0.85rem;
+      width: 80px;
+      padding: 4px 8px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-mid);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      text-align: center;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
     }
-    .pricing-multipliers .multiplier-row input:focus { outline:none; border-color:var(--lime); }
+
+    .pricing-multipliers .multiplier-row input:focus {
+      outline: none;
+      border-color: var(--lime);
+    }
+
     .pricing-multipliers .save-multipliers-btn {
-      margin-top:8px;
-      padding:6px 20px;
-      background:var(--lime);
-      color:var(--bg-primary);
-      border:none;
-      border-radius:50px;
-      font-weight:600;
-      font-size:0.75rem;
-      cursor:pointer;
-      transition:transform 0.2s;
-      font-family:'Inter',sans-serif;
+      margin-top: 8px;
+      padding: 6px 20px;
+      background: var(--lime);
+      color: var(--bg-primary);
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: transform 0.2s;
+      font-family: 'Inter', sans-serif;
     }
-    .pricing-multipliers .save-multipliers-btn:hover { transform:scale(1.02); }
-    .pricing-multipliers .save-multipliers-btn:disabled { opacity:0.5; cursor:not-allowed; }
+
+    .pricing-multipliers .save-multipliers-btn:hover {
+      transform: scale(1.02);
+    }
+
+    .pricing-multipliers .save-multipliers-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
 
     /* ─── FILTERS ─── */
     .filter-bar {
-      display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap;
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
     }
+
     .filter-bar select,
     .filter-bar input {
-      padding:6px 12px; border-radius:var(--radius-sm); background:var(--bg-mid);
-      border:1px solid var(--border-color); color:var(--text-primary); font-size:0.75rem;
-      font-family:'Inter',sans-serif;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-mid);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      font-size: 0.75rem;
+      font-family: 'Inter', sans-serif;
     }
+
     .filter-bar select:focus,
-    .filter-bar input:focus { outline:none; border-color:var(--lime); }
-    .filter-bar button {
-      padding:6px 16px; border:none; border-radius:50px; font-size:0.7rem; font-weight:600;
-      cursor:pointer; transition:background 0.2s, color 0.2s; font-family:'Inter',sans-serif;
-      background:var(--bg-mid); color:var(--text-secondary);
+    .filter-bar input:focus {
+      outline: none;
+      border-color: var(--lime);
     }
-    .filter-bar button.active { background:var(--lime); color:var(--bg-primary); }
-    .filter-bar button:hover:not(.active) { background:#3A3D3A; color:var(--text-primary); }
+
+    .filter-bar button {
+      padding: 6px 16px;
+      border: none;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-mid);
+      color: var(--text-secondary);
+    }
+
+    .filter-bar button.active {
+      background: var(--lime);
+      color: var(--bg-primary);
+    }
+
+    .filter-bar button:hover:not(.active) {
+      background: #3A3D3A;
+      color: var(--text-primary);
+    }
 
     /* ─── RESPONSIVE ─── */
     @media (max-width:640px) {
-      body { padding:10px; }
-      .login-box { padding:24px 18px; }
-      .login-box .logo-wrap .brand { font-size:1.4rem; }
-      .header .left .brand-text { font-size:1.1rem; }
-      .header .left .brand-sub { font-size:0.4rem; }
-      .card { padding:14px; }
-      .stats-grid { grid-template-columns:repeat(2,1fr); gap:10px; }
-      .stat-card .number { font-size:1.4rem; }
-      .booking-item { padding:10px 12px; }
-      .slot-item { padding:8px 10px; }
-      .slot-item .info { font-size:0.7rem; }
-      .modal .modal { padding:20px 16px; }
+      body {
+        padding: 10px;
+      }
+
+      .login-box {
+        padding: 24px 18px;
+      }
+
+      .login-box .logo-wrap .brand {
+        font-size: 1.4rem;
+      }
+
+      .header .left .brand-text {
+        font-size: 1.1rem;
+      }
+
+      .header .left .brand-sub {
+        font-size: 0.4rem;
+      }
+
+      .card {
+        padding: 14px;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .stat-card .number {
+        font-size: 1.4rem;
+      }
+
+      .booking-item {
+        padding: 10px 12px;
+      }
+
+      .slot-item {
+        padding: 8px 10px;
+      }
+
+      .slot-item .info {
+        font-size: 0.7rem;
+      }
+
+      .modal .modal {
+        padding: 20px 16px;
+      }
+
       .add-notification-row input,
-      .add-notification-row select { min-width:100px; }
-      .filter-bar { gap:6px; }
+      .add-notification-row select {
+        min-width: 100px;
+      }
+
+      .filter-bar {
+        gap: 6px;
+      }
+
       .filter-bar select,
-      .filter-bar input { font-size:0.65rem; padding:4px 8px; }
-      .filter-bar button { font-size:0.6rem; padding:4px 10px; }
-      .slot-item .slot-actions button { font-size:0.55rem; padding:3px 8px; }
-      .pricing-facility-row { flex-direction:column; align-items:stretch; gap:6px; }
-      .pricing-facility-row .price-control { justify-content:center; }
-      .pricing-facility-row .save-price-btn { align-self:center; }
+      .filter-bar input {
+        font-size: 0.65rem;
+        padding: 4px 8px;
+      }
+
+      .filter-bar button {
+        font-size: 0.6rem;
+        padding: 4px 10px;
+      }
+
+      .slot-item .slot-actions button {
+        font-size: 0.55rem;
+        padding: 3px 8px;
+      }
+
+      .pricing-facility-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px;
+      }
+
+      .pricing-facility-row .price-control {
+        justify-content: center;
+      }
+
+      .pricing-facility-row .save-price-btn {
+        align-self: center;
+      }
     }
+
     @media (max-width:400px) {
-      .stats-grid { grid-template-columns:1fr 1fr; gap:8px; }
-      .stat-card { padding:10px 12px; }
-      .stat-card .number { font-size:1.2rem; }
-      .modal .modal-actions button { flex:1 1 100%; }
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+
+      .stat-card {
+        padding: 10px 12px;
+      }
+
+      .stat-card .number {
+        font-size: 1.2rem;
+      }
+
+      .modal .modal-actions button {
+        flex: 1 1 100%;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <!-- ─── LOGIN ─── -->
@@ -561,38 +1259,63 @@
 
     <!-- STATISTICS -->
     <div class="stats-grid" id="statsGrid">
-      <div class="stat-card"><div class="number" id="statPending">0</div><div class="label">Pending</div></div>
-      <div class="stat-card"><div class="number" id="statConfirmed">0</div><div class="label">Confirmed</div></div>
-      <div class="stat-card"><div class="number" id="statAvailable">0</div><div class="label">Available Slots</div></div>
-      <div class="stat-card"><div class="number danger" id="statBooked">0</div><div class="label">Booked Slots</div></div>
-      <div class="stat-card"><div class="number warm" id="statNotifications">0</div><div class="label">Active Notifications</div></div>
+      <div class="stat-card">
+        <div class="number" id="statPending">0</div>
+        <div class="label">Pending</div>
+      </div>
+      <div class="stat-card">
+        <div class="number" id="statConfirmed">0</div>
+        <div class="label">Confirmed</div>
+      </div>
+      <div class="stat-card">
+        <div class="number" id="statAvailable">0</div>
+        <div class="label">Available Slots</div>
+      </div>
+      <div class="stat-card">
+        <div class="number danger" id="statBooked">0</div>
+        <div class="label">Booked Slots</div>
+      </div>
+      <div class="stat-card">
+        <div class="number warm" id="statNotifications">0</div>
+        <div class="label">Active Notifications</div>
+      </div>
     </div>
 
     <!-- PENDING & ALL BOOKINGS -->
     <div class="grid-2">
       <div class="card">
         <div class="card-header">
-          <span class="left"><img src="https://img.icons8.com/ios-filled/20/B5FF4B/clipboard.png" alt="Pending" /> Pending Requests</span>
+          <span class="left"><img src="https://img.icons8.com/ios-filled/20/B5FF4B/clipboard.png" alt="Pending" />
+            Pending Requests</span>
           <span class="count" id="pendingCount">0</span>
         </div>
-        <div class="scroll-list" id="pendingList"><div class="empty">No pending bookings. 🎉</div></div>
+        <div class="scroll-list" id="pendingList">
+          <div class="empty">No pending bookings. 🎉</div>
+        </div>
       </div>
       <div class="card">
         <div class="card-header">
-          <span class="left"><img src="https://img.icons8.com/ios-filled/20/B5FF4B/document.png" alt="All Bookings" /> All Bookings</span>
+          <span class="left"><img src="https://img.icons8.com/ios-filled/20/B5FF4B/document.png" alt="All Bookings" />
+            All Bookings</span>
           <span class="count" id="totalCount">0</span>
         </div>
-        <div class="scroll-list" id="allBookingsList"><div class="empty">No bookings yet.</div></div>
+        <div class="scroll-list" id="allBookingsList">
+          <div class="empty">No bookings yet.</div>
+        </div>
       </div>
     </div>
 
     <!-- SLOT MANAGEMENT -->
     <div class="card">
       <div class="card-header">
-        <span class="left"><img src="https://img.icons8.com/ios-filled/20/B5FF4B/clock.png" alt="Slots" /> Slot Management</span>
-        <span style="font-size:0.65rem; color:var(--text-secondary); display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+        <span class="left"><img src="https://img.icons8.com/ios-filled/20/B5FF4B/clock.png" alt="Slots" /> Slot
+          Management</span>
+        <span
+          style="font-size:0.65rem; color:var(--text-secondary); display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
           <span id="slotCounts">0 available · 0 booked</span>
-          <button class="btn-confirm" id="openAddSlotBtn" style="padding:4px 14px; font-size:0.65rem; border:none; border-radius:50px; font-weight:600; cursor:pointer; background:var(--lime); color:var(--bg-primary); font-family:'Inter',sans-serif;">+ Add Slot</button>
+          <button class="btn-confirm" id="openAddSlotBtn"
+            style="padding:4px 14px; font-size:0.65rem; border:none; border-radius:50px; font-weight:600; cursor:pointer; background:var(--lime); color:var(--bg-primary); font-family:'Inter',sans-serif;">+
+            Add Slot</button>
         </span>
       </div>
       <div class="filter-bar" id="slotFilterBar">
@@ -613,13 +1336,16 @@
           <option value="week">Next 7 Days</option>
         </select>
       </div>
-      <div id="slotList"><div class="empty">No slots found.</div></div>
+      <div id="slotList">
+        <div class="empty">No slots found.</div>
+      </div>
     </div>
 
     <!-- NOTIFICATIONS -->
     <div class="card">
       <div class="card-header">
-        <span class="left"><img src="https://img.icons8.com/ios-filled/20/B5FF4B/notification.png" alt="Notifications" /> Notifications</span>
+        <span class="left"><img src="https://img.icons8.com/ios-filled/20/B5FF4B/notification.png"
+            alt="Notifications" /> Notifications</span>
         <span class="count" id="notificationCount">0</span>
       </div>
       <div class="add-notification-row">
@@ -632,13 +1358,16 @@
         </select>
         <button id="publishNotifBtn">📢 Publish</button>
       </div>
-      <div id="notificationList"><div class="empty">No notifications yet.</div></div>
+      <div id="notificationList">
+        <div class="empty">No notifications yet.</div>
+      </div>
     </div>
 
     <!-- ─── PRICING SETTINGS ─── -->
     <div class="card">
       <div class="card-header">
-        <span class="left"><img src="https://img.icons8.com/ios-filled/20/B5FF4B/price-tag.png" alt="Pricing" /> Pricing Settings</span>
+        <span class="left"><img src="https://img.icons8.com/ios-filled/20/B5FF4B/price-tag.png" alt="Pricing" /> Pricing
+          Settings</span>
         <span style="font-size:0.65rem; color:var(--text-secondary);">Updates public website instantly</span>
       </div>
       <div id="pricingSettings">
@@ -839,7 +1568,7 @@
     });
 
     // ─── PASSWORD TOGGLE ─────────────────────────────────────
-    togglePassword.addEventListener('click', function() {
+    togglePassword.addEventListener('click', function () {
       const type = adminPassword.getAttribute('type') === 'password' ? 'text' : 'password';
       adminPassword.setAttribute('type', type);
       eyeIcon.src = type === 'password'
@@ -1199,7 +1928,7 @@
     // ─── ESCAPE HTML ──────────────────────────────────────────
     function escapeHtml(unsafe) {
       if (typeof unsafe !== 'string') return unsafe;
-      return unsafe.replace(/[&<>"']/g, function(m) {
+      return unsafe.replace(/[&<>"']/g, function (m) {
         if (m === '&') return '&amp;';
         if (m === '<') return '&lt;';
         if (m === '>') return '&gt;';
@@ -1455,9 +2184,9 @@
           </div>
           <div class="price-control">
             <span class="currency">PKR</span>
-            <input type="number" id="price_${facility.replace(/\s/g,'_')}" value="${price}" step="100" min="0" />
+            <input type="number" id="price_${facility.replace(/\s/g, '_')}" value="${price}" step="100" min="0" />
             <button class="save-price-btn" data-facility="${facility}">Save</button>
-            <span class="price-status" id="status_${facility.replace(/\s/g,'_')}"></span>
+            <span class="price-status" id="status_${facility.replace(/\s/g, '_')}"></span>
           </div>
         `;
         container.appendChild(row);
@@ -1466,8 +2195,8 @@
       document.querySelectorAll('.save-price-btn').forEach(btn => {
         btn.addEventListener('click', async () => {
           const facility = btn.dataset.facility;
-          const input = document.getElementById(`price_${facility.replace(/\s/g,'_')}`);
-          const status = document.getElementById(`status_${facility.replace(/\s/g,'_')}`);
+          const input = document.getElementById(`price_${facility.replace(/\s/g, '_')}`);
+          const status = document.getElementById(`status_${facility.replace(/\s/g, '_')}`);
           const newPrice = parseFloat(input.value);
           if (isNaN(newPrice) || newPrice < 0) {
             status.textContent = 'Invalid';
@@ -1509,7 +2238,7 @@
         row.className = 'multiplier-row';
         row.innerHTML = `
           <label>${escapeHtml(dur)}</label>
-          <input type="number" step="0.1" id="mult_${dur.replace(/\s/g,'_')}" value="${val}" min="0.1" />
+          <input type="number" step="0.1" id="mult_${dur.replace(/\s/g, '_')}" value="${val}" min="0.1" />
         `;
         multContainer.appendChild(row);
       });
@@ -1526,7 +2255,7 @@
           const multipliers = {};
           let valid = true;
           DURATIONS.forEach(d => {
-            const input = document.getElementById(`mult_${d.replace(/\s/g,'_')}`);
+            const input = document.getElementById(`mult_${d.replace(/\s/g, '_')}`);
             const val = parseFloat(input.value);
             if (isNaN(val) || val <= 0) {
               valid = false;
@@ -1720,1712 +2449,5 @@
     console.log('🔥 NCG Admin Dashboard loaded (atomic confirm, event delegation, real-time pricing).');
   </script>
 </body>
-</html>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:opsz,wght@14..32,300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <style>
-    /* ─── RESET & VARIABLES ─── */
-    * { margin:0; padding:0; box-sizing:border-box; }
-    :root {
-      --bg-primary: #080909;
-      --bg-secondary: #101211;
-      --bg-card: #171A18;
-      --bg-mid: #2A2D2A;
-      --text-primary: #F0F2F0;
-      --text-secondary: #8A8F8A;
-      --lime: #B5FF4B;
-      --lime-glow: rgba(181,255,75,0.25);
-      --warm: #F5B342;
-      --danger: #ff6b6b;
-      --border-color: rgba(255,255,255,0.06);
-      --radius: 20px;
-      --radius-sm: 12px;
-      --shadow: 0 25px 60px rgba(0,0,0,0.8);
-    }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg-primary);
-      color: var(--text-primary);
-      font-family: 'Inter', sans-serif;
-      padding: 16px;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .container { max-width:1280px; margin:0 auto; width:100%; }
 
-    /* ─── LOGIN ─── */
-    .login-box {
-      max-width: 420px; margin:0 auto; background:var(--bg-card); padding:40px;
-      border-radius:var(--radius); border:1px solid var(--border-color); text-align:center;
-    }
-    .login-box .logo-wrap {
-      display:flex; align-items:center; justify-content:center; gap:14px; margin-bottom:8px;
-    }
-    .login-box .logo-wrap img { width:48px; height:48px; object-fit:contain; border-radius:12px; }
-    .login-box .logo-wrap .brand {
-      font-family:'Space Grotesk',sans-serif; font-size:1.8rem; font-weight:700; letter-spacing:0.06em;
-    }
-    .login-box .logo-wrap .brand span { color:var(--lime); }
-    .login-box .logo-wrap .sub {
-      font-size:0.5rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-secondary);
-      font-family:'DM Mono',monospace; display:block;
-    }
-    .login-box .tagline { color:var(--text-secondary); margin-bottom:28px; font-size:0.85rem; }
-    .login-box input[type="email"],
-    .login-box input[type="password"],
-    .login-box input[type="text"] {
-      width:100%; padding:14px 16px; margin-bottom:16px; border-radius:var(--radius-sm);
-      background:var(--bg-mid); border:1px solid var(--border-color); color:var(--text-primary);
-      font-size:1rem; font-family:'Inter',sans-serif; transition:border-color 0.3s;
-    }
-    .login-box input:focus { outline:none; border-color:var(--lime); }
-    .login-box .password-wrapper { position:relative; width:100%; }
-    .login-box .password-wrapper input { padding-right:52px; margin-bottom:16px; }
-    .login-box .password-wrapper .toggle-btn {
-      position:absolute; right:14px; top:50%; transform:translateY(-50%);
-      background:none; border:none; cursor:pointer; padding:6px; opacity:0.6; transition:opacity 0.3s;
-    }
-    .login-box .password-wrapper .toggle-btn:hover { opacity:1; }
-    .login-box .password-wrapper .toggle-btn img { width:22px; height:22px; display:block; }
-    .login-box .login-btn {
-      width:100%; padding:14px; background:var(--lime); color:var(--bg-primary); border:none;
-      border-radius:50px; font-weight:700; font-size:1rem; cursor:pointer;
-      transition:transform 0.3s, box-shadow 0.3s; font-family:'Inter',sans-serif;
-      display:flex; align-items:center; justify-content:center; gap:10px;
-    }
-    .login-box .login-btn:hover { transform:scale(1.02); box-shadow:0 0 30px var(--lime-glow); }
-    .login-box .login-btn img { width:20px; height:20px; filter:brightness(0); }
-    .login-box .error { color:var(--danger); margin-top:12px; display:none; font-size:0.85rem; }
-    .login-box .login-footer {
-      margin-top:18px; font-size:0.65rem; color:var(--text-secondary);
-      font-family:'DM Mono',monospace; display:flex; align-items:center; justify-content:center; gap:6px;
-    }
-    .login-box .login-footer img { width:14px; height:14px; opacity:0.5; }
-
-    /* ─── DASHBOARD ─── */
-    #dashboard { display:none; }
-    .header {
-      display:flex; justify-content:space-between; align-items:center;
-      padding:16px 0 20px; border-bottom:1px solid var(--border-color); margin-bottom:24px;
-      flex-wrap:wrap; gap:12px;
-    }
-    .header .left { display:flex; align-items:center; gap:14px; }
-    .header .left img { width:40px; height:40px; object-fit:contain; border-radius:10px; }
-    .header .left .brand-text {
-      font-family:'Space Grotesk',sans-serif; font-size:1.4rem; font-weight:700;
-    }
-    .header .left .brand-text span { color:var(--lime); }
-    .header .left .brand-sub {
-      font-size:0.45rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-secondary);
-      font-family:'DM Mono',monospace; display:block;
-    }
-    .header .right { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
-    .header .badge {
-      background:var(--lime); color:var(--bg-primary); padding:4px 14px; border-radius:50px;
-      font-weight:600; font-size:0.65rem; display:flex; align-items:center; gap:6px;
-    }
-    .header .badge img { width:12px; height:12px; filter:brightness(0); }
-    .header .logout-btn {
-      background:transparent; border:1px solid var(--border-color); color:var(--text-primary);
-      padding:8px 18px; border-radius:50px; cursor:pointer; transition:background 0.3s;
-      font-family:'Inter',sans-serif; font-size:0.7rem; display:flex; align-items:center; gap:8px;
-    }
-    .header .logout-btn:hover { background:rgba(255,255,255,0.05); }
-    .header .logout-btn img { width:16px; height:16px; opacity:0.6; }
-
-    /* ─── STATS ─── */
-    .stats-grid {
-      display:grid; grid-template-columns:repeat(auto-fit, minmax(140px,1fr));
-      gap:16px; margin-bottom:28px;
-    }
-    .stat-card {
-      background:var(--bg-card); border-radius:var(--radius-sm); padding:16px 20px;
-      border:1px solid var(--border-color); text-align:center;
-    }
-    .stat-card .number {
-      font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.8rem; color:var(--lime);
-      line-height:1.2;
-    }
-    .stat-card .label {
-      font-size:0.6rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-secondary);
-      font-family:'DM Mono',monospace; margin-top:2px;
-    }
-    .stat-card .number.danger { color:var(--danger); }
-    .stat-card .number.warm { color:var(--warm); }
-
-    /* ─── CARDS ─── */
-    .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
-    @media (max-width:768px) { .grid-2 { grid-template-columns:1fr; } }
-
-    .card {
-      background:var(--bg-card); border-radius:var(--radius); padding:20px;
-      border:1px solid var(--border-color); margin-bottom:24px;
-    }
-    .card .card-header {
-      font-family:'Space Grotesk',sans-serif; font-size:0.95rem; margin-bottom:14px;
-      display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;
-    }
-    .card .card-header .left { display:flex; align-items:center; gap:10px; }
-    .card .card-header .left img { width:20px; height:20px; }
-    .card .card-header .count {
-      background:var(--bg-mid); padding:2px 12px; border-radius:50px; font-size:0.65rem;
-      color:var(--text-secondary);
-    }
-
-    /* ─── BOOKING ITEMS ─── */
-    .booking-item {
-      background:var(--bg-secondary); border-radius:var(--radius-sm); padding:14px 16px;
-      margin-bottom:10px; border-left:4px solid var(--lime); transition:all 0.3s;
-    }
-    .booking-item.pending { border-left-color:var(--warm); }
-    .booking-item.confirmed { border-left-color:var(--lime); opacity:0.6; }
-    .booking-item.cancelled { border-left-color:var(--danger); opacity:0.4; text-decoration:line-through; }
-    .booking-item .top {
-      display:flex; justify-content:space-between; align-items:flex-start; gap:10px; flex-wrap:wrap;
-    }
-    .booking-item .name { font-weight:600; font-size:0.9rem; }
-    .booking-item .phone { color:var(--text-secondary); font-size:0.8rem; }
-    .booking-item .details {
-      display:flex; flex-wrap:wrap; gap:6px 12px; color:var(--text-secondary); font-size:0.75rem; margin:4px 0 8px;
-    }
-    .booking-item .details span { background:var(--bg-mid); padding:2px 8px; border-radius:4px; }
-    .booking-item .actions {
-      display:flex; gap:8px; flex-wrap:wrap; margin-top:6px;
-    }
-    .booking-item .actions button {
-      padding:5px 14px; border:none; border-radius:50px; font-weight:600; font-size:0.65rem;
-      cursor:pointer; transition:transform 0.2s; font-family:'Inter',sans-serif;
-      display:flex; align-items:center; gap:6px;
-    }
-    .booking-item .actions button:hover { transform:scale(1.04); }
-    .booking-item .actions button img { width:14px; height:14px; }
-    .btn-confirm { background:var(--lime); color:var(--bg-primary); }
-    .btn-confirm img { filter:brightness(0); }
-    .btn-cancel { background:var(--danger); color:#fff; }
-
-    /* ─── SLOT ITEMS ─── */
-    .slot-item {
-      display:flex; justify-content:space-between; align-items:center;
-      padding:10px 12px; margin-bottom:6px; border-radius:var(--radius-sm);
-      background:var(--bg-secondary); border-left:4px solid var(--bg-mid);
-      transition:background 0.2s; flex-wrap:wrap; gap:8px;
-    }
-    .slot-item.status-available { border-left-color:var(--lime); background:rgba(181,255,75,0.04); }
-    .slot-item.status-popular { border-left-color:var(--warm); background:rgba(245,179,66,0.06); }
-    .slot-item.status-booked { border-left-color:var(--danger); background:rgba(255,107,107,0.08); }
-    .slot-item .info {
-      font-size:0.8rem; display:flex; align-items:center; gap:8px; flex:1; flex-wrap:wrap;
-    }
-    .slot-item .info img { width:16px; height:16px; opacity:0.5; }
-    .slot-item .status-badge {
-      padding:2px 10px; border-radius:50px; font-size:0.55rem; font-weight:600;
-      text-transform:uppercase; font-family:'DM Mono',monospace;
-    }
-    .slot-item.status-available .status-badge { background:rgba(181,255,75,0.2); color:var(--lime); }
-    .slot-item.status-popular .status-badge { background:rgba(245,179,66,0.2); color:var(--warm); }
-    .slot-item.status-booked .status-badge { background:rgba(255,107,107,0.2); color:var(--danger); }
-    .slot-item .slot-actions {
-      display:flex; gap:6px; flex-wrap:wrap;
-    }
-    .slot-item .slot-actions button {
-      padding:4px 12px; border:none; border-radius:50px; font-weight:600; font-size:0.6rem;
-      cursor:pointer; transition:transform 0.2s; font-family:'Inter',sans-serif;
-      display:flex; align-items:center; gap:4px;
-    }
-    .slot-item .slot-actions button:hover { transform:scale(1.04); }
-    .slot-item .slot-actions button:disabled { opacity:0.4; cursor:not-allowed; }
-
-    .empty { color:var(--text-secondary); text-align:center; padding:24px 0; font-size:0.85rem; }
-    .scroll-list { max-height:420px; overflow-y:auto; padding-right:4px; }
-    .scroll-list::-webkit-scrollbar { width:4px; }
-    .scroll-list::-webkit-scrollbar-track { background:transparent; }
-    .scroll-list::-webkit-scrollbar-thumb { background:var(--bg-mid); border-radius:4px; }
-
-    /* ─── ADD SLOT MODAL ─── */
-    .modal-overlay {
-      position:fixed; inset:0; z-index:99999; background:rgba(0,0,0,0.7);
-      backdrop-filter:blur(12px); display:flex; align-items:center; justify-content:center;
-      opacity:0; visibility:hidden; transition:opacity 0.4s ease, visibility 0.4s ease;
-      padding:20px;
-    }
-    .modal-overlay.open { opacity:1; visibility:visible; }
-    .modal-overlay .modal {
-      background:var(--bg-card); border-radius:var(--radius); padding:32px 28px;
-      max-width:520px; width:100%; border:1px solid var(--border-color);
-      box-shadow:var(--shadow); transform:scale(0.95) translateY(10px);
-      transition:transform 0.4s ease; max-height:95vh; overflow-y:auto;
-    }
-    .modal-overlay.open .modal { transform:scale(1) translateY(0); }
-    .modal h2 { font-family:'Space Grotesk',sans-serif; font-size:1.4rem; margin-bottom:6px; }
-    .modal .sub { color:var(--text-secondary); font-size:0.85rem; margin-bottom:20px; }
-    .modal .form-group { margin-bottom:16px; }
-    .modal .form-group label {
-      display:block; font-size:0.75rem; font-weight:600; text-transform:uppercase;
-      letter-spacing:0.06em; color:var(--text-secondary); margin-bottom:4px;
-      font-family:'DM Mono',monospace;
-    }
-    .modal .form-group input,
-    .modal .form-group select {
-      width:100%; padding:10px 14px; border-radius:var(--radius-sm); background:var(--bg-mid);
-      border:1px solid var(--border-color); color:var(--text-primary); font-size:0.9rem;
-      font-family:'Inter',sans-serif; transition:border-color 0.3s;
-    }
-    .modal .form-group input:focus,
-    .modal .form-group select:focus { outline:none; border-color:var(--lime); }
-    .modal .modal-actions {
-      display:flex; gap:12px; margin-top:20px; flex-wrap:wrap;
-    }
-    .modal .modal-actions button {
-      padding:10px 24px; border:none; border-radius:50px; font-weight:700; font-size:0.85rem;
-      cursor:pointer; transition:transform 0.2s; font-family:'Inter',sans-serif; flex:1; min-width:100px;
-    }
-    .modal .modal-actions button:hover { transform:scale(1.02); }
-    .modal .modal-actions .btn-primary { background:var(--lime); color:var(--bg-primary); }
-    .modal .modal-actions .btn-secondary { background:transparent; border:1px solid var(--border-color); color:var(--text-primary); }
-
-    /* ─── NOTIFICATIONS ─── */
-    .notification-item {
-      display:flex; justify-content:space-between; align-items:center;
-      padding:10px 12px; margin-bottom:6px; border-radius:var(--radius-sm);
-      background:var(--bg-secondary); border-left:4px solid var(--lime);
-      gap:10px; flex-wrap:wrap;
-    }
-    .notification-item.inactive { border-left-color:var(--text-secondary); opacity:0.5; }
-    .notification-item .content { flex:1; }
-    .notification-item .content .title { font-weight:600; font-size:0.85rem; }
-    .notification-item .content .message { font-size:0.75rem; color:var(--text-secondary); }
-    .notification-item .content .meta {
-      font-size:0.6rem; color:var(--text-secondary); font-family:'DM Mono',monospace;
-    }
-    .notification-item .actions {
-      display:flex; gap:6px; flex-wrap:wrap;
-    }
-    .notification-item .actions button {
-      padding:4px 12px; border:none; border-radius:50px; font-weight:600; font-size:0.6rem;
-      cursor:pointer; transition:transform 0.2s; font-family:'Inter',sans-serif;
-    }
-    .notification-item .actions button:hover { transform:scale(1.04); }
-    .notification-item .actions .btn-active { background:var(--lime); color:var(--bg-primary); }
-    .notification-item .actions .btn-inactive { background:var(--bg-mid); color:var(--text-secondary); }
-    .notification-item .actions .btn-delete { background:var(--danger); color:#fff; }
-
-    .add-notification-row {
-      display:flex; gap:10px; flex-wrap:wrap; margin-bottom:14px;
-    }
-    .add-notification-row input,
-    .add-notification-row select {
-      padding:8px 12px; border-radius:var(--radius-sm); background:var(--bg-mid);
-      border:1px solid var(--border-color); color:var(--text-primary); font-size:0.8rem;
-      font-family:'Inter',sans-serif; flex:1; min-width:120px;
-    }
-    .add-notification-row input:focus,
-    .add-notification-row select:focus { outline:none; border-color:var(--lime); }
-    .add-notification-row button {
-      padding:8px 18px; background:var(--lime); color:var(--bg-primary); border:none;
-      border-radius:50px; font-weight:700; font-size:0.75rem; cursor:pointer;
-      transition:transform 0.2s; font-family:'Inter',sans-serif; white-space:nowrap;
-    }
-    .add-notification-row button:hover { transform:scale(1.04); }
-    .add-notification-row button:disabled { opacity:0.5; cursor:not-allowed; }
-
-    /* ─── PRICING ─── */
-    .pricing-facility-row {
-      display:flex;
-      align-items:center;
-      gap:12px;
-      padding:10px 0;
-      border-bottom:1px solid var(--border-color);
-      flex-wrap:wrap;
-    }
-    .pricing-facility-row .facility-name {
-      flex:1;
-      font-weight:600;
-      font-size:0.9rem;
-      min-width:140px;
-    }
-    .pricing-facility-row .facility-name img {
-      width:20px;
-      height:20px;
-      vertical-align:middle;
-      margin-right:8px;
-      opacity:0.7;
-    }
-    .pricing-facility-row .price-control {
-      display:flex;
-      align-items:center;
-      gap:8px;
-    }
-    .pricing-facility-row .price-control input {
-      width:100px;
-      padding:6px 10px;
-      border-radius:var(--radius-sm);
-      background:var(--bg-mid);
-      border:1px solid var(--border-color);
-      color:var(--text-primary);
-      text-align:center;
-      font-family:'Inter',sans-serif;
-      font-size:0.9rem;
-      transition:border-color 0.3s;
-    }
-    .pricing-facility-row .price-control input:focus { outline:none; border-color:var(--lime); }
-    .pricing-facility-row .price-control .currency {
-      font-size:0.8rem;
-      color:var(--text-secondary);
-      font-weight:500;
-    }
-    .pricing-facility-row .save-price-btn {
-      padding:4px 16px;
-      background:var(--lime);
-      color:var(--bg-primary);
-      border:none;
-      border-radius:50px;
-      font-weight:600;
-      font-size:0.7rem;
-      cursor:pointer;
-      transition:transform 0.2s, box-shadow 0.2s;
-      font-family:'Inter',sans-serif;
-      white-space:nowrap;
-    }
-    .pricing-facility-row .save-price-btn:hover {
-      transform:scale(1.03);
-      box-shadow:0 0 20px var(--lime-glow);
-    }
-    .pricing-facility-row .save-price-btn:disabled {
-      opacity:0.5;
-      cursor:not-allowed;
-      transform:none;
-    }
-    .pricing-facility-row .price-status {
-      font-size:0.7rem;
-      margin-left:4px;
-      min-width:60px;
-    }
-    .pricing-facility-row .price-status.saved { color:var(--lime); }
-    .pricing-facility-row .price-status.error { color:var(--danger); }
-    .pricing-facility-row .price-status.saving { color:var(--warm); }
-
-    .pricing-multipliers {
-      margin-top:16px;
-      padding-top:16px;
-      border-top:1px solid var(--border-color);
-    }
-    .pricing-multipliers h4 {
-      font-size:0.8rem;
-      color:var(--text-secondary);
-      font-family:'DM Mono',monospace;
-      margin-bottom:10px;
-    }
-    .pricing-multipliers .multiplier-row {
-      display:flex;
-      align-items:center;
-      gap:12px;
-      margin-bottom:6px;
-      flex-wrap:wrap;
-    }
-    .pricing-multipliers .multiplier-row label {
-      font-size:0.8rem;
-      color:var(--text-primary);
-      min-width:80px;
-    }
-    .pricing-multipliers .multiplier-row input {
-      width:80px;
-      padding:4px 8px;
-      border-radius:var(--radius-sm);
-      background:var(--bg-mid);
-      border:1px solid var(--border-color);
-      color:var(--text-primary);
-      text-align:center;
-      font-family:'Inter',sans-serif;
-      font-size:0.85rem;
-    }
-    .pricing-multipliers .multiplier-row input:focus { outline:none; border-color:var(--lime); }
-    .pricing-multipliers .save-multipliers-btn {
-      margin-top:8px;
-      padding:6px 20px;
-      background:var(--lime);
-      color:var(--bg-primary);
-      border:none;
-      border-radius:50px;
-      font-weight:600;
-      font-size:0.75rem;
-      cursor:pointer;
-      transition:transform 0.2s;
-      font-family:'Inter',sans-serif;
-    }
-    .pricing-multipliers .save-multipliers-btn:hover { transform:scale(1.02); }
-    .pricing-multipliers .save-multipliers-btn:disabled { opacity:0.5; cursor:not-allowed; }
-
-    /* ─── FILTERS ─── */
-    .filter-bar {
-      display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap;
-    }
-    .filter-bar select,
-    .filter-bar input {
-      padding:6px 12px; border-radius:var(--radius-sm); background:var(--bg-mid);
-      border:1px solid var(--border-color); color:var(--text-primary); font-size:0.75rem;
-      font-family:'Inter',sans-serif;
-    }
-    .filter-bar select:focus,
-    .filter-bar input:focus { outline:none; border-color:var(--lime); }
-    .filter-bar button {
-      padding:6px 16px; border:none; border-radius:50px; font-size:0.7rem; font-weight:600;
-      cursor:pointer; transition:background 0.2s, color 0.2s; font-family:'Inter',sans-serif;
-      background:var(--bg-mid); color:var(--text-secondary);
-    }
-    .filter-bar button.active { background:var(--lime); color:var(--bg-primary); }
-    .filter-bar button:hover:not(.active) { background:#3A3D3A; color:var(--text-primary); }
-
-    /* ─── RESPONSIVE ─── */
-    @media (max-width:640px) {
-      body { padding:10px; }
-      .login-box { padding:24px 18px; }
-      .login-box .logo-wrap .brand { font-size:1.4rem; }
-      .header .left .brand-text { font-size:1.1rem; }
-      .header .left .brand-sub { font-size:0.4rem; }
-      .card { padding:14px; }
-      .stats-grid { grid-template-columns:repeat(2,1fr); gap:10px; }
-      .stat-card .number { font-size:1.4rem; }
-      .booking-item { padding:10px 12px; }
-      .slot-item { padding:8px 10px; }
-      .slot-item .info { font-size:0.7rem; }
-      .modal .modal { padding:20px 16px; }
-      .add-notification-row input,
-      .add-notification-row select { min-width:100px; }
-      .filter-bar { gap:6px; }
-      .filter-bar select,
-      .filter-bar input { font-size:0.65rem; padding:4px 8px; }
-      .filter-bar button { font-size:0.6rem; padding:4px 10px; }
-      .slot-item .slot-actions button { font-size:0.55rem; padding:3px 8px; }
-      .pricing-facility-row { flex-direction:column; align-items:stretch; gap:6px; }
-      .pricing-facility-row .price-control { justify-content:center; }
-      .pricing-facility-row .save-price-btn { align-self:center; }
-    }
-    @media (max-width:400px) {
-      .stats-grid { grid-template-columns:1fr 1fr; gap:8px; }
-      .stat-card { padding:10px 12px; }
-      .stat-card .number { font-size:1.2rem; }
-      .modal .modal-actions button { flex:1 1 100%; }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- ─── LOGIN ─── -->
-  <div id="loginScreen" class="container">
-    <div class="login-box">
-      <div class="logo-wrap">
-        <img src="assets/images/reduced logo.jpg" alt="The NCG Logo" />
-        <div>
-          <div class="brand">THE <span>NCG</span></div>
-          <span class="sub">North Community Ground</span>
-        </div>
-      </div>
-      <p class="tagline">Enter your credentials to manage the ground.</p>
-      <input type="email" id="adminEmail" placeholder="admin@thencg.com" />
-      <div class="password-wrapper">
-        <input type="password" id="adminPassword" placeholder="Password" />
-        <button type="button" class="toggle-btn" id="togglePassword" aria-label="Toggle password visibility">
-          <img src="https://img.icons8.com/ios-filled/22/8A8F8A/visible.png" alt="Show password" id="eyeIcon" />
-        </button>
-      </div>
-      <button class="login-btn" id="loginBtn">
-        <img src="https://img.icons8.com/ios-filled/20/000000/login-rounded-right.png" alt="Login" />
-        Login
-      </button>
-      <div class="error" id="loginError">Invalid email or password. Please try again.</div>
-      <div class="login-footer">
-        <img src="https://img.icons8.com/ios-filled/14/8A8F8A/lock.png" alt="Lock" />
-        Secure admin access
-      </div>
-    </div>
-  </div>
-
-  <!-- ─── DASHBOARD ─── -->
-  <div id="dashboard" class="container">
-
-    <!-- HEADER -->
-    <div class="header">
-      <div class="left">
-        <img src="assets/images/reduced logo.jpg" alt="The NCG Logo" />
-        <div>
-          <div class="brand-text">THE <span>NCG</span> · ADMIN</div>
-          <span class="brand-sub">North Community Ground</span>
-        </div>
-      </div>
-      <div class="right">
-        <span class="badge">
-          <img src="https://img.icons8.com/ios-filled/12/000000/circled.png" alt="Live" />
-          LIVE
-        </span>
-        <button class="logout-btn" id="logoutBtn">
-          <img src="https://img.icons8.com/ios-filled/18/FFFFFF/exit.png" alt="Logout" />
-          Logout
-        </button>
-      </div>
-    </div>
-
-    <!-- STATISTICS -->
-    <div class="stats-grid" id="statsGrid">
-      <div class="stat-card"><div class="number" id="statPending">0</div><div class="label">Pending</div></div>
-      <div class="stat-card"><div class="number" id="statConfirmed">0</div><div class="label">Confirmed</div></div>
-      <div class="stat-card"><div class="number" id="statAvailable">0</div><div class="label">Available Slots</div></div>
-      <div class="stat-card"><div class="number danger" id="statBooked">0</div><div class="label">Booked Slots</div></div>
-      <div class="stat-card"><div class="number warm" id="statNotifications">0</div><div class="label">Active Notifications</div></div>
-    </div>
-
-    <!-- PENDING & ALL BOOKINGS -->
-    <div class="grid-2">
-      <div class="card">
-        <div class="card-header">
-          <span class="left"><img src="https://img.icons8.com/ios-filled/20/B5FF4B/clipboard.png" alt="Pending" /> Pending Requests</span>
-          <span class="count" id="pendingCount">0</span>
-        </div>
-        <div class="scroll-list" id="pendingList"><div class="empty">No pending bookings. 🎉</div></div>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          <span class="left"><img src="https://img.icons8.com/ios-filled/20/B5FF4B/document.png" alt="All Bookings" /> All Bookings</span>
-          <span class="count" id="totalCount">0</span>
-        </div>
-        <div class="scroll-list" id="allBookingsList"><div class="empty">No bookings yet.</div></div>
-      </div>
-    </div>
-
-    <!-- SLOT MANAGEMENT -->
-    <div class="card">
-      <div class="card-header">
-        <span class="left"><img src="https://img.icons8.com/ios-filled/20/B5FF4B/clock.png" alt="Slots" /> Slot Management</span>
-        <span style="font-size:0.65rem; color:var(--text-secondary); display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
-          <span id="slotCounts">0 available · 0 booked</span>
-          <button class="btn-confirm" id="openAddSlotBtn" style="padding:4px 14px; font-size:0.65rem; border:none; border-radius:50px; font-weight:600; cursor:pointer; background:var(--lime); color:var(--bg-primary); font-family:'Inter',sans-serif;">+ Add Slot</button>
-        </span>
-      </div>
-      <div class="filter-bar" id="slotFilterBar">
-        <button class="active" data-filter="all">All</button>
-        <button data-filter="AVAILABLE">Available</button>
-        <button data-filter="BOOKED">Booked</button>
-        <select id="slotFacilityFilter">
-          <option value="all">All Facilities</option>
-          <option value="Football / Futsal">Football / Futsal</option>
-          <option value="Cricket">Cricket</option>
-          <option value="Indoor Ground">Indoor Ground</option>
-          <option value="Training Session">Training Session</option>
-        </select>
-        <select id="slotDateFilter">
-          <option value="all">All Dates</option>
-          <option value="today">Today</option>
-          <option value="tomorrow">Tomorrow</option>
-          <option value="week">Next 7 Days</option>
-        </select>
-      </div>
-      <div id="slotList"><div class="empty">No slots found.</div></div>
-    </div>
-
-    <!-- NOTIFICATIONS -->
-    <div class="card">
-      <div class="card-header">
-        <span class="left"><img src="https://img.icons8.com/ios-filled/20/B5FF4B/notification.png" alt="Notifications" /> Notifications</span>
-        <span class="count" id="notificationCount">0</span>
-      </div>
-      <div class="add-notification-row">
-        <input type="text" id="notifTitle" placeholder="Notification title..." />
-        <input type="text" id="notifMessage" placeholder="Message..." />
-        <select id="notifType">
-          <option value="info">Info</option>
-          <option value="offer">Offer</option>
-          <option value="alert">Alert</option>
-        </select>
-        <button id="publishNotifBtn">📢 Publish</button>
-      </div>
-      <div id="notificationList"><div class="empty">No notifications yet.</div></div>
-    </div>
-
-    <!-- ─── PRICING SETTINGS ─── -->
-    <div class="card">
-      <div class="card-header">
-        <span class="left"><img src="https://img.icons8.com/ios-filled/20/B5FF4B/price-tag.png" alt="Pricing" /> Pricing Settings</span>
-        <span style="font-size:0.65rem; color:var(--text-secondary);">Updates public website instantly</span>
-      </div>
-      <div id="pricingSettings">
-        <!-- Facility prices -->
-        <div id="facilityPricesContainer"></div>
-        <!-- Duration multipliers -->
-        <div class="pricing-multipliers">
-          <h4>Duration Multipliers</h4>
-          <div id="durationMultipliersContainer"></div>
-          <button class="save-multipliers-btn" id="saveMultipliersBtn">💾 Save Multipliers</button>
-          <span id="multiplierSaveStatus" style="font-size:0.8rem; margin-left:10px;"></span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ─── ADD SLOT MODAL ─── -->
-  <div class="modal-overlay" id="addSlotModal">
-    <div class="modal">
-      <h2>➕ Add New Slot</h2>
-      <p class="sub">Create a new time slot that customers can book.</p>
-      <div class="form-group">
-        <label>Facility</label>
-        <select id="modalSlotFacility">
-          <option value="Football / Futsal">Football / Futsal</option>
-          <option value="Cricket">Cricket</option>
-          <option value="Indoor Ground">Indoor Ground</option>
-          <option value="Training Session">Training Session</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Date</label>
-        <input type="date" id="modalSlotDate" />
-      </div>
-      <div class="form-group">
-        <label>Time</label>
-        <select id="modalSlotTime">
-          <option value="06:00 PM">06:00 PM</option>
-          <option value="07:00 PM">07:00 PM</option>
-          <option value="08:00 PM">08:00 PM</option>
-          <option value="09:00 PM">09:00 PM</option>
-          <option value="10:00 PM">10:00 PM</option>
-          <option value="11:00 PM">11:00 PM</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Status</label>
-        <select id="modalSlotStatus">
-          <option value="AVAILABLE">AVAILABLE</option>
-          <option value="POPULAR">POPULAR</option>
-          <option value="BOOKED">BOOKED</option>
-        </select>
-      </div>
-      <div class="modal-actions">
-        <button class="btn-secondary" id="closeAddSlotBtn">Cancel</button>
-        <button class="btn-primary" id="saveSlotBtn">+ Add Slot</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ─── JAVASCRIPT ─── -->
-  <script type="module">
-    // ─── IMPORTS ──────────────────────────────────────────────
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-    import {
-      getFirestore,
-      collection,
-      query,
-      where,
-      onSnapshot,
-      updateDoc,
-      doc,
-      orderBy,
-      getDocs,
-      setDoc,
-      getDoc,
-      deleteDoc,
-      serverTimestamp,
-      runTransaction
-    } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-    import {
-      getAuth,
-      signInWithEmailAndPassword,
-      onAuthStateChanged,
-      signOut
-    } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-
-    // ─── FIREBASE CONFIG ──────────────────────────────────────
-    const firebaseConfig = {
-      apiKey: "AIzaSyCpyHk6kGeCrZik7nSQbkhR0wug8o1-ahM",
-      authDomain: "thencg-131ee.firebaseapp.com",
-      projectId: "thencg-131ee",
-      storageBucket: "thencg-131ee.firebasestorage.app",
-      messagingSenderId: "885392442490",
-      appId: "1:885392442490:web:5bede0cbeb45e13bf4e7c3"
-    };
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-    const auth = getAuth(app);
-
-    // ─── CONSTANTS ─────────────────────────────────────────────
-    const FACILITIES = [
-      'Football / Futsal',
-      'Cricket',
-      'Indoor Ground',
-      'Training Session'
-    ];
-    const SLOT_STATUS = {
-      AVAILABLE: 'AVAILABLE',
-      POPULAR: 'POPULAR',
-      BOOKED: 'BOOKED'
-    };
-    const SLOT_STATUS_LIST = Object.values(SLOT_STATUS);
-    const DURATIONS = ['1 Hour', '2 Hours', '3 Hours'];
-    const NOTIFICATION_TYPES = ['info', 'offer', 'alert'];
-
-    // ─── DOM REFS ─────────────────────────────────────────────
-    const loginScreen = document.getElementById('loginScreen');
-    const dashboard = document.getElementById('dashboard');
-    const loginBtn = document.getElementById('loginBtn');
-    const logoutBtn = document.getElementById('logoutBtn');
-    const loginError = document.getElementById('loginError');
-    const adminEmail = document.getElementById('adminEmail');
-    const adminPassword = document.getElementById('adminPassword');
-    const togglePassword = document.getElementById('togglePassword');
-    const eyeIcon = document.getElementById('eyeIcon');
-
-    const pendingList = document.getElementById('pendingList');
-    const allBookingsList = document.getElementById('allBookingsList');
-    const slotList = document.getElementById('slotList');
-    const notificationList = document.getElementById('notificationList');
-    const pendingCount = document.getElementById('pendingCount');
-    const totalCount = document.getElementById('totalCount');
-    const notificationCount = document.getElementById('notificationCount');
-    const statPending = document.getElementById('statPending');
-    const statConfirmed = document.getElementById('statConfirmed');
-    const statAvailable = document.getElementById('statAvailable');
-    const statBooked = document.getElementById('statBooked');
-    const statNotifications = document.getElementById('statNotifications');
-
-    const openAddSlotBtn = document.getElementById('openAddSlotBtn');
-    const closeAddSlotBtn = document.getElementById('closeAddSlotBtn');
-    const addSlotModal = document.getElementById('addSlotModal');
-    const saveSlotBtn = document.getElementById('saveSlotBtn');
-    const modalSlotFacility = document.getElementById('modalSlotFacility');
-    const modalSlotDate = document.getElementById('modalSlotDate');
-    const modalSlotTime = document.getElementById('modalSlotTime');
-    const modalSlotStatus = document.getElementById('modalSlotStatus');
-
-    const notifTitle = document.getElementById('notifTitle');
-    const notifMessage = document.getElementById('notifMessage');
-    const notifType = document.getElementById('notifType');
-    const publishNotifBtn = document.getElementById('publishNotifBtn');
-
-    const pricingDocRef = doc(db, 'config', 'pricing');
-
-    // ─── DATA STORES ──────────────────────────────────────────
-    let allBookingsData = [];
-    let allSlotsData = [];
-    let allNotificationsData = [];
-    let currentPricingData = { basePrices: {}, durationMultipliers: {} };
-
-    // ─── UNSUBSCRIBE FUNCTIONS ──────────────────────────────
-    let unsubscribeBookings = null;
-    let unsubscribeSlots = null;
-    let unsubscribeNotifications = null;
-    let unsubscribePricing = null;
-
-    // ─── AUTH STATE ──────────────────────────────────────────
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        loginScreen.style.display = 'none';
-        dashboard.style.display = 'block';
-        startDataListeners();
-      } else {
-        loginScreen.style.display = 'block';
-        dashboard.style.display = 'none';
-        stopDataListeners();
-      }
-    });
-
-    // ─── LOGIN / LOGOUT ──────────────────────────────────────
-    loginBtn.addEventListener('click', async () => {
-      try {
-        await signInWithEmailAndPassword(auth, adminEmail.value, adminPassword.value);
-        loginError.style.display = 'none';
-      } catch (error) {
-        loginError.style.display = 'block';
-        console.error('Login error:', error);
-      }
-    });
-
-    adminPassword.addEventListener('keydown', e => { if (e.key === 'Enter') loginBtn.click(); });
-    adminEmail.addEventListener('keydown', e => { if (e.key === 'Enter') loginBtn.click(); });
-
-    logoutBtn.addEventListener('click', async () => {
-      await signOut(auth);
-    });
-
-    // ─── PASSWORD TOGGLE ─────────────────────────────────────
-    togglePassword.addEventListener('click', function() {
-      const type = adminPassword.getAttribute('type') === 'password' ? 'text' : 'password';
-      adminPassword.setAttribute('type', type);
-      eyeIcon.src = type === 'password'
-        ? 'https://img.icons8.com/ios-filled/22/8A8F8A/visible.png'
-        : 'https://img.icons8.com/ios-filled/22/8A8F8A/invisible.png';
-    });
-
-    // ─── LOCAL DATE HELPERS ──────────────────────────────────
-    function getLocalToday() {
-      const now = new Date();
-      return new Date(now.getFullYear(), now.getMonth(), now.getDate());
-    }
-    function getLocalDateStr(date) {
-      const y = date.getFullYear();
-      const m = String(date.getMonth() + 1).padStart(2, '0');
-      const d = String(date.getDate()).padStart(2, '0');
-      return `${y}-${m}-${d}`;
-    }
-    function getLocalTodayStr() {
-      return getLocalDateStr(getLocalToday());
-    }
-    function getLocalTomorrowStr() {
-      const tomorrow = getLocalToday();
-      tomorrow.setDate(tomorrow.getDate() + 1);
-      return getLocalDateStr(tomorrow);
-    }
-    function parseLocalDate(dateStr) {
-      const parts = dateStr.split('-');
-      return new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
-    }
-    function isToday(dateStr) {
-      return dateStr === getLocalTodayStr();
-    }
-    function isTomorrow(dateStr) {
-      return dateStr === getLocalTomorrowStr();
-    }
-    function isWithinWeek(dateStr) {
-      const slotDate = parseLocalDate(dateStr);
-      const today = getLocalToday();
-      const diff = Math.floor((slotDate - today) / (1000 * 60 * 60 * 24));
-      return diff >= 0 && diff <= 7;
-    }
-
-    function formatDate(dateStr) {
-      const d = parseLocalDate(dateStr);
-      return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
-    }
-
-    // ─── TOAST & CONFIRMATION HELPERS ──────────────────────
-    function showToast(icon, title, text, timer = 3000) {
-      Swal.fire({
-        icon, title, text, toast: true, position: 'top-end',
-        showConfirmButton: false, timer, timerProgressBar: true,
-        background: '#171A18', color: '#F0F2F0',
-        iconColor: icon === 'success' ? '#B5FF4B' : icon === 'error' ? '#ff6b6b' : '#F5B342',
-      });
-    }
-
-    function showConfirmation(title, text, confirmText, confirmColor = '#B5FF4B') {
-      return Swal.fire({
-        title, text, icon: 'question', showCancelButton: true,
-        confirmButtonColor: confirmColor, cancelButtonColor: '#2A2D2A',
-        confirmButtonText: confirmText || 'Yes', cancelButtonText: 'Cancel',
-        background: '#171A18', color: '#F0F2F0', reverseButtons: true,
-      });
-    }
-
-    // ─── GENERATE SLOT ID ────────────────────────────────────
-    function generateSlotId(facility, date, time) {
-      return `${facility}_${date}_${time}`.replace(/\s/g, '_');
-    }
-
-    // ─── ADD SLOT MODAL CONTROL ─────────────────────────────
-    function openAddSlotModal() {
-      modalSlotDate.value = getLocalTodayStr();
-      modalSlotDate.min = getLocalTodayStr();
-      modalSlotStatus.value = SLOT_STATUS.AVAILABLE;
-      addSlotModal.classList.add('open');
-      setTimeout(() => modalSlotFacility.focus(), 50);
-    }
-
-    function closeAddSlotModal(reset = false) {
-      addSlotModal.classList.remove('open');
-      if (reset) {
-        modalSlotFacility.value = FACILITIES[0];
-        modalSlotDate.value = '';
-        modalSlotTime.value = '06:00 PM';
-        modalSlotStatus.value = SLOT_STATUS.AVAILABLE;
-      }
-      openAddSlotBtn.focus();
-    }
-
-    // ─── ESCAPE KEY LISTENER ─────────────────────────────────
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && addSlotModal.classList.contains('open')) {
-        closeAddSlotModal(false);
-      }
-    });
-
-    // ─── STATIC EVENT LISTENERS (set up once) ─────────────
-    function setupStaticListeners() {
-      openAddSlotBtn.addEventListener('click', openAddSlotModal);
-      closeAddSlotBtn.addEventListener('click', () => closeAddSlotModal(false));
-      addSlotModal.addEventListener('click', (e) => {
-        if (e.target === addSlotModal) closeAddSlotModal(false);
-      });
-
-      saveSlotBtn.addEventListener('click', handleAddSlot);
-      publishNotifBtn.addEventListener('click', handlePublishNotification);
-
-      document.querySelectorAll('#slotFilterBar button').forEach(btn => {
-        btn.addEventListener('click', () => {
-          document.querySelectorAll('#slotFilterBar button').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          renderSlots();
-        });
-      });
-      document.getElementById('slotFacilityFilter').addEventListener('change', renderSlots);
-      document.getElementById('slotDateFilter').addEventListener('change', renderSlots);
-    }
-
-    // ─── HANDLE ADD SLOT ─────────────────────────────────────
-    async function handleAddSlot() {
-      const facility = modalSlotFacility.value;
-      const date = modalSlotDate.value;
-      const time = modalSlotTime.value;
-      const status = modalSlotStatus.value;
-
-      if (!date) {
-        showToast('warning', 'Missing Date', 'Please select a date.');
-        return;
-      }
-      if (date < getLocalTodayStr()) {
-        showToast('warning', 'Invalid Date', 'You cannot create a slot in the past.');
-        return;
-      }
-
-      saveSlotBtn.disabled = true;
-      saveSlotBtn.textContent = 'Adding...';
-
-      try {
-        const slotId = generateSlotId(facility, date, time);
-        const slotRef = doc(db, 'slots', slotId);
-        const docSnap = await getDoc(slotRef);
-        if (docSnap.exists()) {
-          showToast('warning', 'Duplicate Slot', 'This slot already exists.');
-          saveSlotBtn.disabled = false;
-          saveSlotBtn.textContent = '+ Add Slot';
-          return;
-        }
-        await setDoc(slotRef, {
-          facility,
-          date,
-          time,
-          status,
-          createdAt: serverTimestamp(),
-          updatedAt: serverTimestamp()
-        });
-        showToast('success', 'Slot Added!', `${facility} on ${formatDate(date)} at ${time}`);
-        closeAddSlotModal(true);
-      } catch (error) {
-        console.error('Error adding slot:', error);
-        showToast('error', 'Error', `Could not add slot: ${error.message}`);
-      } finally {
-        saveSlotBtn.disabled = false;
-        saveSlotBtn.textContent = '+ Add Slot';
-      }
-    }
-
-    // ─── HANDLE PUBLISH NOTIFICATION ──────────────────────
-    async function handlePublishNotification() {
-      const title = notifTitle.value.trim();
-      const message = notifMessage.value.trim();
-      const type = notifType.value;
-
-      if (!title) {
-        showToast('warning', 'Missing Title', 'Please enter a notification title.');
-        return;
-      }
-      if (!message) {
-        showToast('warning', 'Missing Message', 'Please enter a notification message.');
-        return;
-      }
-
-      publishNotifBtn.disabled = true;
-      publishNotifBtn.textContent = 'Publishing...';
-
-      try {
-        const notifRef = doc(collection(db, 'notifications'));
-        await setDoc(notifRef, {
-          title,
-          message,
-          type,
-          active: true,
-          createdAt: serverTimestamp()
-        });
-        showToast('success', 'Published!', 'Notification is now live.');
-        notifTitle.value = '';
-        notifMessage.value = '';
-      } catch (error) {
-        console.error('Error publishing notification:', error);
-        showToast('error', 'Error', `Could not publish: ${error.message}`);
-      } finally {
-        publishNotifBtn.disabled = false;
-        publishNotifBtn.textContent = '📢 Publish';
-      }
-    }
-
-    // ─── ATOMIC CONFIRM BOOKING ─────────────────────────────
-    async function confirmBooking(bookingId, facility, date, time, customerName) {
-      const slotId = generateSlotId(facility, date, time);
-      try {
-        await runTransaction(db, async (transaction) => {
-          const bookingRef = doc(db, 'bookings', bookingId);
-          const slotRef = doc(db, 'slots', slotId);
-          const bookingSnap = await transaction.get(bookingRef);
-          const slotSnap = await transaction.get(slotRef);
-
-          if (!bookingSnap.exists()) {
-            throw new Error('Booking no longer exists.');
-          }
-          const bookingData = bookingSnap.data();
-          if (bookingData.status !== 'PENDING') {
-            throw new Error('Booking is not pending.');
-          }
-
-          if (!slotSnap.exists()) {
-            throw new Error('Corresponding slot does not exist.');
-          }
-          const slotData = slotSnap.data();
-          if (slotData.status === SLOT_STATUS.BOOKED) {
-            throw new Error('Slot is already booked.');
-          }
-
-          transaction.update(bookingRef, { status: 'CONFIRMED' });
-          transaction.update(slotRef, {
-            status: SLOT_STATUS.BOOKED,
-            updatedAt: serverTimestamp()
-          });
-        });
-        showToast('success', 'Confirmed!', `Booking for ${customerName} confirmed.`);
-      } catch (error) {
-        console.error('Confirm booking error:', error);
-        showToast('error', 'Error', error.message || 'Could not confirm booking.');
-      }
-    }
-
-    // ─── ATOMIC CANCEL BOOKING ──────────────────────────────
-    async function cancelBooking(bookingId, facility, date, time, customerName) {
-      const slotId = generateSlotId(facility, date, time);
-      try {
-        await runTransaction(db, async (transaction) => {
-          const bookingRef = doc(db, 'bookings', bookingId);
-          const slotRef = doc(db, 'slots', slotId);
-          const bookingSnap = await transaction.get(bookingRef);
-          const slotSnap = await transaction.get(slotRef);
-
-          if (!bookingSnap.exists()) {
-            throw new Error('Booking no longer exists.');
-          }
-          // We allow cancellation for any status, but we only release the slot if it's BOOKED.
-          // For safety, we check if the slot is BOOKED and release it.
-          if (slotSnap.exists() && slotSnap.data().status === SLOT_STATUS.BOOKED) {
-            // We could add additional check to ensure this slot belongs to this booking,
-            // but we don't store bookingId on slot. We'll release it.
-            transaction.update(slotRef, {
-              status: SLOT_STATUS.AVAILABLE,
-              updatedAt: serverTimestamp()
-            });
-          }
-          transaction.update(bookingRef, { status: 'CANCELLED' });
-        });
-        showToast('success', 'Cancelled!', `Booking for ${customerName} cancelled.`);
-      } catch (error) {
-        console.error('Cancel booking error:', error);
-        showToast('error', 'Error', error.message || 'Could not cancel booking.');
-      }
-    }
-
-    // ─── RENDER BOOKINGS ─────────────────────────────────────
-    function renderBookings() {
-      const pending = allBookingsData.filter(b => b.status === 'PENDING');
-      pendingList.innerHTML = '';
-      if (pending.length === 0) {
-        pendingList.innerHTML = '<div class="empty">No pending bookings. 🎉</div>';
-      } else {
-        pending.forEach(b => {
-          const div = document.createElement('div');
-          div.className = 'booking-item pending';
-          div.innerHTML = `
-            <div class="top">
-              <div>
-                <div class="name">${escapeHtml(b.customerName || 'Unknown')}</div>
-                <div class="phone">📱 ${escapeHtml(b.customerPhone || 'N/A')}</div>
-              </div>
-              <span style="font-size:0.6rem; background:#2A2D2A; padding:2px 10px; border-radius:50px;">${escapeHtml(b.facility)}</span>
-            </div>
-            <div class="details">
-              <span>${escapeHtml(b.date)}</span>
-              <span>${escapeHtml(b.time)}</span>
-              <span>${escapeHtml(b.duration)}</span>
-              <span>${escapeHtml(b.players)} players</span>
-              ${b.price ? `<span>PKR ${b.price}</span>` : ''}
-            </div>
-            <div class="actions">
-              <button class="btn-confirm" data-booking-id="${b.id}" data-facility="${b.facility}" data-date="${b.date}" data-time="${b.time}" data-name="${b.customerName}">
-                <img src="https://img.icons8.com/ios-filled/14/000000/checkmark.png" alt="Confirm" /> Confirm
-              </button>
-              <button class="btn-cancel" data-booking-id="${b.id}" data-facility="${b.facility}" data-date="${b.date}" data-time="${b.time}" data-name="${b.customerName}">
-                <img src="https://img.icons8.com/ios-filled/14/FFFFFF/cancel.png" alt="Cancel" /> Cancel
-              </button>
-            </div>
-          `;
-          pendingList.appendChild(div);
-        });
-      }
-      pendingCount.textContent = pending.length;
-
-      allBookingsList.innerHTML = '';
-      if (allBookingsData.length === 0) {
-        allBookingsList.innerHTML = '<div class="empty">No bookings yet.</div>';
-      } else {
-        allBookingsData.forEach(b => {
-          const statusClass = (b.status || 'PENDING').toLowerCase();
-          const div = document.createElement('div');
-          div.className = `booking-item ${statusClass}`;
-          div.innerHTML = `
-            <div class="top">
-              <div>
-                <div class="name">${escapeHtml(b.customerName || 'Unknown')} <span style="font-size:0.55rem; color:#8A8F8A;">#${statusClass}</span></div>
-                <div class="phone">📱 ${escapeHtml(b.customerPhone || 'N/A')}</div>
-              </div>
-              <span style="font-size:0.6rem; color:#8A8F8A;">${escapeHtml(b.facility)}</span>
-            </div>
-            <div class="details">
-              <span>${escapeHtml(b.date)}</span>
-              <span>${escapeHtml(b.time)}</span>
-              ${b.price ? `<span>PKR ${b.price}</span>` : ''}
-            </div>
-            ${statusClass === 'pending' ? `
-              <div class="actions">
-                <button class="btn-confirm" data-booking-id="${b.id}" data-facility="${b.facility}" data-date="${b.date}" data-time="${b.time}" data-name="${b.customerName}">
-                  <img src="https://img.icons8.com/ios-filled/14/000000/checkmark.png" alt="Confirm" /> Confirm
-                </button>
-                <button class="btn-cancel" data-booking-id="${b.id}" data-facility="${b.facility}" data-date="${b.date}" data-time="${b.time}" data-name="${b.customerName}">
-                  <img src="https://img.icons8.com/ios-filled/14/FFFFFF/cancel.png" alt="Cancel" /> Cancel
-                </button>
-              </div>
-            ` : ''}
-          `;
-          allBookingsList.appendChild(div);
-        });
-      }
-      totalCount.textContent = allBookingsData.length;
-    }
-
-    // ─── ESCAPE HTML ──────────────────────────────────────────
-    function escapeHtml(unsafe) {
-      if (typeof unsafe !== 'string') return unsafe;
-      return unsafe.replace(/[&<>"']/g, function(m) {
-        if (m === '&') return '&amp;';
-        if (m === '<') return '&lt;';
-        if (m === '>') return '&gt;';
-        if (m === '"') return '&quot;';
-        if (m === "'") return '&#039;';
-        return m;
-      });
-    }
-
-    // ─── RENDER SLOTS ─────────────────────────────────────────
-    function renderSlots() {
-      const filterStatus = document.querySelector('#slotFilterBar .active')?.dataset.filter || 'all';
-      const facilityFilter = document.getElementById('slotFacilityFilter')?.value || 'all';
-      const dateFilter = document.getElementById('slotDateFilter')?.value || 'all';
-
-      let filtered = [...allSlotsData];
-      if (filterStatus !== 'all') filtered = filtered.filter(s => s.status === filterStatus);
-      if (facilityFilter !== 'all') filtered = filtered.filter(s => s.facility === facilityFilter);
-      if (dateFilter === 'today') filtered = filtered.filter(s => isToday(s.date));
-      else if (dateFilter === 'tomorrow') filtered = filtered.filter(s => isTomorrow(s.date));
-      else if (dateFilter === 'week') filtered = filtered.filter(s => isWithinWeek(s.date));
-
-      filtered.sort((a, b) => {
-        if (a.date !== b.date) return a.date.localeCompare(b.date);
-        if (a.time !== b.time) return a.time.localeCompare(b.time);
-        return a.facility.localeCompare(b.facility);
-      });
-
-      slotList.innerHTML = '';
-      if (filtered.length === 0) {
-        slotList.innerHTML = '<div class="empty">No slots match your filters.</div>';
-        return;
-      }
-
-      filtered.forEach(s => {
-        const statusClass = `status-${(s.status || 'AVAILABLE').toLowerCase()}`;
-        const div = document.createElement('div');
-        div.className = `slot-item ${statusClass}`;
-        div.dataset.slotId = s.id;
-        let actionsHtml = '';
-        if (s.status === SLOT_STATUS.AVAILABLE) {
-          actionsHtml = `
-            <button class="slot-action" data-action="book" data-id="${s.id}" data-facility="${s.facility}" data-date="${s.date}" data-time="${s.time}">Mark Booked</button>
-            <button class="slot-action" data-action="popular" data-id="${s.id}" data-facility="${s.facility}" data-date="${s.date}" data-time="${s.time}">Popular</button>
-          `;
-        } else if (s.status === SLOT_STATUS.POPULAR) {
-          actionsHtml = `
-            <button class="slot-action" data-action="book" data-id="${s.id}" data-facility="${s.facility}" data-date="${s.date}" data-time="${s.time}">Mark Booked</button>
-            <button class="slot-action" data-action="available" data-id="${s.id}" data-facility="${s.facility}" data-date="${s.date}" data-time="${s.time}">
-              <img src="https://img.icons8.com/ios-filled/12/000000/checkmark.png" alt="✓" /> Make Available
-            </button>
-          `;
-        } else if (s.status === SLOT_STATUS.BOOKED) {
-          actionsHtml = `
-            <button class="slot-action" data-action="available" data-id="${s.id}" data-facility="${s.facility}" data-date="${s.date}" data-time="${s.time}">
-              <img src="https://img.icons8.com/ios-filled/12/000000/checkmark.png" alt="✓" /> Make Available
-            </button>
-          `;
-        }
-        actionsHtml += `<button class="slot-action btn-delete-slot" data-action="delete" data-id="${s.id}">🗑️</button>`;
-
-        div.innerHTML = `
-          <div class="info">
-            <img src="https://img.icons8.com/ios-filled/16/B5FF4B/clock.png" alt="Clock" />
-            <strong>${escapeHtml(s.facility)}</strong>
-            <span>${formatDate(s.date)}</span>
-            <span>${escapeHtml(s.time)}</span>
-            <span class="status-badge">${escapeHtml(s.status || 'AVAILABLE')}</span>
-          </div>
-          <div class="slot-actions">
-            ${actionsHtml}
-          </div>
-        `;
-        slotList.appendChild(div);
-      });
-    }
-
-    // ─── DELEGATED SLOT ACTIONS ──────────────────────────────
-    slotList.addEventListener('click', async (e) => {
-      const btn = e.target.closest('.slot-action');
-      if (!btn) return;
-      const action = btn.dataset.action;
-      const slotId = btn.dataset.id;
-      const facility = btn.dataset.facility;
-      const date = btn.dataset.date;
-      const time = btn.dataset.time;
-
-      btn.disabled = true;
-
-      try {
-        if (action === 'book') {
-          const result = await showConfirmation(
-            'Mark Booked',
-            `Mark ${facility} on ${formatDate(date)} at ${time} as BOOKED?`,
-            'Yes, book it',
-            '#ff6b6b'
-          );
-          if (result.isConfirmed) {
-            await updateDoc(doc(db, 'slots', slotId), { status: SLOT_STATUS.BOOKED, updatedAt: serverTimestamp() });
-            showToast('success', 'Updated', 'Slot is now BOOKED.');
-          }
-        } else if (action === 'popular') {
-          const result = await showConfirmation(
-            'Mark Popular',
-            `Mark ${facility} on ${formatDate(date)} at ${time} as POPULAR?`,
-            'Yes, mark popular',
-            '#F5B342'
-          );
-          if (result.isConfirmed) {
-            await updateDoc(doc(db, 'slots', slotId), { status: SLOT_STATUS.POPULAR, updatedAt: serverTimestamp() });
-            showToast('success', 'Updated', 'Slot is now POPULAR.');
-          }
-        } else if (action === 'available') {
-          const result = await showConfirmation(
-            'Make Available',
-            `Make ${facility} on ${formatDate(date)} at ${time} AVAILABLE?`,
-            'Yes, make available',
-            '#B5FF4B'
-          );
-          if (result.isConfirmed) {
-            await updateDoc(doc(db, 'slots', slotId), { status: SLOT_STATUS.AVAILABLE, updatedAt: serverTimestamp() });
-            showToast('success', 'Updated', 'Slot is now AVAILABLE.');
-          }
-        } else if (action === 'delete') {
-          const result = await showConfirmation('Delete Slot', 'Are you sure? This cannot be undone.', 'Yes, delete', '#ff6b6b');
-          if (result.isConfirmed) {
-            await deleteDoc(doc(db, 'slots', slotId));
-            showToast('success', 'Deleted', 'Slot removed.');
-          }
-        }
-      } catch (error) {
-        console.error('Slot action error:', error);
-        showToast('error', 'Error', `Action failed: ${error.message}`);
-      } finally {
-        btn.disabled = false;
-      }
-    });
-
-    // ─── DELEGATED BOOKING ACTIONS ──────────────────────────
-    document.addEventListener('click', async (e) => {
-      const confirmBtn = e.target.closest('.btn-confirm[data-booking-id]');
-      if (confirmBtn) {
-        const bookingId = confirmBtn.dataset.bookingId;
-        const facility = confirmBtn.dataset.facility;
-        const date = confirmBtn.dataset.date;
-        const time = confirmBtn.dataset.time;
-        const name = confirmBtn.dataset.name;
-        confirmBtn.disabled = true;
-        await confirmBooking(bookingId, facility, date, time, name);
-        confirmBtn.disabled = false;
-        return;
-      }
-
-      const cancelBtn = e.target.closest('.btn-cancel[data-booking-id]');
-      if (cancelBtn) {
-        const bookingId = cancelBtn.dataset.bookingId;
-        const facility = cancelBtn.dataset.facility;
-        const date = cancelBtn.dataset.date;
-        const time = cancelBtn.dataset.time;
-        const name = cancelBtn.dataset.name;
-        const result = await showConfirmation(
-          'Cancel Booking',
-          `Cancel ${name}'s booking?`,
-          'Yes, cancel',
-          '#ff6b6b'
-        );
-        if (result.isConfirmed) {
-          cancelBtn.disabled = true;
-          await cancelBooking(bookingId, facility, date, time, name);
-          cancelBtn.disabled = false;
-        }
-        return;
-      }
-
-      const notifAction = e.target.closest('[data-notif-action]');
-      if (notifAction) {
-        const action = notifAction.dataset.notifAction;
-        const notifId = notifAction.dataset.id;
-        if (action === 'toggle') {
-          const currentActive = notifAction.dataset.active === 'true';
-          try {
-            await updateDoc(doc(db, 'notifications', notifId), { active: !currentActive });
-            showToast('success', 'Updated', `Notification ${!currentActive ? 'activated' : 'deactivated'}.`);
-          } catch (error) {
-            showToast('error', 'Error', `Could not update: ${error.message}`);
-          }
-        } else if (action === 'delete') {
-          const result = await showConfirmation('Delete Notification', 'Are you sure?', 'Yes, delete', '#ff6b6b');
-          if (result.isConfirmed) {
-            try {
-              await deleteDoc(doc(db, 'notifications', notifId));
-              showToast('success', 'Deleted', 'Notification removed.');
-            } catch (error) {
-              showToast('error', 'Error', `Could not delete: ${error.message}`);
-            }
-          }
-        }
-      }
-    });
-
-    // ─── RENDER NOTIFICATIONS ──────────────────────────────
-    function renderNotifications() {
-      notificationList.innerHTML = '';
-      if (allNotificationsData.length === 0) {
-        notificationList.innerHTML = '<div class="empty">No notifications yet.</div>';
-        return;
-      }
-      allNotificationsData.forEach(n => {
-        const div = document.createElement('div');
-        div.className = `notification-item ${n.active ? 'active' : 'inactive'}`;
-        div.innerHTML = `
-          <div class="content">
-            <div class="title">${escapeHtml(n.title || 'Untitled')}</div>
-            <div class="message">${escapeHtml(n.message || '')}</div>
-            <div class="meta">${escapeHtml(n.type || 'info')} · ${n.active ? '🟢 Active' : '🔴 Inactive'}</div>
-          </div>
-          <div class="actions">
-            <button class="${n.active ? 'btn-inactive' : 'btn-active'}" data-notif-action="toggle" data-id="${n.id}" data-active="${n.active}">
-              ${n.active ? 'Deactivate' : 'Activate'}
-            </button>
-            <button class="btn-delete" data-notif-action="delete" data-id="${n.id}">Delete</button>
-          </div>
-        `;
-        notificationList.appendChild(div);
-      });
-      notificationCount.textContent = allNotificationsData.length;
-    }
-
-    // ─── RENDER PRICING ──────────────────────────────────────
-    function renderPricing(pricing) {
-      const container = document.getElementById('facilityPricesContainer');
-      const multContainer = document.getElementById('durationMultipliersContainer');
-      if (!container) return;
-
-      container.innerHTML = '';
-      const icons = {
-        'Football / Futsal': '⚽',
-        'Cricket': '🏏',
-        'Indoor Ground': '🏟',
-        'Training Session': '🏃'
-      };
-
-      FACILITIES.forEach(facility => {
-        const price = pricing.basePrices?.[facility] ?? 0;
-        const row = document.createElement('div');
-        row.className = 'pricing-facility-row';
-        row.dataset.facility = facility;
-        row.innerHTML = `
-          <div class="facility-name">
-            <span style="font-size:1.2rem; margin-right:6px;">${icons[facility] || '•'}</span>
-            ${escapeHtml(facility)}
-            <span style="font-size:0.65rem; color:var(--text-secondary); display:block; font-weight:400;">Base price / 1 Hour</span>
-          </div>
-          <div class="price-control">
-            <span class="currency">PKR</span>
-            <input type="number" id="price_${facility.replace(/\s/g,'_')}" value="${price}" step="100" min="0" />
-            <button class="save-price-btn" data-facility="${facility}">Save</button>
-            <span class="price-status" id="status_${facility.replace(/\s/g,'_')}"></span>
-          </div>
-        `;
-        container.appendChild(row);
-      });
-
-      document.querySelectorAll('.save-price-btn').forEach(btn => {
-        btn.addEventListener('click', async () => {
-          const facility = btn.dataset.facility;
-          const input = document.getElementById(`price_${facility.replace(/\s/g,'_')}`);
-          const status = document.getElementById(`status_${facility.replace(/\s/g,'_')}`);
-          const newPrice = parseFloat(input.value);
-          if (isNaN(newPrice) || newPrice < 0) {
-            status.textContent = 'Invalid';
-            status.className = 'price-status error';
-            return;
-          }
-          btn.disabled = true;
-          status.textContent = 'Saving...';
-          status.className = 'price-status saving';
-          try {
-            const updatedBasePrices = { ...currentPricingData.basePrices, [facility]: newPrice };
-            await setDoc(pricingDocRef, {
-              basePrices: updatedBasePrices,
-              updatedAt: serverTimestamp()
-            }, { merge: true });
-            currentPricingData.basePrices = updatedBasePrices;
-            status.textContent = '✅ Saved';
-            status.className = 'price-status saved';
-            showToast('success', 'Price Updated', `${facility} price is now PKR ${newPrice}`);
-          } catch (error) {
-            console.error('Error saving price:', error);
-            status.textContent = '❌ Error';
-            status.className = 'price-status error';
-            showToast('error', 'Error', `Could not save price: ${error.message}`);
-          } finally {
-            btn.disabled = false;
-            setTimeout(() => {
-              status.textContent = '';
-              status.className = 'price-status';
-            }, 3000);
-          }
-        });
-      });
-
-      multContainer.innerHTML = '';
-      DURATIONS.forEach(dur => {
-        const val = pricing.durationMultipliers?.[dur] ?? 1;
-        const row = document.createElement('div');
-        row.className = 'multiplier-row';
-        row.innerHTML = `
-          <label>${escapeHtml(dur)}</label>
-          <input type="number" step="0.1" id="mult_${dur.replace(/\s/g,'_')}" value="${val}" min="0.1" />
-        `;
-        multContainer.appendChild(row);
-      });
-
-      const saveMultBtn = document.getElementById('saveMultipliersBtn');
-      const multStatus = document.getElementById('multiplierSaveStatus');
-      const newMultBtn = saveMultBtn.cloneNode(true);
-      saveMultBtn.parentNode.replaceChild(newMultBtn, saveMultBtn);
-      newMultBtn.addEventListener('click', async () => {
-        try {
-          newMultBtn.disabled = true;
-          multStatus.textContent = 'Saving...';
-          multStatus.style.color = '#F5B342';
-          const multipliers = {};
-          let valid = true;
-          DURATIONS.forEach(d => {
-            const input = document.getElementById(`mult_${d.replace(/\s/g,'_')}`);
-            const val = parseFloat(input.value);
-            if (isNaN(val) || val <= 0) {
-              valid = false;
-              multStatus.textContent = `Invalid: ${d}`;
-              multStatus.style.color = '#ff6b6b';
-            } else {
-              multipliers[d] = val;
-            }
-          });
-          if (!valid) return;
-          await setDoc(pricingDocRef, {
-            durationMultipliers: multipliers,
-            updatedAt: serverTimestamp()
-          }, { merge: true });
-          currentPricingData.durationMultipliers = multipliers;
-          multStatus.textContent = '✅ Saved!';
-          multStatus.style.color = '#B5FF4B';
-          showToast('success', 'Multipliers Updated', 'Duration multipliers saved.');
-          setTimeout(() => { multStatus.textContent = ''; }, 3000);
-        } catch (error) {
-          console.error('Error saving multipliers:', error);
-          multStatus.textContent = '❌ Error';
-          multStatus.style.color = '#ff6b6b';
-          showToast('error', 'Error', `Could not save multipliers: ${error.message}`);
-        } finally {
-          newMultBtn.disabled = false;
-        }
-      });
-    }
-
-    // ─── UPDATE STATS ─────────────────────────────────────────
-    function updateStats() {
-      const pending = allBookingsData.filter(b => b.status === 'PENDING').length;
-      const confirmed = allBookingsData.filter(b => b.status === 'CONFIRMED').length;
-      const available = allSlotsData.filter(s => s.status === SLOT_STATUS.AVAILABLE || s.status === SLOT_STATUS.POPULAR).length;
-      const booked = allSlotsData.filter(s => s.status === SLOT_STATUS.BOOKED).length;
-      const activeNotifs = allNotificationsData.filter(n => n.active === true).length;
-
-      statPending.textContent = pending;
-      statConfirmed.textContent = confirmed;
-      statAvailable.textContent = available;
-      statBooked.textContent = booked;
-      statNotifications.textContent = activeNotifs;
-
-      const slotCounts = document.getElementById('slotCounts');
-      if (slotCounts) slotCounts.textContent = `${available} available · ${booked} booked`;
-    }
-
-    // ─── START DATA LISTENERS ────────────────────────────────
-    function startDataListeners() {
-      stopDataListeners();
-
-      // ─── BOOKINGS ────────────────────────────────────────────
-      unsubscribeBookings = onSnapshot(
-        query(collection(db, 'bookings'), orderBy('createdAt', 'desc')),
-        (snapshot) => {
-          allBookingsData = [];
-          snapshot.forEach(doc => allBookingsData.push({ id: doc.id, ...doc.data() }));
-          renderBookings();
-          updateStats();
-        },
-        (error) => {
-          console.error('Bookings listener error:', error);
-          showToast('error', 'Data Error', 'Could not load bookings. Check console.');
-        }
-      );
-
-      // ─── SLOTS ───────────────────────────────────────────────
-      unsubscribeSlots = onSnapshot(
-        collection(db, 'slots'),
-        (snapshot) => {
-          allSlotsData = [];
-          snapshot.forEach(doc => allSlotsData.push({ id: doc.id, ...doc.data() }));
-          renderSlots();
-          updateStats();
-        },
-        (error) => {
-          console.error('Slots listener error:', error);
-          showToast('error', 'Data Error', 'Could not load slots. Check console.');
-        }
-      );
-
-      // ─── NOTIFICATIONS ──────────────────────────────────────
-      unsubscribeNotifications = onSnapshot(
-        query(collection(db, 'notifications'), orderBy('createdAt', 'desc')),
-        (snapshot) => {
-          allNotificationsData = [];
-          snapshot.forEach(doc => allNotificationsData.push({ id: doc.id, ...doc.data() }));
-          renderNotifications();
-          updateStats();
-        },
-        (error) => {
-          console.error('Notifications listener error:', error);
-          showToast('error', 'Data Error', 'Could not load notifications. Check console.');
-        }
-      );
-
-      // ─── PRICING (REALTIME) ─────────────────────────────────
-      unsubscribePricing = onSnapshot(
-        pricingDocRef,
-        async (snapshot) => {
-          if (snapshot.exists()) {
-            currentPricingData = snapshot.data();
-            renderPricing(currentPricingData);
-          } else {
-            try {
-              const defaultPricing = {
-                basePrices: {
-                  "Football / Futsal": 2500,
-                  "Cricket": 3000,
-                  "Indoor Ground": 2800,
-                  "Training Session": 2000
-                },
-                durationMultipliers: { "1 Hour": 1, "2 Hours": 1.8, "3 Hours": 2.5 },
-                updatedAt: serverTimestamp()
-              };
-              await setDoc(pricingDocRef, defaultPricing);
-              currentPricingData = defaultPricing;
-              renderPricing(defaultPricing);
-              showToast('info', 'Pricing Created', 'Default pricing has been set.');
-            } catch (createError) {
-              console.error('Could not create pricing document:', createError);
-              showPricingError('Failed to create pricing document. Check Firestore permissions.');
-            }
-          }
-        },
-        (error) => {
-          console.error('Pricing listener error:', error);
-          let msg = 'Could not load pricing from Firebase. ';
-          if (error.code === 'permission-denied') {
-            msg += 'Permission denied. Make sure your Firestore rules allow authenticated reads to config/pricing.';
-          } else if (error.code === 'unavailable') {
-            msg += 'Network unavailable. Please check your internet connection.';
-          } else {
-            msg += `Error: ${error.message}`;
-          }
-          showPricingError(msg);
-        }
-      );
-    }
-
-    function showPricingError(message) {
-      const container = document.getElementById('facilityPricesContainer');
-      if (!container) return;
-      container.innerHTML = `
-        <div class="empty" style="color:var(--danger); padding:16px; border:1px solid var(--danger); border-radius:8px;">
-          <strong>⚠️ ${escapeHtml(message)}</strong>
-          <br>
-          <button id="retryPricingBtn" style="background:var(--lime); color:#000; border:none; padding:6px 18px; border-radius:4px; cursor:pointer; margin-top:8px;">Retry</button>
-          <button id="forceCreatePricingBtn" style="background:var(--warm); color:#000; border:none; padding:6px 18px; border-radius:4px; cursor:pointer; margin-top:8px; margin-left:8px;">Force Create Pricing</button>
-        </div>
-      `;
-      document.getElementById('retryPricingBtn')?.addEventListener('click', () => {
-        startDataListeners();
-      });
-      document.getElementById('forceCreatePricingBtn')?.addEventListener('click', async () => {
-        try {
-          const defaultPricing = {
-            basePrices: {
-              "Football / Futsal": 2500,
-              "Cricket": 3000,
-              "Indoor Ground": 2800,
-              "Training Session": 2000
-            },
-            durationMultipliers: { "1 Hour": 1, "2 Hours": 1.8, "3 Hours": 2.5 },
-            updatedAt: serverTimestamp()
-          };
-          await setDoc(pricingDocRef, defaultPricing);
-          showToast('success', 'Pricing Created', 'Default pricing created. Reloading...');
-          startDataListeners();
-        } catch (err) {
-          showToast('error', 'Error', `Could not create: ${err.message}`);
-        }
-      });
-    }
-
-    // ─── STOP DATA LISTENERS ─────────────────────────────────
-    function stopDataListeners() {
-      unsubscribeBookings?.();
-      unsubscribeSlots?.();
-      unsubscribeNotifications?.();
-      unsubscribePricing?.();
-      unsubscribeBookings = null;
-      unsubscribeSlots = null;
-      unsubscribeNotifications = null;
-      unsubscribePricing = null;
-    }
-
-    // ─── INIT ─────────────────────────────────────────────────
-    setupStaticListeners();
-    console.log('🔥 NCG Admin Dashboard loaded (atomic confirm, event delegation, real-time pricing).');
-  </script>
-</body>
 </html>
