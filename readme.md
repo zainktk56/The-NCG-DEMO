@@ -1,83 +1,182 @@
-<p align="center">
-  <img src="./Frontend/images/reduced logo.jpg" alt="The NCG Logo" width="120" height="120" />
-</p>
+# 🏟️ NCG – North Community Ground
 
-<h1 align="center">⚡ THE NCG</h1>
-<p align="center">
-  <strong>NORTH COMMUNITY GROUND</strong><br />
-  <em>Play without limits. Premium indoor sports in North Karachi.</em>
-</p>
+**Premium Indoor Sports Facility Booking Platform**
 
-<p align="center">
-  <!-- Badges -->
-  <a href="#"><img src="https://img.shields.io/badge/version-1.0.0-blue?style=for-the-badge&color=0a0a0a&labelColor=B5FF4B" alt="Version" /></a>
-  <a href="#"><img src="https://img.shields.io/badge/status-live-brightgreen?style=for-the-badge&color=0a0a0a&labelColor=B5FF4B" alt="Status" /></a>
-  <a href="#"><img src="https://img.shields.io/badge/responsive-yes-success?style=for-the-badge&color=0a0a0a&labelColor=B5FF4B" alt="Responsive" /></a>
-  <a href="#"><img src="https://img.shields.io/badge/license-MIT-green?style=for-the-badge&color=0a0a0a&labelColor=B5FF4B" alt="License" /></a>
-  <a href="#"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen?style=for-the-badge&color=0a0a0a&labelColor=B5FF4B" alt="PRs Welcome" /></a>
-</p>
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Firebase](https://img.shields.io/badge/Firebase-FFCA28?logo=firebase&logoColor=black)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
 
-<p align="center">
-  <a href="https://the-ncg.vercel.app"><img src="https://img.shields.io/badge/🌐%20View%20Live%20Demo-000?style=for-the-badge&logo=vercel&logoColor=white&color=0a0a0a&labelColor=B5FF4B" alt="Live Demo" /></a>
-  <a href="https://vercel.com/new/clone?repository-url=https://github.com/your-username/the-ncg"><img src="https://img.shields.io/badge/🚀%20Deploy%20on%20Vercel-000?style=for-the-badge&logo=vercel&logoColor=white&color=0a0a0a&labelColor=B5FF4B" alt="Deploy on Vercel" /></a>
-</p>
+A modern, responsive web app for booking indoor sports facilities like Football, Cricket, Indoor Arena, and Training zones. Includes real‑time availability, dynamic pricing, WhatsApp sharing, and a full‑featured admin dashboard.
 
-<hr />
+---
 
-## ✦ Overview
+## ✨ Features
 
-> **The NCG** is a premium, fully responsive booking platform for an indoor sports facility in North Karachi. Built with vanilla HTML, CSS, and JavaScript, it delivers a sleek dark theme, interactive booking, WhatsApp integration, and a seamless mobile experience.
+### 🌐 Public Booking Page (`index.html`)
+- **Dark premium theme** with lime accent and glassmorphism
+- **Live slot availability** via Firestore real‑time listeners
+- **Interactive booking widget** – facility, date, time, duration, players, customer info
+- **Dynamic pricing** based on facility & duration
+- **Auto‑confirm toggle** (from admin settings)
+- **Notification banner** for announcements, offers, and alerts
+- **Booking summary modal** with WhatsApp & Facebook share
+- **Fully responsive** (320px to 4K)
+- **Smooth animations** – loader, staggered hero, scroll reveals, counters
+- **Admin profile icon** in footer → links to admin.html
 
-<br />
+### 🔐 Admin Dashboard (`admin.html`)
+- **Email/password login** (Firebase Auth)
+- **Dashboard** – real‑time stats, revenue, peak time insights
+- **Bookings** – pending requests, all bookings with filters, CSV export, quick book
+- **Slots** – add/edit/delete time slots, real‑time updates
+- **Pricing** – base prices & duration multipliers, live sync
+- **Notifications** – create, activate/deactivate, delete
+- **Settings** – auto‑confirm toggle
+- **Atomic transactions** for booking confirm/cancel
 
-## ✦ Features
+---
 
-<table align="center">
-  <tr>
-    <td align="center">📱<br /><strong>Fully Responsive</strong><br /><sub>320px → 4K displays</sub></td>
-    <td align="center">🎨<br /><strong>Premium Dark Theme</strong><br /><sub>Neon lime & subtle grain</sub></td>
-    <td align="center">⚡<br /><strong>Live Status</strong><br /><sub>AVAILABLE / POPULAR / BOOKED</sub></td>
-  </tr>
-  <tr>
-    <td align="center">📅<br /><strong>Smart Booking</strong><br /><sub>Date · Time · Duration · Players</sub></td>
-    <td align="center">💬<br /><strong>WhatsApp Integration</strong><br /><sub>One‑click requests</sub></td>
-    <td align="center">🔄<br /><strong>Scroll Animations</strong><br /><sub>Smooth reveal effects</sub></td>
-  </tr>
-  <tr>
-    <td align="center">📍<br /><strong>Google Maps</strong><br /><sub>Embedded location</sub></td>
-    <td align="center">🔒<br /><strong>Zero Dependencies</strong><br /><sub>Pure vanilla code</sub></td>
-    <td align="center">🚀<br /><strong>SEO & Social Ready</strong><br /><sub>OG tags + JSON‑LD</sub></td>
-  </tr>
-</table>
+## 🛠 Tech Stack
 
-<br />
+| Category       | Technology                              |
+|----------------|------------------------------------------|
+| Frontend       | HTML5, CSS3, JavaScript (ES Modules)     |
+| Styling        | Custom CSS (Space Grotesk, Inter, DM Mono) |
+| Backend        | Firebase Firestore (NoSQL)               |
+| Authentication | Firebase Auth (Email/Password)           |
+| Hosting        | Vercel, Firebase Hosting, or any static host |
+| Alerts         | SweetAlert2                              |
 
-## ✦ Tech Stack
+---
 
-<p align="center">
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" alt="HTML5" />
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white" alt="CSS3" />
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JavaScript" />
-  <img src="https://img.shields.io/badge/Google%20Fonts-4285F4?style=flat-square&logo=googlefonts&logoColor=white" alt="Google Fonts" />
-  <img src="https://img.shields.io/badge/Icons8-1FB141?style=flat-square&logo=icons8&logoColor=white" alt="Icons8" />
-  <img src="https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white" alt="Vercel" />
-</p>
+## 📁 Project Structure
+├── index.html # Public booking page (self-contained)
+├── admin.html # Admin dashboard (self-contained)
+├── assets/
+│ └── images/ # Custom images (hero, facilities, logo, etc.)
+├── README.md
+└── .gitignore
 
-<br />
+text
 
-## ✦ Project Structure
+> **Note:** All CSS and JavaScript are inline in the respective HTML files for simplicity. No external dependencies except Firebase SDK and SweetAlert2 (CDN).
 
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
 ```bash
-the-ncg/
-├── 📄 index.html          # Main HTML file
-├── 🎨 style.css           # All styles (dark theme, responsive, animations)
-├── ⚡ script.js           # All JavaScript (loader, booking, scroll, modal)
-├── 📁 assets/
-│   └── 📁 images/
-│       ├── hero-image.png
-│       ├── football.jpg
-│       ├── cricket.jpg
-│       ├── padel.jpg
-│       ├── more-than-a-game.jpg
-│       └── the_ncg_logo_web_optimized.png
-└── 📝 README.md
+git clone https://github.com/zainktk56/The-NCG-DEMO.git
+cd The-NCG-DEMO
+2. Set Up Firebase
+Go to Firebase Console and create a new project.
+
+Enable Authentication → Sign-in method → Email/Password.
+
+Enable Firestore Database (production mode).
+
+Replace the Firebase config in both index.html and admin.html with your own (found in Project settings → Your apps → Config).
+
+3. Apply Firestore Security Rules
+Paste the following rules in Firestore Database → Rules:
+
+text
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /slots/{slot} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+    match /config/pricing {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+    match /config/settings {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+    match /notifications/{notification} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+    match /bookings/{booking} {
+      allow create: if true;
+      allow read, update, delete: if request.auth != null;
+    }
+    match /feedback/{feedback} {
+      allow read: if true;
+      allow create: if true;
+      allow update, delete: if request.auth != null;
+    }
+  }
+}
+4. Create Admin User
+In Firebase Console → Authentication → Users → Add user, enter your admin email and password.
+
+5. Seed Initial Data
+You can seed data manually or through the admin dashboard after logging in:
+
+Slots: Add available slots (facility, date, time, status)
+
+Pricing: Set config/pricing document with basePrices and durationMultipliers
+
+Settings: Set config/settings with autoConfirm: false
+
+6. Run Locally
+Simply open index.html in your browser. For the admin, open admin.html.
+
+🌐 Deployment
+Deploy to Vercel
+Push your code to a GitHub repository.
+
+Import the repo into Vercel.
+
+Deploy – no build step required.
+
+Deploy to Firebase Hosting
+bash
+npm install -g firebase-tools
+firebase login
+firebase init hosting
+firebase deploy
+Make sure index.html, admin.html, and assets/ are in the public directory.
+
+⚙️ Important Firestore Indexes
+The following composite indexes are required for the real‑time queries to work smoothly:
+
+Collection	Fields (Ascending)	Purpose
+slots	facility, date, time	Filter slots by facility & date, sort by time
+Create it in Firestore Console → Indexes → Create index.
+
+🎨 Customization
+Images: Replace files in assets/images/ and update the URLs in the HTML (background-image or src).
+
+Colors & Fonts: Edit CSS variables in the :root selector inside each HTML file.
+
+WhatsApp Number: Change 923001234567 in the WhatsApp sharing code to your number.
+
+📸 Screenshots
+Public Booking Page	Admin Dashboard
+https://assets/images/hero%2520image.png	https://assets/images/more%2520than%2520a%2520game.jpg
+(Replace with actual screenshots if available)
+
+🤝 Contributing
+Contributions are welcome! Feel free to open issues or submit pull requests.
+
+📝 License
+This project is licensed under the MIT License – see the LICENSE file for details.
+
+🙋‍♂️ Support
+For questions or suggestions, contact Zain.
+
+Built with ❤️ for the NCG community.
+
+text
+
+---
+
+**Note:** Replace placeholder images in the README with actual paths if you have screenshots in your assets folder, or remove that section. Also ensure the license file exists or change the badge accordingly.
